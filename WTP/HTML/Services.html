@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Darshan Vekaria">
+        <meta name="description" content="Service page for WTP">
+        <meta name="keywords" content="Services">
+        <meta name="robots" content="noindex, follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../CSS/UI.css">
+        <link rel="stylesheet" href="../CSS/Services.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/CSS/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Services - WTP</title>
+        <link rel="icon" type="image/x-icon" href="../IMAGES/Logo White.png">
+        <script src="../JS/UI.js"></script>
+    </head>
+<body>
+<!-- By: Darshan Vekaria -->
+<header>
+    <a href="../HTML/Home.html"><img src="../IMAGES/Logo Or.png" alt="Logo" class="logo"></a>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li><a href="Packages.html">Packages</a></li>
+            <li><a href="About.html">About Us</a></li>
+        </ul>
+    <div class="sdb" onclick="toggleSidebar()" style="cursor: pointer;"><i class="fa-solid fa-bars" style="color: #E5E4E2; font-size: 25px;"></i></div>
+</header>
+
+<div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" onclick="toggleSidebar()" style="margin: 10px;"><i class="fa-solid fa-xmark" style="font-size: 25px;"></i></a>
+    <a href="Home.html">Home</a>
+    <a href="Services.html">Services</a>
+    <a href="Gallery.html">Gallery</a>
+    <a href="Packages.html">Packages</a>
+    <a href="About.html">About Us</a>
+</div>
+
+<div class="main">
+    <h1 class="content-title">Our Services</h1>
+        <div class="container">
+            <div class="service-box">
+                <h2>Themed Events</h2>
+                <img src="../IMAGES/1.JPG" alt="Img 1">
+                <p>A</p>
+            </div>
+            <div class="service-box">
+                <h2>Marquee Parties</h2>
+                <img src="../IMAGES/2.jpg" alt="Img 2">
+                <p>A</p>
+            </div>
+            <div class="service-box">
+                <h2>Special Celebrations</h2>
+                <img src="../IMAGES/3.jpg" alt="Img 3">
+                <p>A</p>
+            </div>
+            <div class="service-box">
+                <h2>Entertainment</h2>
+                <img src="../IMAGES/4.jpg" alt="Img 4">
+                <p>A</p>
+            </div>
+        </div>
+    <h1 class="content-title">Other Services</h1>
+        <div class="container2">
+            <div class="service-box2">
+                <h2>Fundraisers</h2>
+                <img src="../IMAGES/5.jpg" alt="Img 5">
+                <p>A</p>
+            </div>
+            <div class="service-box2">
+                <h2>Bespoke Catering</h2>
+                <img src="../IMAGES/6.jpg" alt="Img 6">
+                <p>A</p>
+            </div>
+            <div class="service-box2">
+                <h2>Themes & Props</h2>
+                <img src="../IMAGES/7.jpg" alt="Img 7">
+                <p>A</p>
+            </div>
+            <div class="service-box2">
+                <h2>Invitations & Printworks</h2>
+                <img src="../IMAGES/8.jpg" alt="Img 8">
+                <p>A</p>
+            </div>
+        </div>
+</div>
+
+<footer>
+    <div class="row">
+        <div class="column">
+            <img src="../IMAGES/Logo White.png" alt="Logo" class="logo">
+                <div class="social-links">
+                <a href="https://www.facebook.com/we.the.photographerss/"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/we.the.photographerss/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/channel/UC5OMrnAW6bkKTpW9esV-5IA"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        <div class="column">
+            <h3>Products & Services</h3>
+                <div class="page-links">
+                <a href="../HTML/Services.html">Our Services</a>
+                <a href="../HTML/Packages.html">Our Packages</a>
+                <a href="../HTML/Gallery.html">Our Gallery</a>
+                </div>
+            </div>
+        <div class="column">
+            <h3>About Us</h3>
+            <div class="page-links">
+                <a href="../HTML/About.html">Company Information</a>
+                <a href="../HTML/About.html#testimonials">Testimonials</a>
+            </div>
+            </div>
+        <div class="column">
+            <h3>Contact</h3>
+                <div class="page-links">
+                <a href="https://forms.gle/1AD3FEejWnDRKPoUA">Contact Us</a>
+                </div>
+        <div class="contact-info">
+            <p>
+                <a href="https://maps.app.goo.gl/XmKEPDgUciPBG3B77"><i class="fa-solid fa-location-dot"></i></a>Nairobi, Kenya
+            </p>
+            <p>
+                <i class="fa-solid fa-phone copy-icon" onclick="copyText('phoneNumber')"></i>Phone Number: <span id="phoneNumber">+254789377273</span>
+            </p>
+            <p>
+                <i class="fa-solid fa-envelope copy-icon" onclick="copyText('email')"></i>Email: <span id="email">we.the.photographerss@gmail.com</span>
+            </p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-end">
+        <h4>© 2023 We, The. Photographers <strong>|</strong> All Rights Reserved</h4>
+        <div class="widget">
+            <div id="time"></div>
+            <div id="date"></div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
