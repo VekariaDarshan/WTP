@@ -78,15 +78,6 @@
     text-transform: none;
 }
 
-.main p {
-    max-width: 900px;
-    margin: 20px auto;
-    color: var(--dark);
-    font-size: clamp(1rem, 1.5vw, 1.35rem);
-    line-height: 1.8;
-    text-align: center;
-}
-
 @keyframes fadeIn {
     from {
         opacity: 0;
