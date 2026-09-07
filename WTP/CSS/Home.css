@@ -224,7 +224,23 @@
     }
 
     .image-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: auto;
+        height: auto;
+        gap: 12px;
+    }
+
+    .services,
+    .packages,
+    .gallery,
+    .contact,
+    .about {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .gallery {
+        grid-column: 1 / -1;
     }
 
     .image-link {
@@ -270,6 +286,25 @@
         font-size: 1rem;
         line-height: 1.75;
         margin-bottom: 18px;
+    }
+
+    .image-container {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .services,
+    .packages,
+    .gallery,
+    .contact,
+    .about {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    .image-link {
+        height: 220px;
     }
 }
 
