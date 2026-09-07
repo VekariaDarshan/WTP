@@ -98,18 +98,6 @@
     }
 }
 
-@keyframes glow {
-    from {
-        text-shadow:
-        0 0 20px var(--clr1glass);
-    }
-    to {
-        text-shadow:
-        0 0 15px var(--clr1),
-        0 0 30px rgba(255, 217, 0, 0.4);
-    }
-}
-
 .image-container {
     width: 100%;
     max-width: 1400px;
