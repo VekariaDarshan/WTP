@@ -212,7 +212,7 @@
         filter 0.6s ease;
 }
 
-.image-text {
+.image-link:hover, .image-text {
     color: var(--clr1);
     transform: translateX(5px);
     text-shadow:
