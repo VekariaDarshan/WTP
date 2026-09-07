@@ -80,13 +80,13 @@ if (inquiryForm) {
 
         try {
             const payload = {
-                name: inquiryForm.elements.name.value.trim(),
-                email: inquiryForm.elements.email.value.trim(),
-                whatsapp: inquiryForm.elements.whatsapp.value.trim(),
-                details: inquiryForm.elements.details.value.trim(),
-                location: inquiryForm.elements.location.value.trim(),
-                date: inquiryForm.elements.date.value.trim(),
-                days: inquiryForm.elements.days.value.trim()
+                Name: inquiryForm.elements.name.value.trim(),
+                Email: inquiryForm.elements.email.value.trim(),
+                Whatsapp: inquiryForm.elements.whatsapp.value.trim(),
+                Details: inquiryForm.elements.details.value.trim(),
+                Location: inquiryForm.elements.location.value.trim(),
+                Date: inquiryForm.elements.date.value.trim(),
+                Days: inquiryForm.elements.days.value.trim()
             };
 
             const response = await fetch(GOOGLE_SCRIPT_URL, {
