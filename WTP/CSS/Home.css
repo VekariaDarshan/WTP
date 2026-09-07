@@ -318,17 +318,41 @@
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 420px) {
     .main {
-        padding-left: 4%;
-        padding-right: 4%;
+        padding: 30px 4% 30px;
+    }
+
+    .title {
+        padding: 40px 12px 45px;
+    }
+
+    .title h1 {
+        font-size: clamp(2.1rem, 11vw, 3.2rem);
     }
 
     .image-link {
-        height: 190px;
+        height: 180px;
     }
 
     .image-text {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .main {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+    .title {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .image-link {
+        height: 160px;
     }
 }
