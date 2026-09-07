@@ -535,6 +535,12 @@ section {
     font-size: 10px;
     text-transform: uppercase;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-modal:hover {
+    background: var(--cream);
+    color: #111;
 }
 
 .inquiry-brand {
