@@ -16,9 +16,20 @@
     padding: 70px 25px 80px;
     text-align: center;
     color: var(--clr1);
-    opacity: 0;
     animation: fadeUp 1s ease-out;
     box-sizing: border-box;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .title .eyebrow {
@@ -76,18 +87,6 @@
     letter-spacing: 0.2px;
     text-align: center;
     text-transform: none;
-}
-
-@keyframes fadeUp {
-    from {
-    opacity: 0;
-    transform: translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .image-container {
