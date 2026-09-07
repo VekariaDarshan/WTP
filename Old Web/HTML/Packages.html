@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Darshan Vekaria">
+        <meta name="description" content="Package page for WTP">
+        <meta name="keywords" content="Packages">
+        <meta name="robots" content="noindex, follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../CSS/UI.css">
+        <link rel="stylesheet" href="../CSS/Packages.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Packages - WTP</title>
+        <link rel="icon" type="image/x-icon" href="../IMAGES/Logo White.png">
+        <script src="../JS/UI.js"></script>
+    </head>
+<body>
+<!-- By: Darshan Vekaria -->
+<header>
+    <a href="../HTML/Home.html"><img src="../IMAGES/Logo Or.png" alt="Logo" class="logo"></a>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li><a href="Packages.html">Packages</a></li>
+            <li><a href="About.html">About Us</a></li>
+        </ul>
+    <div class="sdb" onclick="toggleSidebar()" style="cursor: pointer;"><i class="fa-solid fa-bars" style="color: #E5E4E2; font-size: 25px;"></i></div>
+</header>
+
+<div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" onclick="toggleSidebar()" style="margin: 10px;"><i class="fa-solid fa-xmark" style="font-size: 25px;"></i></a>
+    <a href="Home.html">Home</a>
+    <a href="Services.html">Services</a>
+    <a href="Gallery.html">Gallery</a>
+    <a href="Packages.html">Packages</a>
+    <a href="About.html">About Us</a>
+</div>
+
+<div class="main reveal">
+    <h1 class="content-title">Our Packages</h1>
+        <div class="package-container">   
+            <div class="package1">
+                <h1>Bronze Package</h1>
+                <h2>$499.99</h2>
+                <ul class="list">
+                <li>Room Decorations – Balloons, Banners</li>
+                <li>Table Decorations – Centrepieces, Gifts</li>
+                <li>DJ Entertainment</li>
+                <li>Cold Buffet</li>
+                </ul>
+                <a href="Contact.html" class="button1">Get Now</a>
+            </div>
+            <div class="package2">
+                <h1>Silver Package</h1>
+                <h2>$999.99</h2>
+                <ul class="list">
+                <li>Bronze Package +</li>
+                <li>Invitation Design And Handling</li>
+                <li>Party Cost Clear Up</li>
+                <li>Live Band Entertainment</li>
+                <li>Cold Buffet And Soft Drinks</li>
+                </ul>
+                <a href="Contact.html" class="button2">Get Now</a>
+            </div>
+            <div class="package3">
+                <h1>Gold Package</h1>
+                <h2>$1999.99</h2>
+                <ul class="list">
+                <li>Silver Package +</li>
+                <li>Staff In Attendance To Ensure Complete Perfection</li>
+                <li>Finding Guest Accommodation, Booking Transport</li>
+                <li>Live Band Entertainment And Magician</li>
+                <li>Hot And Cold Buffet And Soft Drinks</li>
+                </ul>
+                <a href="Contact.html" class="button3">Get Now</a>
+            </div>
+        </div>
+        <br>
+            <div class="package4">
+                <h1>Custom Package</h1>
+                    <h2>Price Will Be Charged According To The Needs</h2>
+                    <ul class="list">
+                    <li>Custom Packages Are Available For Specific Parties, Additional
+                    Decorations And Additional Staff. Clients Must Contact The Company To
+                    Arrange Any Custom Packages.</li>
+                    </ul>
+                <a href="Contact.html" class="button4">Contact Us</a>
+            </div>
+</div>
+
+<footer>
+    <div class="row reveal">
+        <div class="column">
+            <img src="../IMAGES/Logo White.png" alt="Logo" class="logo">
+                <div class="social-links">
+                <a href="https://www.facebook.com/we.the.photographerss/"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/we.the.photographerss/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/channel/UC5OMrnAW6bkKTpW9esV-5IA"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        <div class="column">
+            <h3>Products & Services</h3>
+                <div class="page-links">
+                <a href="../HTML/Services.html">Our Services</a>
+                <a href="../HTML/Packages.html">Our Packages</a>
+                <a href="../HTML/Gallery.html">Our Gallery</a>
+                </div>
+            </div>
+        <div class="column">
+            <h3>About Us</h3>
+            <div class="page-links">
+                <a href="../HTML/About.html">Company Information</a>
+                <a href="../HTML/About.html#testimonials">Testimonials</a>
+            </div>
+            </div>
+        <div class="column">
+            <h3>Contact</h3>
+                <div class="page-links">
+                <a href="https://forms.gle/1AD3FEejWnDRKPoUA">Contact Us</a>
+                </div>
+        <div class="contact-info">
+            <p>
+                <a href="https://maps.app.goo.gl/XmKEPDgUciPBG3B77"><i class="fa-solid fa-location-dot"></i></a>Nairobi, Kenya
+            </p>
+            <p>
+                <i class="fa-solid fa-phone copy-icon" onclick="copyText('phoneNumber')"></i>Phone Number: <span id="phoneNumber">+254789377273</span>
+            </p>
+            <p>
+                <i class="fa-solid fa-envelope copy-icon" onclick="copyText('email')"></i>Email: <span id="email">we.the.photographerss@gmail.com</span>
+            </p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-end">
+        <h4>© 2023 We, The. Photographers <strong>|</strong> All Rights Reserved</h4>
+        <div class="widget">
+            <div id="time"></div>
+            <div id="date"></div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

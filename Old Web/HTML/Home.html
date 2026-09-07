@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Darshan Vekaria">
+        <meta name="description" content="Home page for WTP">
+        <meta name="keywords" content="Home">
+        <meta name="robots" content="noindex, follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../CSS/UI.css">
+        <link rel="stylesheet" href="../CSS/Home.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Home - WTP</title>
+        <link rel="icon" type="image/x-icon" href="../IMAGES/Logo White.png">
+        <script src="../JS/UI.js" defer></script>
+    </head>
+<body>
+<!-- By: Darshan Vekaria -->
+<header>
+    <a href="../HTML/Home.html"><img src="../IMAGES/Logo Or.png" alt="Logo" class="logo"></a>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li><a href="Packages.html">Packages</a></li>
+            <li><a href="About.html">About Us</a></li>
+        </ul>
+    <div class="sdb" onclick="toggleSidebar()" style="cursor: pointer;"><i class="fa-solid fa-bars" style="color: #E5E4E2; font-size: 25px;"></i></div>
+</header>
+
+<div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" onclick="toggleSidebar()" style="margin: 10px;"><i class="fa-solid fa-xmark" style="font-size: 25px;"></i></a>
+    <a href="Home.html">Home</a>
+    <a href="Services.html">Services</a>
+    <a href="Gallery.html">Gallery</a>
+    <a href="Packages.html">Packages</a>
+    <a href="About.html">About Us</a>
+</div>
+
+<div class="main reveal">
+    <div class="title reveal"> <span class="eyebrow">WTP • Photography & Videography</span>
+        <h1>
+            We, The Photographers
+        </h1>
+
+    <div class="title-line"></div>
+        <h2>Capturing Moments, Making Memories</h2>
+
+        <div class="intro">
+            <p>
+                At WTP, we bring your celebrations to life through timeless
+                photography and unforgettable experiences. From birthdays and
+                weddings to corporate events, we capture the moments that matter
+                most.
+            </p>
+
+            <p>
+                Whether it's an intimate family gathering or a grand celebration,
+                our approach combines creativity, professionalism, and a personal
+                touch to make every moment extraordinary.
+            </p>
+
+            <p>
+                Explore our gallery and discover the stories we've captured for
+                our clients. When you're ready to create memories that last a
+                lifetime, explore our packages and get in touch with us.
+            </p>
+        </div>
+    </div>
+
+    <div class="image-container reveal">
+        <div class="content">
+            <a href="../HTML/Services.html" class="image-link services">
+                <img src="../IMAGES/Services Image.jpg" alt="Our Services">
+                <span class="image-text">Our Services</span>
+            </a>
+            <a href="../HTML/Packages.html" class="image-link packages">
+                <img src="../IMAGES/Packages Image.jpg" alt="Our Packages">
+                <span class="image-text">Our Packages</span>
+            </a>
+            
+            <a href="../HTML/Gallery.html" class="image-link gallery">
+                <img src="../IMAGES/Gallery Image.JPG" alt="Our Gallery">
+                <span class="image-text">Our Gallery</span>
+            </a>
+        </div>
+        <div class="content">
+            <a href="../HTML/Contact.html" class="image-link contact">
+                <img src="../IMAGES/Contact Image.jpeg" alt="Contact Us">
+                <span class="image-text">Contact Us</span>
+            </a>
+            <a href="../HTML/About.html" class="image-link about">
+                <img src="../IMAGES/About Us Image.png" alt="About Us">
+                <span class="image-text">About Us</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="row reveal">
+        <div class="column">
+            <img src="../IMAGES/Logo White.png" alt="Logo" class="logo">
+                <div class="social-links">
+                <a href="https://www.facebook.com/we.the.photographerss/"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/we.the.photographerss/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/channel/UC5OMrnAW6bkKTpW9esV-5IA"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        <div class="column">
+            <h3>Products & Services</h3>
+                <div class="page-links">
+                <a href="../HTML/Services.html">Our Services</a>
+                <a href="../HTML/Packages.html">Our Packages</a>
+                <a href="../HTML/Gallery.html">Our Gallery</a>
+                </div>
+            </div>
+        <div class="column">
+            <h3>About Us</h3>
+            <div class="page-links">
+                <a href="../HTML/About.html">Company Information</a>
+                <a href="../HTML/About.html#testimonials">Testimonials</a>
+            </div>
+            </div>
+        <div class="column">
+            <h3>Contact</h3>
+                <div class="page-links">
+                <a href="https://forms.gle/1AD3FEejWnDRKPoUA">Contact Us</a>
+                </div>
+        <div class="contact-info">
+            <p>
+                <a href="https://maps.app.goo.gl/XmKEPDgUciPBG3B77"><i class="fa-solid fa-location-dot"></i></a>Nairobi, Kenya
+            </p>
+            <p>
+                <i class="fa-solid fa-phone copy-icon" onclick="copyText('phoneNumber')"></i>Phone Number: <span id="phoneNumber">+254789377273</span>
+            </p>
+            <p>
+                <i class="fa-solid fa-envelope copy-icon" onclick="copyText('email')"></i>Email: <span id="email">we.the.photographerss@gmail.com</span>
+            </p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-end">
+        <h4>© 2023 We, The. Photographers <strong>|</strong> All Rights Reserved</h4>
+        <div class="widget">
+            <div id="time"></div>
+            <div id="date"></div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

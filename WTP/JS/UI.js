@@ -1,0 +1,102 @@
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+});
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+const closeMenuBtn = document.getElementById("closeMenuBtn");
+
+if (menuBtn && navLinks) {
+    menuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("mobile-active");
+        navbar.classList.toggle("menu-open", navLinks.classList.contains("mobile-active"));
+        menuBtn.setAttribute("aria-expanded", navLinks.classList.contains("mobile-active"));
+    });
+}
+
+if (closeMenuBtn && navLinks && menuBtn) {
+    closeMenuBtn.addEventListener("click", () => {
+        navLinks.classList.remove("mobile-active");
+        navbar.classList.remove("menu-open");
+        menuBtn.setAttribute("aria-expanded", "false");
+    });
+}
+
+const revealElements = document.querySelectorAll(".reveal");
+
+if (revealElements.length > 0) {
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                }
+            });
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    revealElements.forEach(element => {
+        observer.observe(element);
+    });
+}
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        if (navLinks) {
+            navLinks.classList.remove("mobile-active");
+        }
+        if (navbar) {
+            navbar.classList.remove("menu-open");
+        }
+        if (menuBtn) {
+            menuBtn.setAttribute("aria-expanded", "false");
+        }
+    });
+});
+
+const inquiryModal = document.getElementById("inquiryModal");
+const openInquiryModal = document.getElementById("openInquiryModal");
+const closeInquiryModal = document.getElementById("closeInquiryModal");
+
+if (inquiryModal && openInquiryModal) {
+    openInquiryModal.addEventListener("click", () => {
+        inquiryModal.classList.add("open");
+        inquiryModal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+    });
+}
+
+if (inquiryModal && closeInquiryModal) {
+    closeInquiryModal.addEventListener("click", () => {
+        inquiryModal.classList.remove("open");
+        inquiryModal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+    });
+}
+
+if (inquiryModal) {
+    inquiryModal.addEventListener("click", (event) => {
+        if (event.target === inquiryModal) {
+            inquiryModal.classList.remove("open");
+            inquiryModal.setAttribute("aria-hidden", "true");
+            document.body.style.overflow = "";
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && inquiryModal.classList.contains("open")) {
+            inquiryModal.classList.remove("open");
+            inquiryModal.setAttribute("aria-hidden", "true");
+            document.body.style.overflow = "";
+        }
+    });
+}
