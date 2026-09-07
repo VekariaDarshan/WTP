@@ -16,7 +16,7 @@
     padding: 70px 25px 80px;
     text-align: center;
     color: var(--clr1);
-    animation: fadeUp 1s ease-out;
+    animation: fadeUp 1s ease-out forwards;
     box-sizing: border-box;
 }
 
