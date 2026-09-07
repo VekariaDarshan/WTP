@@ -135,8 +135,8 @@ header ul li a.active::after {
     background: rgba(10, 10, 10, 0.2);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border-left: 1px solid rgba(255, 217, 0, 0.3);
-    box-shadow: -10px 0 35px rgba(255, 217, 0, 0.15);
+    border-left: 1px solid rgba(255, 166, 0, 0.3);
+    box-shadow: -10px 0 35px rgba(255, 166, 0, 0.15);
     z-index: 1000;
     transition: right 0.4s ease;
 }
