@@ -66,6 +66,41 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 const inquiryModal = document.getElementById("inquiryModal");
 const openInquiryModal = document.getElementById("openInquiryModal");
 const closeInquiryModal = document.getElementById("closeInquiryModal");
+const inquiryForm = document.getElementById("inquiryForm");
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxGcPFLEpCh8n3LE86p-kj8wQYEDTeiPSyJA5eT7lWOWIJU_qxEOwRYnQCtarj9vHTA/exec";
+
+if (inquiryForm) {
+    inquiryForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const submitButton = inquiryForm.querySelector(".submit-inquiry");
+        const originalButtonText = submitButton.textContent;
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+
+        try {
+            await fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "text/plain;charset=utf-8"
+                },
+                body: JSON.stringify(Object.fromEntries(new FormData(inquiryForm)))
+            });
+
+            inquiryForm.reset();
+            submitButton.textContent = "Sent";
+            setTimeout(() => {
+                submitButton.textContent = originalButtonText;
+            }, 2500);
+        } catch (error) {
+            submitButton.textContent = "Try Again";
+            console.error("Inquiry submission failed:", error);
+        } finally {
+            submitButton.disabled = false;
+        }
+    });
+}
 
 if (inquiryModal && openInquiryModal) {
     openInquiryModal.addEventListener("click", () => {
