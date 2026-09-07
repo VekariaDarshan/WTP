@@ -11,34 +11,71 @@
 
 .title {
     width: 100%;
-    max-width: 1100px;
-    padding: 20px 0 50px;
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 70px 25px 80px;
     text-align: center;
-    text-transform: uppercase;
     color: var(--clr1);
-    animation:
-        fadeIn 1.5s ease-in forwards,
-        glow 2s ease-in-out infinite alternate;
-
-    animation-delay: 0.3s;
     opacity: 0;
+    animation: fadeUp 1s ease-out forwards;
+    box-sizing: border-box;
+}
+
+.title .eyebrow {
+    display: inline-block;
+    margin-bottom: 22px;
+    color: var(--clr2);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
 }
 
 .title h1 {
-    margin: 0 0 20px;
-    line-height: 1.1;
+    margin: 0;
+    font-size: clamp(2.8rem, 7vw, 5.8rem);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    text-transform: none;
+    }
+
+.title h1 span {
+    color: var(--clr1);
+    font-weight: 700;
 }
 
-.title h1:first-child {
-    font-size: clamp(3rem, 7vw, 5.5rem) !important;
-    letter-spacing: 2px;
+.title-line {
+    width: 70px;
+    height: 2px;
+    margin: 30px auto 25px;
+    background: var(--clr2);
 }
 
-.title h1:nth-child(2) {
-    margin-top: 30px;
+.title h2 {
+    margin: 0 0 35px;
     color: var(--clr2);
-    font-size: clamp(1.2rem, 2.5vw, 2rem);
-    letter-spacing: 2px;
+    font-size: clamp(1.1rem, 2.5vw, 1.7rem);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 1px;
+    text-transform: none;
+}
+
+.title .intro {
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.title .intro p {
+    margin: 0 auto 20px;
+    color: var(--dark);
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    font-weight: 400;
+    line-height: 1.9;
+    letter-spacing: 0.2px;
+    text-align: center;
+    text-transform: none;
 }
 
 .main p {
@@ -230,17 +267,33 @@
     }
 
     .title {
-        padding-bottom: 25px;
+        padding: 50px 20px 60px;
     }
 
-    .title h1:first-child {
-        font-size: clamp(2.5rem, 13vw, 4rem) !important;
-        letter-spacing: 1px;
+    .title .eyebrow {
+        font-size: 0.65rem;
+        letter-spacing: 3px;
+        margin-bottom: 18px;
     }
 
-    .title h1:nth-child(2) {
-        font-size: 1rem;
+    .title h1 {
+        font-size: clamp(2.4rem, 12vw, 4rem);
+        line-height: 1.1;
+    }
+
+    .title-line {
+        margin: 25px auto 20px;
+    }
+
+    .title h2 {
+        margin-bottom: 28px;
         line-height: 1.5;
+    }
+
+    .title .intro p {
+        font-size: 1rem;
+        line-height: 1.75;
+        margin-bottom: 18px;
     }
     
     .main p {
