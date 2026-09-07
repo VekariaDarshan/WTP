@@ -381,43 +381,43 @@
                 <div class="field-row">
                     <label>
                         <span>Name*</span>
-                        <input type="text" name="name">
+                        <input type="text" name="name" id="name" required>
                     </label>
                     <label>
                         <span>Email*</span>
-                        <input type="email" name="email">
+                        <input type="email" name="email" id="email" required>
                     </label>
                 </div>
 
                 <label>
                     <span>Whatsapp No.*</span>
-                    <input type="tel" name="whatsapp">
+                    <input type="tel" name="whatsapp" id="whatsapp" required>
                 </label>
 
                 <label>
                     <span>Tell us more about your wedding • event flow • venues.*</span>
-                    <textarea name="details" rows="3"></textarea>
+                    <textarea name="details" id="details" rows="3" required></textarea>
                 </label>
 
                 <div class="field-row two-up">
                     <label>
                         <span>Location of the event*</span>
-                        <input type="text" name="location">
+                        <input type="text" name="location" id="location" required>
                     </label>
                     <label>
                         <span>Event date*</span>
-                        <input type="text" name="date" placeholder="e.g. 31/12/2026">
+                        <input type="text" name="date" id="date" placeholder="e.g. 31/12/2026" required>
                     </label>
                 </div>
 
                 <label>
                     <span>No. of days*</span>
-                    <select name="days">
-                        <option selected>Select days</option>
-                        <option>1 Day</option>
-                        <option>2 Days</option>
-                        <option>3 Days</option>
-                        <option>4+ Days</option>
+                    <select name="days" id="days" required>
+                        <option value="" selected>Select days</option>
+                        <option value="1 Day">1 Day</option>
+                        <option value="2 Days">2 Days</option>
+                        <option value="3 Days">3 Days</option>
+                        <option value="4+ Days">4+ Days</option>
                     </select>
                 </label>
 
