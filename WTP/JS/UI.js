@@ -79,14 +79,20 @@ if (inquiryForm) {
         submitButton.textContent = "Sending...";
 
         try {
-            await fetch(GOOGLE_SCRIPT_URL, {
+            const payload = Object.fromEntries(new FormData(inquiryForm).entries());
+            const response = await fetch(GOOGLE_SCRIPT_URL, {
                 method: "POST",
-                mode: "no-cors",
                 headers: {
-                    "Content-Type": "text/plain;charset=utf-8"
+                    "Content-Type": "application/json"
                 },
-                body: JSON.stringify(Object.fromEntries(new FormData(inquiryForm)))
+                body: JSON.stringify(payload)
             });
+
+            const resultText = await response.text();
+
+            if (!response.ok) {
+                throw new Error(resultText || "Request failed");
+            }
 
             inquiryForm.reset();
             submitButton.textContent = "Sent";
