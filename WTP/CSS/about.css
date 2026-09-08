@@ -1,0 +1,472 @@
+:root {
+    --about-black-soft: #0d100f;
+    --about-gold-light: #e2c99a;
+    --about-line: rgba(220, 197, 153, 0.22);
+}
+
+.about-hero {
+    display: grid;
+    grid-template-columns: minmax(320px, 0.82fr) minmax(420px, 1.18fr);
+    align-items: center;
+    gap: 8%;
+    min-height: 720px;
+    padding: 150px 7% 100px;
+    background: radial-gradient(circle at 18% 35%, rgba(199, 167, 106, 0.1), transparent 31%), #080909;
+}
+
+.about-hero-copy {
+    max-width: 560px;
+}
+
+.about-hero-image {
+    position: relative;
+}
+
+.about-hero-image::before {
+    position: absolute;
+    inset: 22px -22px -22px 22px;
+    border: 1px solid var(--border);
+    content: "";
+    z-index: 0;
+}
+
+.about-hero-image img {
+    position: relative;
+    z-index: 1;
+    height: 560px;
+    filter: saturate(0.78);
+}
+
+.image-caption {
+    position: absolute;
+    right: 0;
+    bottom: -45px;
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.about-hero h1,
+.story-heading h2,
+.philosophy-grid h2,
+.team-heading h2,
+.values-heading h2,
+.process-heading h2,
+.image-break-content h2,
+.about-cta h2 {
+    font-family: "Cormorant Garamond", var(--serif);
+    font-weight: 400;
+    line-height: 0.92;
+}
+
+.about-hero h1 {
+    font-size: clamp(54px, 6vw, 90px);
+    margin-bottom: 30px;
+}
+
+.about-hero h1 em,
+.philosophy-grid h2 em,
+.image-break-content h2 em,
+.about-cta h2 em {
+    color: var(--about-gold-light);
+    font-style: italic;
+}
+
+.about-lead {
+    max-width: 390px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.story-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12%;
+    padding-top: 155px;
+    padding-bottom: 155px;
+    background: #0d0e0e;
+}
+
+.story-heading h2,
+.philosophy-grid h2,
+.team-heading h2,
+.values-heading h2,
+.process-heading h2 {
+    font-size: clamp(40px, 4vw, 63px);
+}
+
+.story-copy {
+    max-width: 510px;
+    padding-top: 30px;
+}
+
+.story-copy p,
+.philosophy-copy p,
+.team-heading > p,
+.values-heading > p,
+.process-heading > p,
+.process-item p,
+.value p {
+    color: var(--muted);
+    line-height: 2;
+}
+
+.story-copy p {
+    margin-bottom: 22px;
+}
+
+.story-copy .text-link,
+.philosophy-copy .text-link {
+    margin-top: 18px;
+}
+
+.philosophy-section,
+.team-section,
+.values-section,
+.process-section {
+    border-bottom: 1px solid var(--border);
+}
+
+.philosophy-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.philosophy-section::before {
+    position: absolute;
+    top: 30px;
+    right: -40px;
+    color: rgba(255,255,255,0.018);
+    content: "WE";
+    font-family: "Cormorant Garamond", var(--serif);
+    font-size: 300px;
+    line-height: 1;
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+}
+
+.philosophy-copy {
+    padding-top: 12px;
+}
+
+.philosophy-copy p {
+    max-width: 480px;
+    margin-bottom: 24px;
+}
+
+.team-heading,
+.values-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 60px;
+    margin-bottom: 55px;
+}
+
+.team-heading > p,
+.values-heading > p {
+    max-width: 400px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.team-card img {
+    height: 510px;
+    filter: saturate(0.75);
+    transition: transform 0.7s ease;
+}
+
+.team-card:hover img {
+    transform: scale(1.04);
+}
+
+.team-card > div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-top: 1px solid var(--about-line);
+    padding-top: 20px;
+}
+
+.team-card h3,
+.value h3,
+.process-item h3 {
+    font-family: "Cormorant Garamond", var(--serif);
+    font-size: 29px;
+    font-weight: 400;
+}
+
+.team-card span {
+    margin-top: 7px;
+    color: var(--about-gold-light);
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.values-section {
+    background: #0b0e0d;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--about-line);
+    border-bottom: 1px solid var(--about-line);
+}
+
+.value {
+    min-height: 270px;
+    padding: 40px 32px;
+    border-right: 1px solid var(--about-line);
+}
+
+.value:last-child {
+    border-right: 0;
+}
+
+.value > span {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    margin-bottom: 45px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    color: var(--about-gold-light);
+    font-family: "Cormorant Garamond", var(--serif);
+    font-size: 20px;
+}
+
+.value h3 {
+    margin-bottom: 14px;
+}
+
+.value p {
+    max-width: 200px;
+    color: #898b87;
+    font-size: 10px;
+    line-height: 1.8;
+}
+
+.process-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 50px;
+    margin-bottom: 75px;
+}
+
+.process-heading > p {
+    max-width: 360px;
+}
+
+.process-list {
+    border-top: 1px solid var(--about-line);
+}
+
+.process-item {
+    display: grid;
+    grid-template-columns: 100px 1fr 1.3fr 50px;
+    align-items: center;
+    gap: 40px;
+    min-height: 135px;
+    border-bottom: 1px solid var(--about-line);
+}
+
+.process-item > span {
+    color: var(--about-gold-light);
+    font-family: "Cormorant Garamond", var(--serif);
+    font-size: 25px;
+}
+
+.process-item p {
+    max-width: 360px;
+    color: #8d8f8a;
+    font-size: 10px;
+    line-height: 1.8;
+}
+
+.process-item b {
+    color: var(--about-gold-light);
+    font-size: 22px;
+    font-weight: 300;
+    text-align: right;
+}
+
+.image-break {
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: 570px;
+    overflow: hidden;
+}
+
+.image-break-bg {
+    background: linear-gradient(rgba(4,6,5,0.35), rgba(4,6,5,0.55)), url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=2200&q=90") center/cover;
+}
+
+.image-break-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.image-break-content h2 {
+    font-size: clamp(48px, 6vw, 85px);
+}
+
+.about-cta {
+    padding: 120px 6.8%;
+    background: #0b0e0d;
+    text-align: center;
+}
+
+.about-cta h2 {
+    font-size: clamp(50px, 6vw, 82px);
+}
+
+.about-cta > div > p:not(.section-label) {
+    max-width: 450px;
+    margin: 25px auto 0;
+    color: #8d908b;
+    font-size: 11px;
+    line-height: 1.9;
+}
+
+.about-cta .cta-button {
+    display: inline-flex;
+    margin-top: 40px;
+}
+
+@media (max-width: 900px) {
+    .story-section,
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-copy {
+        padding-top: 0;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .team-card:last-child {
+        grid-column: 1 / -1;
+        width: calc(50% - 12px);
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .value:nth-child(2) {
+        border-right: 0;
+    }
+
+    .value {
+        border-bottom: 1px solid var(--about-line);
+    }
+
+    .process-item {
+        grid-template-columns: 60px 1fr;
+        gap: 15px;
+        padding: 30px 0;
+    }
+
+    .process-item p {
+        grid-column: 2;
+    }
+
+    .process-item b {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-hero h1 {
+        font-size: 55px;
+    }
+
+    .about-hero {
+        min-height: 0;
+        gap: 58px;
+        padding: 125px 6% 90px;
+    }
+
+    .about-hero-image {
+        width: 92%;
+    }
+
+    .about-hero-image img {
+        height: 390px;
+    }
+
+    .story-section {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+    .philosophy-grid h2 {
+        font-size: 48px;
+    }
+
+    .team-heading,
+    .values-heading,
+    .process-heading {
+        display: block;
+    }
+
+    .team-heading > p,
+    .values-heading > p,
+    .process-heading > p {
+        margin-top: 25px;
+    }
+
+    .team-grid,
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-card:last-child {
+        grid-column: auto;
+        width: auto;
+    }
+
+    .value,
+    .value:nth-child(2) {
+        border-right: 0;
+    }
+
+    .value:last-child {
+        border-bottom: 0;
+    }
+
+    .process-item {
+        grid-template-columns: 45px 1fr;
+    }
+
+    .process-item h3 {
+        font-size: 26px;
+    }
+
+    .image-break {
+        height: 470px;
+    }
+
+    .about-cta {
+        padding: 90px 7%;
+    }
+}

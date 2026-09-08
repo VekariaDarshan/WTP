@@ -60,7 +60,7 @@ document.getElementById("storyContent").innerHTML = `
     <section class="image-story reverse reveal"><div class="image-story-text"><p class="section-label">${copy.ceremonyLabel}</p><h2>${copy.ceremonyTitle}</h2><p>${copy.ceremonyText}</p></div><div class="image-story-image"><img src="${image(5, 1400)}" alt="${copy.ceremonyImageAlt}"></div></section>
     <section class="three-grid reveal"><div class="image"><img src="${image(6, 1200)}" alt="${copy.gridImageOneAlt}"></div><div class="image"><img src="${image(7, 1200)}" alt="${copy.gridImageTwoAlt}"></div><div class="image"><img src="${image(8, 1200)}" alt="${copy.gridImageThreeAlt}"></div></section>
     <section class="final-image reveal"><div class="final-caption"><span>${copy.finalLabel}</span><h2>${copy.finalTitle}</h2></div></section>
-    <section class="cta reveal"><p class="section-label">${copy.ctaLabel}</p><h2>${copy.ctaTitle}</h2><p>${copy.ctaText}</p><a class="cta-button" href="../Index.html#contact">${copy.ctaButton} &rarr;</a></section>
+    <section class="cta reveal"><p class="section-label">${copy.ctaLabel}</p><h2>${copy.ctaTitle}</h2><p>${copy.ctaText}</p><a class="cta-button" href="../Index.html?openInquiry=1#contact">${copy.ctaButton} &rarr;</a></section>
 `;
 
 const storyNav = document.querySelector(".story-nav");

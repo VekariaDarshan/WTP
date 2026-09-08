@@ -160,6 +160,12 @@ if (inquiryModal && openInquiryModal) {
     });
 }
 
+if (inquiryModal && new URLSearchParams(window.location.search).get("openInquiry") === "1") {
+    inquiryModal.classList.add("open");
+    inquiryModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+}
+
 if (inquiryModal && closeInquiryModal) {
     closeInquiryModal.addEventListener("click", () => {
         inquiryModal.classList.remove("open");

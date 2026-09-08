@@ -150,6 +150,9 @@ button {
 .nav-button {
     border: 1px solid rgba(255,255,255,0.5);
     padding: 13px 23px;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
     font-size: 10px;
     letter-spacing: 2px;
     text-transform: uppercase;
