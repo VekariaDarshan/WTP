@@ -71,13 +71,9 @@ function startHighlightVideo(frame, withSound = true) {
     const iframe = frame.querySelector("iframe");
     const poster = frame.querySelector(".video-poster");
 
-    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=${withSound ? 0 : 1}&controls=0&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&playsinline=1`;
+    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=${withSound ? 0 : 1}&rel=0&playsinline=1`;
     frame.classList.add("is-playing");
     poster.setAttribute("aria-hidden", "true");
-
-    window.setTimeout(() => {
-        poster.classList.add("is-hidden");
-    }, 2000);
 }
 
 videoFrames.forEach(frame => {
