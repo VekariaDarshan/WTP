@@ -48,7 +48,7 @@ document.body.style.setProperty("--final-image", `url("${image(4)}")`);
 
 document.getElementById("storyContent").innerHTML = `
     <section class="story-hero${videoId ? " story-hero--video" : ""}">
-        ${videoId ? `<iframe class="story-hero-video" src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1&mute=1&controls=0&loop=1&playlist=${encodeURIComponent(videoId)}&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&fs=0&cc_load_policy=0&playsinline=1" title="${copy.heroLabel}" allow="autoplay; encrypted-media" tabindex="-1" aria-hidden="true"></iframe>` : ""}
+        ${videoId ? `<iframe class="story-hero-video" src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1&mute=1&controls=0&loop=1&playlist=${encodeURIComponent(videoId)}&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&fs=0&cc_load_policy=0&playsinline=1&autohide=1" title="${copy.heroLabel}" allow="autoplay; encrypted-media" tabindex="-1" aria-hidden="true"></iframe>` : ""}
         <div class="story-hero-content reveal"><div><p class="eyebrow">${copy.heroLabel || "Wedding Story"}</p><h1>${copy.heroTitle || story.names.replace(" & ", "<br>&amp; ")}</h1></div><div class="hero-details">${place}<br>${date}<br>${tone}</div></div>
     </section>
     <section class="story-intro reveal"><div><p class="story-number">${copy.introLabel}</p><h2>${copy.introTitle}</h2></div><div class="story-text"><p>${copy.introText}</p><div class="story-meta"><div class="meta"><span>${copy.metaCoupleLabel}</span><span>${story.names}</span></div><div class="meta"><span>${copy.metaLocationLabel}</span><span>${place}</span></div><div class="meta"><span>${copy.metaPhotoLabel}</span><span>We The Photographers</span></div></div></div></section>
@@ -66,6 +66,13 @@ document.getElementById("storyContent").innerHTML = `
 const storyNav = document.querySelector(".story-nav");
 const revealElements = document.querySelectorAll(".reveal");
 const videoFrames = document.querySelectorAll(".video-frame[data-video-id]");
+const heroVideo = document.querySelector(".story-hero-video");
+
+if (heroVideo) {
+    heroVideo.addEventListener("load", () => {
+        heroVideo.closest(".story-hero").classList.add("story-hero-video-ready");
+    }, { once: true });
+}
 
 function startHighlightVideo(frame, withSound = true) {
     const videoId = frame.dataset.videoId;
