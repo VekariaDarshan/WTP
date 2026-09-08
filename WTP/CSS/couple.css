@@ -81,7 +81,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .video-play span { width: 0; height: 0; margin-left: 5px; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 12px solid #fff; }
 .video-play-label { position: absolute; bottom: 24px; z-index: 1; color: #fff; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; }
 .video-frame.is-playing iframe { opacity: 1; }
-.video-poster.is-hidden { visibility: hidden; opacity: 0; pointer-events: none; }
+.video-frame.is-playing .video-poster { visibility: hidden; opacity: 0; pointer-events: none; }
 
 .cinematic { display: grid; min-height: 78vh; place-items: center; padding: 50px 7%; text-align: center; background: linear-gradient(rgba(0,0,0,.42), rgba(0,0,0,.78)), var(--cinematic-image) center / cover; }
 .cinematic blockquote { max-width: 850px; font-family: var(--serif); font-size: clamp(42px, 6vw, 78px); font-style: italic; line-height: 1.08; }
