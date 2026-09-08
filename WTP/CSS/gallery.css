@@ -1,0 +1,556 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --black: #080a09;
+    --cream: #f3eee5;
+    --muted: #a9a59d;
+    --gold: #c8a878;
+    --line: rgba(244, 240, 232, 0.28);
+    --serif: "Playfair Display", Georgia, serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 320px;
+    overflow-x: hidden;
+    background: var(--black);
+    color: var(--cream);
+    font-family: "DM Sans", sans-serif;
+    font-weight: 300;
+}
+
+button,
+a {
+    color: inherit;
+    font: inherit;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+}
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 19px 6.5%;
+    transition: background 0.3s ease, padding 0.3s ease;
+}
+
+.site-header.scrolled {
+    padding-block: 13px;
+    background: rgba(8, 10, 9, 0.88);
+    backdrop-filter: blur(14px);
+}
+
+.brand img {
+    width: 142px;
+}
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(22px, 3.3vw, 48px);
+}
+
+.site-nav a,
+.header-cta,
+.gallery-controls,
+.eyebrow {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.site-nav a {
+    position: relative;
+    color: rgba(243, 238, 229, 0.8);
+}
+
+.site-nav a::after {
+    position: absolute;
+    right: 0;
+    bottom: -9px;
+    left: 0;
+    height: 1px;
+    background: var(--gold);
+    content: "";
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+}
+
+.site-nav a:hover::after,
+.site-nav a.active::after {
+    transform: scaleX(1);
+}
+
+.header-cta,
+.gallery-cta a {
+    border: 1px solid rgba(243, 238, 229, 0.45);
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.header-cta {
+    padding: 10px 15px;
+}
+
+.header-cta span,
+.gallery-cta a span {
+    color: var(--gold);
+    padding-left: 11px;
+}
+
+.header-cta:hover,
+.gallery-cta a:hover {
+    background: var(--cream);
+    color: #111;
+}
+
+.nav-toggle,
+.nav-close {
+    display: none;
+    background: transparent;
+    color: var(--cream);
+}
+
+.gallery-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    gap: 8%;
+    min-height: 0;
+    padding: 175px 7% 70px;
+    background: radial-gradient(circle at 55% -20%, rgba(82, 88, 78, 0.18), transparent 44%);
+}
+
+.eyebrow {
+    margin-bottom: 14px;
+    color: var(--gold);
+}
+
+.gallery-intro h1,
+.gallery-cta h2 {
+    font-family: var(--serif);
+    font-size: clamp(52px, 6vw, 82px);
+    font-weight: 400;
+    line-height: 0.98;
+}
+
+.intro-side {
+    position: relative;
+    max-width: 470px;
+    border-left: 1px solid var(--gold);
+    padding-left: 40px;
+}
+
+.intro-rule,
+.cta-rule {
+    display: block;
+    width: 1px;
+    height: 56px;
+    background: var(--gold);
+}
+
+.intro-side p,
+.cta-copy p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.gallery-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: flex-end;
+    grid-column: 2;
+    margin-top: -30px;
+    padding-bottom: 4px;
+    white-space: nowrap;
+}
+
+.gallery-controls b {
+    color: var(--cream);
+    font-weight: 400;
+}
+
+.gallery-controls span {
+    color: var(--muted);
+}
+
+.gallery-controls button {
+    width: 24px;
+    background: transparent;
+    color: var(--cream);
+    font-size: 18px;
+    font-weight: 300;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.gallery-controls button:hover {
+    color: var(--gold);
+    transform: translateX(3px);
+}
+
+.gallery-controls button:first-child:hover {
+    transform: translateX(-3px);
+}
+
+.carousel-section {
+    padding: 0 0 74px;
+}
+
+.carousel-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 0 7% 24px;
+}
+
+.carousel-heading h2 {
+    font-family: var(--serif);
+    font-size: clamp(38px, 4vw, 62px);
+    font-weight: 400;
+    line-height: 1;
+}
+
+.carousel-heading > p {
+    max-width: 260px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+    text-align: right;
+}
+
+.carousel-window {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 0 14px;
+    scrollbar-width: none;
+}
+
+.carousel-window::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-track {
+    display: flex;
+    width: max-content;
+    gap: 12px;
+    animation: gallery-scroll 64s linear infinite;
+    will-change: transform;
+}
+
+.carousel-track--reverse {
+    animation-name: gallery-scroll-reverse;
+    animation-duration: 70s;
+}
+
+@keyframes gallery-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - 6px)); }
+}
+
+@keyframes gallery-scroll-reverse {
+    from { transform: translateX(calc(-50% - 6px)); }
+    to { transform: translateX(0); }
+}
+
+.gallery-card {
+    position: relative;
+    width: clamp(300px, 31vw, 470px);
+    aspect-ratio: 3 / 2;
+    height: auto;
+    flex: 0 0 auto;
+    overflow: hidden;
+    cursor: pointer;
+    background: #151716;
+}
+
+.gallery-card--wide {
+    grid-row: span 1;
+}
+
+.gallery-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.86);
+    transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.8s ease;
+}
+
+.gallery-card::after {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.35) 48%, rgba(0, 0, 0, 0.05));
+    content: "";
+}
+
+.gallery-card::before {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(200, 167, 106, 0.08);
+    content: "";
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.gallery-card:hover img {
+    filter: saturate(1.05);
+    transform: scale(1.08);
+}
+
+.gallery-card:hover::before {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .carousel-track {
+        animation: none;
+    }
+}
+
+.card-overlay {
+    position: absolute;
+    right: 24px;
+    bottom: 20px;
+    left: 24px;
+    z-index: 2;
+}
+
+.card-number {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--gold);
+    font-family: var(--serif);
+    font-size: 17px;
+}
+
+.card-overlay h2,
+.card-overlay h3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 14px;
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.card-overlay h3 {
+    margin: 0;
+    padding-bottom: 10px;
+    font-size: 21px;
+    letter-spacing: 0.01em;
+    text-transform: none;
+}
+
+.card-overlay h2 span {
+    padding-left: 9px;
+    color: var(--gold);
+    font-family: "DM Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.card-overlay p {
+    margin-top: 12px;
+    color: #c0bbb1;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.gallery-cta {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+    min-height: 480px;
+    padding: 100px 7%;
+    background: linear-gradient(90deg, rgba(7, 9, 8, 0.95), rgba(7, 9, 8, 0.75)), url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2200&q=90") center / cover;
+}
+
+.gallery-cta h2 {
+    font-size: clamp(48px, 5vw, 72px);
+}
+
+.cta-copy {
+    max-width: 360px;
+    border-left: 1px solid var(--gold);
+    padding-left: 40px;
+}
+
+.gallery-cta a {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 10px 14px;
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.cta-logo {
+    justify-self: end;
+    width: 150px;
+}
+
+@media (max-width: 850px) {
+    .gallery-intro {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .intro-side {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .gallery-controls {
+        grid-column: 1 / -1;
+        justify-self: end;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-card img {
+        min-height: 0;
+    }
+}
+
+@media (max-width: 620px) {
+    .site-header {
+        padding: 18px 6%;
+    }
+
+    .brand img {
+        width: 126px;
+    }
+
+    .header-cta {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: block;
+        font-size: 24px;
+        line-height: 1;
+    }
+
+    .site-nav {
+        position: fixed;
+        inset: 0 0 0 25%;
+        z-index: 11;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 28px;
+        padding: 30px;
+        background: #101311;
+        box-shadow: -16px 0 50px rgba(0, 0, 0, 0.35);
+        transform: translateX(100%);
+        transition: transform 0.35s ease;
+    }
+
+    .site-nav.open {
+        transform: translateX(0);
+    }
+
+    .site-nav a {
+        font-size: 11px;
+    }
+
+    .nav-close {
+        position: absolute;
+        top: 18px;
+        right: 24px;
+        display: block;
+        font-size: 28px;
+        font-weight: 200;
+    }
+
+    .gallery-intro {
+        display: block;
+        min-height: auto;
+        padding: 122px 6% 34px;
+    }
+
+    .gallery-intro h1 {
+        font-size: clamp(42px, 12vw, 58px);
+    }
+
+    .intro-side {
+        display: grid;
+        grid-template-columns: 1px 1fr;
+        margin-top: 30px;
+    }
+
+    .gallery-controls {
+        justify-content: flex-end;
+        margin-top: 26px;
+    }
+
+    .gallery-card {
+        width: min(78vw, 330px);
+        aspect-ratio: 3 / 2;
+    }
+
+    .gallery-card img {
+        min-height: 0;
+    }
+
+    .gallery-cta {
+        display: grid;
+        grid-template-columns: 1fr 1px;
+        gap: 24px;
+        padding: 48px 6%;
+    }
+
+    .gallery-cta h2 {
+        font-size: 39px;
+    }
+
+    .cta-copy {
+        grid-column: 1 / -1;
+    }
+
+    .cta-logo {
+        position: absolute;
+        right: 6%;
+        width: 112px;
+        margin-top: 145px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}

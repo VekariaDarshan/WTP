@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
 <link rel="stylesheet" href="CSS/UI.css">
 
@@ -158,6 +159,18 @@
 
     </div>
 
+    <div class="about-carousel" id="aboutCarousel" aria-label="More of our photography">
+        <div class="about-carousel-track">
+            <figure class="about-slide is-active">
+                <img src="IMAGES/Old Logo White.png" alt="We The Photographers original logo">
+            </figure>
+
+            <figure class="about-slide">
+                <img src="IMAGES/Logo White.png" alt="We The Photographers logo">
+            </figure>
+        </div>
+    </div>
+
 </section>
 
 
@@ -299,7 +312,7 @@
             memories and emotions captured through our lens.
         </p>
 
-        <a href="gallery.html" class="text-link">
+        <a href="HTML/gallery.html" class="text-link">
             <span></span>
             View Gallery →
         </a>
@@ -406,7 +419,7 @@
                     </label>
                     <label>
                         <span>Event date*</span>
-                        <input type="text" name="date" id="date" placeholder="e.g. 31/12/2026" required>
+                        <input type="text" name="date" id="date" placeholder="Select event date(s)" required>
                     </label>
                 </div>
 
@@ -458,6 +471,7 @@
 </footer>
 
 
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="JS/UI.js"></script>
 
 </body>

@@ -1,0 +1,131 @@
+ <section class="gallery-grid" id="galleryGrid" aria-label="Photography categories">
+            <article class="gallery-card gallery-card--wide" data-index="0">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=88" alt="Bride and groom during a wedding ceremony" loading="eager">
+                <div class="card-overlay"><span class="card-number">01</span><h2>Weddings <span>&#8594;</span></h2><p>Real emotions. Timeless celebrations.</p></div>
+            </article>
+            <article class="gallery-card" data-index="1">
+                <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=88" alt="Couple watching the sunset before their wedding" loading="lazy">
+                <div class="card-overlay"><span class="card-number">02</span><h2>Pre Weddings <span>&#8594;</span></h2><p>Love. Laughter. A beautiful beginning.</p></div>
+            </article>
+            <article class="gallery-card" data-index="2">
+                <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=88" alt="Perfume bottle styled with foliage" loading="lazy">
+                <div class="card-overlay"><span class="card-number">03</span><h2>E-Commerce <span>&#8594;</span></h2><p>Product photography that sells.</p></div>
+            </article>
+            <article class="gallery-card" data-index="3">
+                <img src="https://images.unsplash.com/photo-1592478411213-6153e4ebc696?auto=format&fit=crop&w=900&q=88" alt="Commercial studio lighting setup" loading="lazy">
+                <div class="card-overlay"><span class="card-number">04</span><h2>Commercial <span>&#8594;</span></h2><p>Brands. Products. Powerful visuals.</p></div>
+            </article>
+            <article class="gallery-card" data-index="4">
+                <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1100&q=88" alt="Aerial view of a tropical island and boat" loading="lazy">
+                <div class="card-overlay"><span class="card-number">05</span><h2>Aerial <span>&#8594;</span></h2><p>A higher perspective. A bigger story.</p></div>
+            </article>
+            <article class="gallery-card" data-index="5">
+                <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=900&q=88" alt="Modern concrete architecture" loading="lazy">
+                <div class="card-overlay"><span class="card-number">06</span><h2>Architecture <span>&#8594;</span></h2><p>Design. Spaces. Perspectives.</p></div>
+            </article>
+            <article class="gallery-card" data-index="6">
+                <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=900&q=88" alt="Woman wearing statement earrings" loading="lazy">
+                <div class="card-overlay"><span class="card-number">07</span><h2>Portraits <span>&#8594;</span></h2><p>Personality in every frame.</p></div>
+            </article>
+            <article class="gallery-card" data-index="7">
+                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=88" alt="Team meeting in a modern office" loading="lazy">
+                <div class="card-overlay"><span class="card-number">08</span><h2>Corporate <span>&#8594;</span></h2><p>People. Progress. Purpose.</p></div>
+            </article>
+        </section>
+
+        .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    padding: 0 0 110px;
+}
+
+.gallery-card {
+    position: relative;
+    height: 520px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #151716;
+}
+
+.gallery-card--wide {
+    grid-row: span 1;
+}
+
+.gallery-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.86);
+    transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.8s ease;
+}
+
+.gallery-card::after {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.35) 48%, rgba(0, 0, 0, 0.05));
+    content: "";
+}
+
+.gallery-card::before {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(200, 167, 106, 0.08);
+    content: "";
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.gallery-card:hover img {
+    filter: saturate(1.05);
+    transform: scale(1.08);
+}
+
+.gallery-card:hover::before {
+    opacity: 1;
+}
+
+.card-overlay {
+    position: absolute;
+    right: 24px;
+    bottom: 20px;
+    left: 24px;
+    z-index: 2;
+}
+
+.card-number {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--gold);
+    font-family: var(--serif);
+    font-size: 17px;
+}
+
+.card-overlay h2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 14px;
+    font-family: var(--serif);
+    font-size: 25px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.card-overlay h2 span {
+    padding-left: 9px;
+    color: var(--gold);
+    font-family: "DM Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.card-overlay p {
+    margin-top: 12px;
+    color: #c0bbb1;
+    font-size: 10px;
+    line-height: 1.5;
+}

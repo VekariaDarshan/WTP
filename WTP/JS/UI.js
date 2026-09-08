@@ -49,6 +49,29 @@ if (revealElements.length > 0) {
     });
 }
 
+const aboutCarousel = document.getElementById("aboutCarousel");
+const aboutSlides = aboutCarousel ? [...aboutCarousel.querySelectorAll(".about-slide")] : [];
+let aboutSlideIndex = 0;
+let aboutCarouselTimer;
+
+function showAboutSlide(index) {
+    aboutSlideIndex = (index + aboutSlides.length) % aboutSlides.length;
+
+    aboutSlides.forEach((slide, slideIndex) => {
+        slide.classList.toggle("is-active", slideIndex === aboutSlideIndex);
+    });
+
+}
+
+function startAboutCarousel() {
+    clearInterval(aboutCarouselTimer);
+    aboutCarouselTimer = setInterval(() => showAboutSlide(aboutSlideIndex + 1), 5000);
+}
+
+if (aboutCarousel && aboutSlides.length > 1) {
+    startAboutCarousel();
+}
+
 document.querySelectorAll(".nav-links a").forEach(link => {
     link.addEventListener("click", () => {
         if (navLinks) {
@@ -67,7 +90,19 @@ const inquiryModal = document.getElementById("inquiryModal");
 const openInquiryModal = document.getElementById("openInquiryModal");
 const closeInquiryModal = document.getElementById("closeInquiryModal");
 const inquiryForm = document.getElementById("inquiryForm");
+const eventDateInput = document.getElementById("date");
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxGcPFLEpCh8n3LE86p-kj8wQYEDTeiPSyJA5eT7lWOWIJU_qxEOwRYnQCtarj9vHTA/exec";
+
+if (eventDateInput && typeof flatpickr === "function") {
+    flatpickr(eventDateInput, {
+        mode: "multiple",
+        dateFormat: "Y-m-d",
+        altInput: true,
+        altFormat: "d/m/Y",
+        conjunction: ", ",
+        allowInput: false
+    });
+}
 
 if (inquiryForm) {
     inquiryForm.addEventListener("submit", async (event) => {
@@ -80,13 +115,13 @@ if (inquiryForm) {
 
         try {
             const payload = {
-                Name: inquiryForm.elements.name.value.trim(),
-                Email: inquiryForm.elements.email.value.trim(),
-                Whatsapp: inquiryForm.elements.whatsapp.value.trim(),
-                Details: inquiryForm.elements.details.value.trim(),
-                Location: inquiryForm.elements.location.value.trim(),
-                Date: inquiryForm.elements.date.value.trim(),
-                Days: inquiryForm.elements.days.value.trim()
+                name: inquiryForm.elements.name.value.trim(),
+                email: inquiryForm.elements.email.value.trim(),
+                whatsapp: inquiryForm.elements.whatsapp.value.trim(),
+                details: inquiryForm.elements.details.value.trim(),
+                location: inquiryForm.elements.location.value.trim(),
+                date: inquiryForm.elements.date.value.trim(),
+                days: inquiryForm.elements.days.value.trim()
             };
 
             const response = await fetch(GOOGLE_SCRIPT_URL, {

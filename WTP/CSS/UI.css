@@ -280,7 +280,7 @@ section {
 
 .about {
     display: grid;
-    grid-template-columns: 1fr 1.3fr;
+    grid-template-columns: minmax(220px, 1fr) minmax(300px, 1.3fr) minmax(150px, 0.7fr);
     gap: 8%;
     align-items: center;
     background: var(--black);
@@ -323,6 +323,41 @@ section {
     padding-left: 30px;
     display: grid;
     gap: 22px;
+}
+
+.about-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+}
+
+.about-carousel-track {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.about-slide {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+}
+
+.about-slide.is-active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.about-slide img {
+    height: 270px;
+    padding: 24px 18px 42px;
+    object-fit: contain;
+    filter: none;
 }
 
 .feature {
@@ -678,6 +713,50 @@ section {
     color: rgba(245, 241, 234, 0.9);
 }
 
+.flatpickr-calendar {
+    background: #000;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    color: #fff;
+}
+
+.flatpickr-months,
+.flatpickr-weekdays,
+.flatpickr-weekday,
+.flatpickr-current-month,
+.flatpickr-current-month input.cur-year,
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+    background: #000;
+    color: #fff;
+}
+
+.flatpickr-prev-month svg,
+.flatpickr-next-month svg {
+    fill: #fff;
+}
+
+.flatpickr-day {
+    color: #fff;
+}
+
+.flatpickr-day:hover,
+.flatpickr-day:focus {
+    background: #222;
+    border-color: #fff;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.selected:hover {
+    background: #fff;
+    border-color: #fff;
+    color: #000;
+}
+
+.flatpickr-day.prevMonthDay,
+.flatpickr-day.nextMonthDay {
+    color: rgba(255, 255, 255, 0.35);
+}
+
 .submit-inquiry {
     align-self: flex-start;
     margin-top: 8px;
@@ -881,6 +960,11 @@ footer {
         height: 450px;
     }
 
+    .about-carousel {
+        max-width: 540px;
+        margin-top: 38px;
+    }
+
     .services-top {
         display: block;
     }
@@ -944,6 +1028,14 @@ footer {
 
     .about-image img {
         height: 380px;
+    }
+
+    .about-carousel {
+        width: 100%;
+    }
+
+    .about-carousel-track {
+        height: 190px;
     }
 
     .feature {
