@@ -54,7 +54,7 @@ document.getElementById("storyContent").innerHTML = `
     <section class="full-image reveal"><img src="${image(1)}" alt="${story.names} wedding story"></section>
     <section class="image-story reveal"><div class="image-story-image"><img src="${image(2, 1400)}" alt="${copy.beforeImageAlt}"></div><div class="image-story-text"><p class="section-label">${copy.beforeLabel}</p><h2>${copy.beforeTitle}</h2><p>${copy.beforeText}</p></div></section>
     <section class="image-pair reveal"><div class="image"><img src="${image(3, 1400)}" alt="Wedding details for ${story.names}"></div><div class="image"><img src="${image(4, 1400)}" alt="${story.names} portrait"></div></section>
-    ${videoId ? `<section class="highlights reveal" aria-labelledby="highlightsTitle"><div class="highlights-heading"><div><p class="section-label">${copy.videoLabel}</p><h2 id="highlightsTitle">${copy.videoTitle}</h2></div><p>${copy.videoText}</p></div><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}" title="${copy.videoTitle}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></section>` : ""}
+    ${videoId ? `<section class="highlights reveal" aria-labelledby="highlightsTitle"><div class="highlights-heading"><div><p class="section-label">${copy.videoLabel}</p><h2 id="highlightsTitle">${copy.videoTitle}</h2></div><p>${copy.videoText}</p></div><div class="video-frame" data-video-id="${encodeURIComponent(videoId)}"><div class="video-poster" style="background-image: url('https://i.ytimg.com/vi/${encodeURIComponent(videoId)}/maxresdefault.jpg');"><button class="video-play" type="button" aria-label="Play ${copy.videoTitle}"><span aria-hidden="true"></span></button><p class="video-play-label">Play highlights</p></div><iframe title="${copy.videoTitle}" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div></section>` : ""}
     <section class="cinematic reveal"><div><blockquote>&quot;${copy.quote || quote}&quot;</blockquote><small>${copy.quoteCredit}</small></div></section>
     <section class="image-story reverse reveal"><div class="image-story-text"><p class="section-label">${copy.ceremonyLabel}</p><h2>${copy.ceremonyTitle}</h2><p>${copy.ceremonyText}</p></div><div class="image-story-image"><img src="${image(5, 1400)}" alt="${copy.ceremonyImageAlt}"></div></section>
     <section class="three-grid reveal"><div class="image"><img src="${image(6, 1200)}" alt="${copy.gridImageOneAlt}"></div><div class="image"><img src="${image(7, 1200)}" alt="${copy.gridImageTwoAlt}"></div><div class="image"><img src="${image(8, 1200)}" alt="${copy.gridImageThreeAlt}"></div></section>
@@ -64,6 +64,34 @@ document.getElementById("storyContent").innerHTML = `
 
 const storyNav = document.querySelector(".story-nav");
 const revealElements = document.querySelectorAll(".reveal");
+const videoFrames = document.querySelectorAll(".video-frame[data-video-id]");
+
+function startHighlightVideo(frame, withSound = false) {
+    const videoId = frame.dataset.videoId;
+    const iframe = frame.querySelector("iframe");
+    const poster = frame.querySelector(".video-poster");
+
+    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=${withSound ? 0 : 1}&rel=0&playsinline=1`;
+    frame.classList.add("is-playing");
+    poster.setAttribute("aria-hidden", "true");
+}
+
+videoFrames.forEach(frame => {
+    frame.querySelector(".video-play").addEventListener("click", () => startHighlightVideo(frame, true));
+});
+
+if (videoFrames.length && "IntersectionObserver" in window) {
+    const videoObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains("is-playing")) {
+                startHighlightVideo(entry.target);
+                videoObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.45 });
+
+    videoFrames.forEach(frame => videoObserver.observe(frame));
+}
 
 window.addEventListener("scroll", () => {
     storyNav.classList.toggle("scrolled", window.scrollY > 45);
