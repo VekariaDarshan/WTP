@@ -72,7 +72,16 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .highlights h2 { font-family: var(--serif); font-size: clamp(44px, 5vw, 70px); font-weight: 400; line-height: 1; }
 .highlights-heading p { max-width: 300px; color: var(--muted); font-size: 13px; line-height: 1.8; }
 .video-frame { position: relative; width: min(100%, 900px); aspect-ratio: 16 / 8.5; margin: 0 auto; overflow: hidden; border: 1px solid var(--line); background: #000; }
-.video-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
+.video-frame iframe, .video-poster { position: absolute; inset: 0; width: 100%; height: 100%; }
+.video-frame iframe { z-index: 1; display: block; border: 0; opacity: 0; transition: opacity .5s ease; }
+.video-poster { z-index: 2; display: grid; place-items: center; background-color: #111; background-position: center; background-size: cover; transition: opacity .5s ease, visibility .5s ease; }
+.video-poster::before { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,.52), rgba(0,0,0,.2) 55%, rgba(0,0,0,.7)); content: ""; }
+.video-play { position: relative; z-index: 1; display: grid; width: 72px; height: 72px; place-items: center; border: 1px solid rgba(255,255,255,.75); border-radius: 50%; background: rgba(8,9,9,.3); color: #fff; cursor: pointer; transition: transform .3s ease, background .3s ease; }
+.video-play:hover { transform: scale(1.08); background: rgba(8,9,9,.65); }
+.video-play span { width: 0; height: 0; margin-left: 5px; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 12px solid #fff; }
+.video-play-label { position: absolute; bottom: 24px; z-index: 1; color: #fff; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; }
+.video-frame.is-playing iframe { opacity: 1; }
+.video-frame.is-playing .video-poster { visibility: hidden; opacity: 0; pointer-events: none; }
 
 .cinematic { display: grid; min-height: 78vh; place-items: center; padding: 50px 7%; text-align: center; background: linear-gradient(rgba(0,0,0,.42), rgba(0,0,0,.78)), var(--cinematic-image) center / cover; }
 .cinematic blockquote { max-width: 850px; font-family: var(--serif); font-size: clamp(42px, 6vw, 78px); font-style: italic; line-height: 1.08; }
