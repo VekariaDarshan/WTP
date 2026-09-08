@@ -88,6 +88,7 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 
 const inquiryModal = document.getElementById("inquiryModal");
 const openInquiryModal = document.getElementById("openInquiryModal");
+const openInquiryNav = document.getElementById("openInquiryNav");
 const closeInquiryModal = document.getElementById("closeInquiryModal");
 const inquiryForm = document.getElementById("inquiryForm");
 const eventDateInput = document.getElementById("date");
@@ -154,6 +155,14 @@ if (inquiryForm) {
 
 if (inquiryModal && openInquiryModal) {
     openInquiryModal.addEventListener("click", () => {
+        inquiryModal.classList.add("open");
+        inquiryModal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+    });
+}
+
+if (inquiryModal && openInquiryNav) {
+    openInquiryNav.addEventListener("click", () => {
         inquiryModal.classList.add("open");
         inquiryModal.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
