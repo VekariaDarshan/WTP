@@ -717,25 +717,73 @@ section {
 }
 
 .flatpickr-calendar {
-    background: #000;
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
-    color: #fff;
+    background: rgba(13, 13, 13, 0.72) !important;
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.45) !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45) !important;
+    color: #fff !important;
 }
 
 .flatpickr-months,
+.flatpickr-month,
+.flatpickr-innerContainer,
+.flatpickr-rContainer,
 .flatpickr-weekdays,
+.flatpickr-week,
 .flatpickr-weekday,
-.flatpickr-current-month,
-.flatpickr-current-month input.cur-year,
-.flatpickr-current-month .flatpickr-monthDropdown-months {
-    background: #000;
-    color: #fff;
+.flatpickr-current-month {
+    background: transparent !important;
+    color: #fff !important;
+}
+
+.flatpickr-days,
+.dayContainer {
+    background: transparent !important;
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months,
+.flatpickr-current-month .flatpickr-monthDropdown-months option,
+.flatpickr-current-month input.cur-year {
+    background: #0d0d0d !important;
+    color: #fff !important;
+}
+
+.flatpickr-current-month input.cur-year {
+    border: 0 !important;
+    color-scheme: dark;
+}
+
+.flatpickr-current-month .numInputWrapper span.arrowUp,
+.flatpickr-current-month .numInputWrapper span.arrowDown {
+    opacity: 1 !important;
+}
+
+.flatpickr-current-month .numInputWrapper span.arrowUp:after {
+    border-bottom-color: #fff !important;
+}
+
+.flatpickr-current-month .numInputWrapper span.arrowDown:after {
+    border-top-color: #fff !important;
+}
+
+.flatpickr-current-month input.cur-year::-webkit-inner-spin-button {
+    opacity: 1;
+    filter: invert(1);
+}
+
+.flatpickr-prev-month,
+.flatpickr-next-month {
+    color: #fff !important;
+    opacity: 1 !important;
 }
 
 .flatpickr-prev-month svg,
 .flatpickr-next-month svg {
-    fill: #fff;
+    fill: #fff !important;
+    stroke: #fff !important;
+    stroke-width: 1.5 !important;
+    filter: none !important;
 }
 
 .flatpickr-day {
