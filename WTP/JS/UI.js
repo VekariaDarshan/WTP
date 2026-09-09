@@ -92,7 +92,7 @@ const openInquiryNav = document.getElementById("openInquiryNav");
 const closeInquiryModal = document.getElementById("closeInquiryModal");
 const inquiryForm = document.getElementById("inquiryForm");
 const eventDateInput = document.getElementById("date");
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxGcPFLEpCh8n3LE86p-kj8wQYEDTeiPSyJA5eT7lWOWIJU_qxEOwRYnQCtarj9vHTA/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyn6dvVzVVyQ02Vuk3SrxL6HhvwNvlGySWN9JHcd3xJuxaMu76lTJ3uW3fq6So8qX1fnA/exec";
 
 if (eventDateInput && typeof flatpickr === "function") {
     flatpickr(eventDateInput, {
