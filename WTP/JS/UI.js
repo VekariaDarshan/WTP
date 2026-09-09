@@ -134,9 +134,16 @@ if (inquiryForm) {
             });
 
             const resultText = await response.text();
+            let result;
 
-            if (!response.ok) {
-                throw new Error(resultText || "Request failed");
+            try {
+                result = JSON.parse(resultText);
+            } catch {
+                throw new Error("The Google Sheets endpoint returned an invalid response.");
+            }
+
+            if (!response.ok || result.success !== true) {
+                throw new Error(result.error || "The inquiry could not be saved.");
             }
 
             inquiryForm.reset();
