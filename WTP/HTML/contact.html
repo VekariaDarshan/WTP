@@ -10,7 +10,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <link rel="stylesheet" href="../CSS/UI.css">
 <link rel="stylesheet" href="../CSS/contact.css">
 </head>
@@ -29,10 +28,10 @@
         <a href="../Index.html#about">About</a>
         <a href="gallery.html">Portfolio</a>
         <a href="../Index.html#services">Services</a>
-        <a href="contact.html" class="active">Contact</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScM19-hoWsNJ1NWmWX49GEh7Cu6SRGiVkOaPBXn4LMgafwokw/viewform?usp=header" class="active">Contact</a>
     </nav>
 
-    <a href="contact.html" class="nav-button">Let's Create</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScM19-hoWsNJ1NWmWX49GEh7Cu6SRGiVkOaPBXn4LMgafwokw/viewform?usp=header" class="nav-button">Let's Create</a>
     <button class="menu-btn" id="menuBtn" type="button" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
 </header>
 
@@ -50,64 +49,22 @@
     </section>
 
     <section class="contact-form-section">
-        <div class="contact-grid">
-            <div class="contact-copy reveal">
+        <div class="embedded-contact reveal">
+            <div class="embedded-contact-heading">
                 <div class="section-label">Inquiries</div>
                 <h2>Your story<br>starts here.</h2>
-                <p>We photograph honest connection, quiet details and the joyful chaos in between.</p>
-                <div class="contact-details">
-                    <p>we.the.photographerss@gmail.com</p>
-                    <p>Kenya: +254 789 377273</p>
-                </div>
+                <p>Complete the booking form below and tell us how we can help document your story.</p>
             </div>
-
-            <form class="contact-form reveal" id="inquiryForm">
-                <div class="contact-field-row">
-                    <label>
-                        <span>Name*</span>
-                        <input type="text" name="name" required>
-                    </label>
-                    <label>
-                        <span>Email*</span>
-                        <input type="email" name="email" required>
-                    </label>
-                </div>
-
-                <label>
-                    <span>Whatsapp No.*</span>
-                    <input type="tel" name="whatsapp" required>
-                </label>
-
-                <label>
-                    <span>Tell us more about your wedding, event flow and venues.*</span>
-                    <textarea name="details" rows="4" required></textarea>
-                </label>
-
-                <div class="contact-field-row">
-                    <label>
-                        <span>Location of the event*</span>
-                        <input type="text" name="location" required>
-                    </label>
-                    <label>
-                        <span>Event date*</span>
-                        <input type="text" name="date" id="date" placeholder="Select event date(s)" required>
-                    </label>
-                </div>
-
-                <label>
-                    <span>No. of days*</span>
-                    <select name="days" required>
-                        <option value="" selected>Select days</option>
-                        <option value="1 Day">1 Day</option>
-                        <option value="2 Days">2 Days</option>
-                        <option value="3 Days">3 Days</option>
-                        <option value="4+ Days">4+ Days</option>
-                    </select>
-                </label>
-
-                <button type="submit" class="submit-inquiry">Submit inquiry</button>
-                <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-            </form>
+            <div class="google-form-frame">
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLScM19-hoWsNJ1NWmWX49GEh7Cu6SRGiVkOaPBXn4LMgafwokw/viewform?embedded=true"
+                    title="Event booking form"
+                    loading="lazy"
+                    allow="fullscreen"
+                >
+                    Loading the booking form...
+                </iframe>
+            </div>
         </div>
     </section>
 </main>
@@ -125,8 +82,6 @@
     <div class="footer-copy">&copy; 2026 We, The Photographers</div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="../JS/UI.js"></script>
-<script src="../JS/contact.js"></script>
 </body>
 </html>
