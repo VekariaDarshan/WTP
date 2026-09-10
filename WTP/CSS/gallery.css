@@ -418,6 +418,11 @@ button {
 }
 
 @media (max-width: 850px) {
+    .gallery-cta {
+        grid-template-columns: 1fr 1px 1fr;
+        gap: 32px;
+    }
+
     .gallery-intro {
         grid-template-columns: 1fr 1fr;
     }
@@ -510,7 +515,15 @@ button {
     .intro-side {
         display: grid;
         grid-template-columns: 1px 1fr;
+        column-gap: 10px;
         margin-top: 30px;
+        padding-left: 12px;
+    }
+
+    .intro-rule {
+        align-self: start;
+        height: 56px;
+        min-height: 0;
     }
 
     .gallery-controls {
@@ -529,9 +542,13 @@ button {
 
     .gallery-cta {
         display: grid;
-        grid-template-columns: 1fr 1px;
+        grid-template-columns: 1fr;
         gap: 24px;
         padding: 48px 6%;
+    }
+
+    .gallery-cta .cta-rule {
+        display: none;
     }
 
     .gallery-cta h2 {
@@ -543,10 +560,10 @@ button {
     }
 
     .cta-logo {
-        position: absolute;
-        right: 6%;
-        width: 112px;
-        margin-top: 145px;
+        position: static;
+        justify-self: center;
+        width: clamp(96px, 30vw, 140px);
+        margin: 4px auto 0;
     }
 }
 

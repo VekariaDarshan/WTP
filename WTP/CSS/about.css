@@ -383,6 +383,21 @@
 }
 
 @media (max-width: 900px) {
+    .about-hero {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        gap: 60px;
+        padding: 140px 6% 100px;
+    }
+
+    .about-hero-image {
+        width: min(100%, 620px);
+    }
+
+    .about-hero-image img {
+        height: min(560px, 72vw);
+    }
+
     .story-section,
     .philosophy-grid {
         grid-template-columns: 1fr;
