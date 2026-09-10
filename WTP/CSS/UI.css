@@ -884,6 +884,16 @@ footer {
 }
 
 @media (max-width: 900px) {
+    .navbar,
+    .navbar.scrolled {
+        padding-inline: clamp(18px, 6vw, 48px);
+        gap: 18px;
+    }
+
+    .logo {
+        width: min(132px, 42vw);
+    }
+
     .nav-button {
         display: none;
     }
@@ -892,6 +902,9 @@ footer {
         display: block;
         position: relative;
         z-index: 1200;
+        flex: 0 0 44px;
+        width: 44px;
+        height: 44px;
         transition: opacity 0.25s ease, transform 0.25s ease;
     }
 
@@ -906,7 +919,7 @@ footer {
         top: 0;
         right: 0;
         left: auto;
-        width: min(330px, 88vw);
+        width: min(330px, calc(100vw - 28px));
         height: 100dvh;
         display: flex;
         flex-direction: column;
@@ -1094,13 +1107,8 @@ footer {
         gap: 5px;
     }
 
-    .navbar,
-    .navbar.scrolled {
-        padding: 17px 6%;
-    }
-
     .logo {
-        width: 132px;
+        width: min(124px, 43vw);
     }
 
     .menu-btn {
