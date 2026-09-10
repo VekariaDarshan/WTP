@@ -127,7 +127,7 @@ button {
 }
 
 .nav-links a {
-    font-size: 11px;
+    font-size: 15px;
     letter-spacing: 2px;
     text-transform: uppercase;
     position: relative;
@@ -154,7 +154,7 @@ button {
     background: transparent;
     color: inherit;
     cursor: pointer;
-    font-size: 10px;
+    font-size: 24px;
     letter-spacing: 2px;
     text-transform: uppercase;
     transition: 0.3s;
@@ -969,7 +969,7 @@ footer {
     }
 
     .nav-links a {
-        font-size: 14px;
+        font-size: 24px;
         letter-spacing: 3px;
         opacity: 0;
         transform: translateX(18px);
