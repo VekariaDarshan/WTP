@@ -9,8 +9,8 @@ html {
 }
 
 body {
-    background: #c7a76a;
-    color: #f4f0e8;
+    background: #1c1c1c;
+    color: #ffffff;
     font-family: "DM Sans", sans-serif;
     overflow-x: hidden;
 }
@@ -31,12 +31,12 @@ button {
 }
 
 :root {
-    --black: #080909;
-    --black-soft: #101111;
-    --cream: #f4f0e8;
-    --muted: #d4d4d4;
-    --gold: #c7a76a;
-    --border: rgba(255,255,255,0.13);
+    --black: #241e16;
+    --black-soft: #3a2d1d;
+    --cream: #ffffff;
+    --muted: rgba(255, 255, 255, 0.78);
+    --gold: #000000;
+    --border: rgba(36,30,22,0.2);
     --serif: "Playfair Display", serif;
 }
 
@@ -52,10 +52,11 @@ button {
     justify-content: space-between;
     transition: 0.4s ease;
     background-color: #c7a76a;
+    color: #ffffff;
 }
 
 .navbar.scrolled {
-    background: rgba(199, 167, 106, 0.1);
+    background: rgba(28, 28, 28, 0.94);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid var(--border);
     padding: 17px 5%;
@@ -131,6 +132,7 @@ button {
     letter-spacing: 2px;
     text-transform: uppercase;
     position: relative;
+    color: #ffffff;
 }
 
 .nav-links a::after {
@@ -152,7 +154,7 @@ button {
     border: 1px solid rgba(255,255,255,0.5);
     padding: 13px 23px;
     background: transparent;
-    color: inherit;
+    color: #ffffff;
     cursor: pointer;
     font-size: 24px;
     letter-spacing: 2px;
@@ -183,6 +185,7 @@ button {
     position: relative;
     display: flex;
     align-items: center;
+    color: var(--cream);
     background:
         linear-gradient(
             90deg,
@@ -288,6 +291,7 @@ section {
     gap: 8%;
     align-items: center;
     background: #c7a76a;
+    color: #ffffff;
 }
 
 .about-image {
@@ -386,7 +390,8 @@ section {
 }
 
 .services {
-    background: #c7a76a;
+    background: #1c1c1c;
+    color: #ffffff;
 }
 
 .services-top {
@@ -458,6 +463,7 @@ section {
     min-height: 650px;
     display: flex;
     align-items: center;
+    color: var(--cream);
 }
 
 .featured-content {
@@ -494,6 +500,7 @@ section {
 .cta {
     text-align: center;
     padding: 110px 20px;
+    color: var(--cream);
     background: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.95)), url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=2200&q=90") center/cover;
 }
 
@@ -832,7 +839,8 @@ section {
 }
 
 footer {
-    background: #c7a76a;
+    background: #1c1c1c;
+    color: var(--cream);
     padding: 55px 7%;
     display: flex;
     justify-content: space-between;

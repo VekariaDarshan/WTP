@@ -9,7 +9,8 @@
     gap: 10%;
     min-height: 520px;
     padding: 110px 7% 90px;
-    background: radial-gradient(circle at 72% 15%, rgba(199, 167, 106, 0.12), transparent 34%), #0b0c0c;
+    background: radial-gradient(circle at 72% 15%, rgba(199, 167, 106, 0.22), transparent 34%), #c7a76a;
+    color: #241e16;
 }
 
 .contact-intro-copy {
@@ -59,7 +60,8 @@
 
 .contact-form-section {
     padding: 125px 7%;
-    background: #101111;
+    background: #efe3cf;
+    color: #241e16;
 }
 
 .embedded-contact {

@@ -1,7 +1,7 @@
 :root {
-    --about-black-soft: #0d100f;
-    --about-gold-light: #e2c99a;
-    --about-line: rgba(220, 197, 153, 0.22);
+    --about-black-soft: #3a2d1d;
+    --about-gold-light: #6d4f22;
+    --about-line: rgba(36, 30, 22, 0.24);
 }
 
 .about-hero {
@@ -11,7 +11,8 @@
     gap: 8%;
     min-height: 720px;
     padding: 150px 7% 100px;
-    background: radial-gradient(circle at 18% 35%, rgba(199, 167, 106, 0.1), transparent 31%), #080909;
+    background: radial-gradient(circle at 18% 35%, rgba(199, 167, 106, 0.22), transparent 31%), #c7a76a;
+    color: #241e16;
 }
 
 .about-hero-copy {
@@ -86,7 +87,7 @@
     gap: 12%;
     padding-top: 155px;
     padding-bottom: 155px;
-    background: radial-gradient(circle at 78% 38%, rgba(199, 167, 106, 0.07), transparent 34%), linear-gradient(135deg, #0b0d0c, #101211 55%, #0b0d0c);
+    background: radial-gradient(circle at 78% 38%, rgba(199, 167, 106, 0.18), transparent 34%), #efe3cf;
     border-bottom: 1px solid var(--border);
 }
 
@@ -248,7 +249,7 @@
 }
 
 .values-section {
-    background: #0b0e0d;
+    background: #c7a76a;
 }
 
 .values-grid {
@@ -361,7 +362,7 @@
 
 .about-cta {
     padding: 120px 6.8%;
-    background: #0b0e0d;
+    background: #241e16;
     text-align: center;
 }
 

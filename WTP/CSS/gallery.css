@@ -5,11 +5,11 @@
 }
 
 :root {
-    --black: #080a09;
-    --cream: #f3eee5;
-    --muted: #a9a59d;
-    --gold: #c8a878;
-    --line: rgba(244, 240, 232, 0.28);
+    --black: #241e16;
+    --cream: #fff8eb;
+    --muted: #6d5b42;
+    --gold: #c7a76a;
+    --line: rgba(36, 30, 22, 0.24);
     --serif: "Playfair Display", Georgia, serif;
 }
 
@@ -20,8 +20,8 @@ html {
 body {
     min-width: 320px;
     overflow-x: hidden;
-    background: var(--black);
-    color: var(--cream);
+    background: #efe3cf;
+    color: #241e16;
     font-family: "DM Sans", sans-serif;
     font-weight: 300;
 }
@@ -56,7 +56,7 @@ button {
 
 .site-header.scrolled {
     padding-block: 13px;
-    background: rgba(8, 10, 9, 0.88);
+    background: rgba(239, 227, 207, 0.94);
     backdrop-filter: blur(14px);
 }
 
@@ -137,7 +137,7 @@ button {
     gap: 8%;
     min-height: 0;
     padding: 175px 7% 70px;
-    background: radial-gradient(circle at 55% -20%, rgba(82, 88, 78, 0.18), transparent 44%);
+    background: radial-gradient(circle at 55% -20%, rgba(199, 167, 106, 0.22), transparent 44%), #c7a76a;
 }
 
 .eyebrow {
