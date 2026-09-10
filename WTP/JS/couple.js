@@ -12,7 +12,7 @@ const stories = {
 };
 
 const imageSets = [
-    "d155fe7ac01d02eb/IQC5KBzWAgaRSqbLA67GSiCyAakHg-VZNZuWfCnDODmVbxE?e=3XWdRh",
+    "DSC06483.jpg",
     "photo-1522673607200-164d1b6ce486",
     "photo-1511285560929-80b456fea0bc",
     "photo-1519225421980-715cb0215aed",
@@ -24,7 +24,7 @@ const imageSets = [
     "photo-1544078751-58fee2d8a03b"
 ];
 
-const imageUrl = (id, width = 2200) => `https://1drv.ms/i/c/${id}?width=${width}&height=0&cropmode=none`;
+const imageUrl = (id, width = 2200) => `../IMAGES/${id}?w=${width}&q=80&fm=webp`;
 const browserImageUrl = source => {
     if (typeof source !== "string" || !source.includes("1drv.ms")) return source;
     return `${source}${source.includes("?") ? "&" : "?"}download=1`;
