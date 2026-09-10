@@ -443,11 +443,12 @@ button {
 
 @media (max-width: 620px) {
     .site-header {
-        padding: 18px 6%;
+        gap: 16px;
+        padding: 16px 6%;
     }
 
     .brand img {
-        width: 126px;
+        width: min(126px, 42vw);
     }
 
     .header-cta {
@@ -456,20 +457,23 @@ button {
 
     .nav-toggle {
         display: block;
+        flex: 0 0 44px;
+        width: 44px;
+        height: 44px;
         font-size: 24px;
         line-height: 1;
     }
 
     .site-nav {
         position: fixed;
-        inset: 0 0 0 25%;
+        inset: 0 0 0 clamp(18px, 15vw, 25%);
         z-index: 11;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
         gap: 28px;
-        padding: 30px;
+        padding: 76px 26px 30px;
         background: #101311;
         box-shadow: -16px 0 50px rgba(0, 0, 0, 0.35);
         transform: translateX(100%);
