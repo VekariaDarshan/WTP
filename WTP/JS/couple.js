@@ -1,6 +1,6 @@
 const stories = {
     "shrutika-sandeep": { names: "Shrutika & Sandeep" },
-    "neha-arjun": { names: "Neha & Arjun" },
+    "darshni-diven": { names: "Darshni & Diven" },
     "priya-rohan": { names: "Priya & Rohan" },
     "ananya-karan": { names: "Ananya & Karan" },
     "meera-aditya": { names: "Meera & Aditya" },
@@ -12,7 +12,7 @@ const stories = {
 };
 
 const imageSets = [
-    "photo-1519741497674-611481863552",
+    "d155fe7ac01d02eb/IQC5KBzWAgaRSqbLA67GSiCyAakHg-VZNZuWfCnDODmVbxE?e=3XWdRh",
     "photo-1522673607200-164d1b6ce486",
     "photo-1511285560929-80b456fea0bc",
     "photo-1519225421980-715cb0215aed",
@@ -24,7 +24,11 @@ const imageSets = [
     "photo-1544078751-58fee2d8a03b"
 ];
 
-const imageUrl = (id, width = 2200) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=90`;
+const imageUrl = (id, width = 2200) => `https://1drv.ms/i/c/${id}?width=${width}&height=0&cropmode=none`;
+const browserImageUrl = source => {
+    if (typeof source !== "string" || !source.includes("1drv.ms")) return source;
+    return `${source}${source.includes("?") ? "&" : "?"}download=1`;
+};
 const storyKey = document.body.dataset.couple;
 const story = stories[storyKey];
 const storyIndex = Object.keys(stories).indexOf(storyKey);
@@ -64,15 +68,25 @@ const pageImages = configuredImages.map(source => {
 const image = offset => pageImages[offset % pageImages.length].src;
 const resolveImageSource = source => {
     if (typeof source === "object") return source.src || resolveImageSource(source.id);
-    return source.startsWith("http") ? source : imageUrl(source);
+    return source.startsWith("http") ? browserImageUrl(source) : imageUrl(source);
 };
 const sectionImage = (section, fallbackOffset) => section && section.image !== undefined ? (typeof section.image === "number" ? image(section.image) : resolveImageSource(section.image)) : image(fallbackOffset);
 const galleryImages = pageImages.slice(0, 15);
 
+const heroImage = sectionImage(sections.hero, 0);
+
 document.title = `${story.names} - Wedding Story`;
-document.body.style.setProperty("--hero-image", `url("${sectionImage(sections.hero, 0)}")`);
+document.body.style.setProperty("--hero-image", `url("${heroImage}")`);
 document.body.style.setProperty("--cinematic-image", `url("${image(2)}")`);
 document.body.style.setProperty("--final-image", `url("${sectionImage(sections.final, 4)}")`);
+
+if (heroImage.includes("1drv.ms")) {
+    const heroPreload = new Image();
+    heroPreload.onerror = () => {
+        document.body.style.setProperty("--hero-image", `url("${image(0)}")`);
+    };
+    heroPreload.src = heroImage;
+}
 
 document.getElementById("storyContent").innerHTML = `
     <section class="story-hero${videoId ? " story-hero--video" : ""}">

@@ -64,13 +64,14 @@
 .about-hero h1 {
     font-size: clamp(54px, 6vw, 90px);
     margin-bottom: 30px;
+    color: #1c1c1c;
 }
 
 .about-hero h1 em,
 .philosophy-grid h2 em,
 .image-break-content h2 em,
 .about-cta h2 em {
-    color: var(--about-gold-light);
+    color: #1c1c1c;
     font-style: italic;
 }
 
@@ -97,6 +98,13 @@
 .values-heading h2,
 .process-heading h2 {
     font-size: clamp(40px, 4vw, 63px);
+}
+
+.story-section h2,
+.story-section .section-label,
+.values-section h2,
+.values-section .section-label {
+    color: #1c1c1c;
 }
 
 .story-copy {
@@ -527,6 +535,29 @@
     .about-cta {
         padding: 90px 7%;
     }
+}
+
+.about-hero,
+.story-section,
+.values-section {
+    color: #1c1c1c;
+}
+
+.about-hero .eyebrow,
+.about-hero .about-lead,
+.story-section .section-label,
+.story-section p,
+.values-section .section-label,
+.values-section p,
+.values-section h3 {
+    color: rgba(28, 28, 28, 0.78);
+}
+
+.about-cta,
+.about-cta h2,
+.about-cta .section-label,
+.about-cta p {
+    color: #ffffff;
 }
 
 .team-grid {

@@ -31,12 +31,17 @@ button {
 }
 
 :root {
+    --dark-bg: #1c1c1c;
+    --gold-bg: #c7a76a;
     --black: #241e16;
     --black-soft: #3a2d1d;
     --cream: #ffffff;
-    --muted: #1c1c1cc7;
-    --gold: #000000;
-    --border: rgba(36,30,22,0.2);
+    --dark-text: #1c1c1c;
+    --muted-light: rgba(255, 255, 255, 0.78);
+    --muted-dark: rgba(28, 28, 28, 0.72);
+    --muted: var(--muted-light);
+    --gold: #c7a76a;
+    --border: rgba(255, 255, 255, 0.2);
     --serif: "Playfair Display", serif;
 }
 
@@ -51,8 +56,8 @@ button {
     align-items: center;
     justify-content: space-between;
     transition: 0.4s ease;
-    background-color: #c7a76a;
-    color: #ffffff;
+    background-color: var(--gold-bg);
+    color: var(--dark-text);
 }
 
 .navbar.scrolled {
@@ -100,7 +105,7 @@ button {
 
 .footer-brand-tag {
     margin: 0;
-    color: #c7a76ac7;
+    color: rgba(255, 255, 255, 0.78);
     font-size: 9px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -132,7 +137,7 @@ button {
     letter-spacing: 2px;
     text-transform: uppercase;
     position: relative;
-    color: #ffffff;
+    color: var(--dark-text);
 }
 
 .nav-links a::after {
@@ -154,9 +159,10 @@ button {
     border: 1px solid rgba(255,255,255,0.5);
     padding: 13px 23px;
     background: transparent;
-    color: #ffffff;
+    color: var(--dark-text);
     cursor: pointer;
-    font-size: 24px;
+    font-size: 12px;
+    line-height: 1.2;
     letter-spacing: 2px;
     text-transform: uppercase;
     transition: 0.3s;
@@ -290,8 +296,12 @@ section {
     grid-template-columns: minmax(220px, 1fr) minmax(300px, 1.3fr) minmax(150px, 0.7fr);
     gap: 8%;
     align-items: center;
-    background: #c7a76a;
-    color: #ffffff;
+    background: var(--gold-bg);
+    color: var(--dark-text);
+}
+
+.about .section-label {
+    color: var(--dark-text);
 }
 
 .about-image {
@@ -320,14 +330,14 @@ section {
 }
 
 .about-content p {
-    color: var(--muted);
+    color: var(--muted-dark);
     line-height: 1.9;
     max-width: 550px;
     margin-bottom: 35px;
 }
 
 .about-features {
-    border-left: 1px solid var(--gold);
+    border-left: 1px solid var(--dark-text);
     padding-left: 30px;
     display: grid;
     gap: 22px;
@@ -378,7 +388,7 @@ section {
 }
 
 .feature span:first-child {
-    color: var(--gold);
+    color: var(--dark-text);
     font-family: var(--serif);
     font-size: 20px;
 }
@@ -390,7 +400,7 @@ section {
 }
 
 .services {
-    background: #1c1c1c;
+    background: var(--dark-bg);
     color: #ffffff;
 }
 
@@ -403,7 +413,7 @@ section {
 
 .services-description {
     max-width: 390px;
-    color: var(--muted);
+    color: var(--muted-light);
     line-height: 1.7;
 }
 
@@ -942,6 +952,7 @@ footer {
         transform: translateX(100%) scaleX(0.94);
         transform-origin: right center;
         transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease, visibility 0.45s ease;
+        color: #ffffff;
     }
 
     .nav-links.mobile-active {
@@ -979,6 +990,7 @@ footer {
     .nav-links a {
         font-size: 24px;
         letter-spacing: 3px;
+        color: #ffffff;
         opacity: 0;
         transform: translateX(18px);
         transition: opacity 0.3s ease, transform 0.3s ease;

@@ -160,3 +160,28 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
     .image-lightbox-panel { height: min(100%, 760px); }
 }
 
+.story-intro,
+.image-story,
+.story-gallery,
+.highlights {
+    color: #1c1c1c;
+}
+
+.story-intro .section-label,
+.image-story .section-label,
+.story-gallery .section-label,
+.highlights .section-label,
+.story-intro p,
+.image-story p,
+.story-gallery-heading > p,
+.highlights-heading > p {
+    color: rgba(28, 28, 28, 0.78);
+}
+
+.story-hero,
+.cinematic,
+.final-image,
+.cta {
+    color: #ffffff;
+}
+

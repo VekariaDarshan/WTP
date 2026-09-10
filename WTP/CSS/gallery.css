@@ -5,11 +5,11 @@
 }
 
 :root {
-    --black: #241e16;
-    --cream: #fff8eb;
-    --muted: #6d5b42;
-    --gold: #c7a76a;
-    --line: rgba(36, 30, 22, 0.24);
+    --black: #080a09;
+    --cream: #f3eee5;
+    --muted: #a9a59d;
+    --gold: #c8a878;
+    --line: rgba(244, 240, 232, 0.28);
     --serif: "Playfair Display", Georgia, serif;
 }
 
@@ -20,8 +20,8 @@ html {
 body {
     min-width: 320px;
     overflow-x: hidden;
-    background: #efe3cf;
-    color: #241e16;
+    background: var(--black);
+    color: var(--cream);
     font-family: "DM Sans", sans-serif;
     font-weight: 300;
 }
@@ -56,7 +56,7 @@ button {
 
 .site-header.scrolled {
     padding-block: 13px;
-    background: rgba(239, 227, 207, 0.94);
+    background: rgba(8, 10, 9, 0.88);
     backdrop-filter: blur(14px);
 }
 
@@ -137,12 +137,13 @@ button {
     gap: 8%;
     min-height: 0;
     padding: 175px 7% 70px;
-    background: radial-gradient(circle at 55% -20%, rgba(199, 167, 106, 0.22), transparent 44%), #c7a76a;
+    background: radial-gradient(circle at 55% -20%, rgba(82, 88, 78, 0.18), transparent 44%);
+    color: #ffffff;
 }
 
 .eyebrow {
     margin-bottom: 14px;
-    color: var(--gold);
+    color: #ffffff;
 }
 
 .gallery-intro h1,
@@ -170,7 +171,7 @@ button {
 
 .intro-side p,
 .cta-copy p {
-    color: var(--muted);
+    color: #ffffff;
     font-size: 14px;
     line-height: 1.8;
 }
@@ -234,7 +235,7 @@ button {
 
 .carousel-heading > p {
     max-width: 260px;
-    color: var(--muted);
+    color: #ffffff;
     font-size: 12px;
     line-height: 1.6;
     text-align: right;
@@ -328,6 +329,14 @@ button {
     .carousel-track {
         animation: none;
     }
+}
+
+:root {
+    --black: #1c1c1c;
+    --cream: #ffffff;
+    --muted: rgba(255, 255, 255, 0.78);
+    --gold: #c7a76a;
+    --line: rgba(255, 255, 255, 0.24);
 }
 
 .card-overlay {
@@ -515,15 +524,14 @@ button {
     .intro-side {
         display: grid;
         grid-template-columns: 1px 1fr;
-        column-gap: 10px;
+        border-left: 0;
         margin-top: 30px;
-        padding-left: 12px;
     }
 
     .intro-rule {
-        align-self: start;
-        height: 56px;
-        min-height: 0;
+        align-self: stretch;
+        height: auto;
+        min-height: 56px;
     }
 
     .gallery-controls {

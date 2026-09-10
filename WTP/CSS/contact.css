@@ -287,3 +287,24 @@
         width: 100%;
     }
 }
+
+.contact-intro {
+    color: #1c1c1c;
+}
+
+.contact-intro .section-label,
+.contact-intro-copy > p,
+.contact-intro-note {
+    color: rgba(28, 28, 28, 0.78);
+}
+
+.contact-form-section {
+    color: #1c1c1c;
+}
+
+.contact-form-section .section-label,
+.contact-copy > p,
+.contact-details,
+.contact-form label {
+    color: rgba(28, 28, 28, 0.78);
+}

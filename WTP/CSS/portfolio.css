@@ -173,3 +173,18 @@
         left: 20px;
     }
 }
+
+.portfolio-intro,
+.portfolio-projects {
+    color: #ffffff;
+}
+
+.portfolio-intro .section-label,
+.portfolio-intro > p {
+    color: rgba(255, 255, 255, 0.84);
+}
+
+.portfolio-hero,
+.portfolio-cta {
+    color: #ffffff;
+}

@@ -35,7 +35,7 @@ document.querySelectorAll(".site-nav a").forEach(link => {
 });
 
 const storyPages = [
-    ["shrutika-sandeep.html", "neha-arjun.html", "priya-rohan.html", "ananya-karan.html", "meera-aditya.html"],
+    ["shrutika-sandeep.html", "darshni-diven.html", "priya-rohan.html", "ananya-karan.html", "meera-aditya.html"],
     ["shreya-varun.html", "aisha-daniel.html", "riya-kabir.html", "divya-sameer.html", "simran-yash.html"]
 ];
 
