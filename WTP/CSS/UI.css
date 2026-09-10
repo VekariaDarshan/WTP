@@ -357,7 +357,9 @@ section {
 }
 
 .about-slide img {
-    height: 270px;
+    width: min(100%, clamp(180px, 72vw, 420px));
+    height: 220px;
+    margin-inline: auto;
     padding: 24px 18px 42px;
     object-fit: contain;
     filter: none;
@@ -884,6 +886,10 @@ footer {
 }
 
 @media (max-width: 900px) {
+    section {
+        padding: 100px 6%;
+    }
+
     .nav-button {
         display: none;
     }
@@ -995,11 +1001,12 @@ footer {
     }
 
     .hero {
-        min-height: 90vh;
+        min-height: 100svh;
         background-position: 62% center;
     }
 
     .hero-content {
+        width: min(650px, 88%);
         margin-left: 6%;
     }
 
@@ -1014,6 +1021,15 @@ footer {
     .about-carousel {
         max-width: 540px;
         margin-top: 38px;
+    }
+
+    .about {
+        padding-bottom: 240px;
+    }
+
+    .about-slide img {
+        width: min(100%, clamp(180px, 72vw, 420px));
+        height: 220px;
     }
 
     .services-top {
@@ -1031,14 +1047,26 @@ footer {
     .gallery-frame {
         position: relative;
         right: auto;
-        width: 80%;
+        width: min(100%, 680px);
         margin: 60px auto 0;
     }
 
     .featured {
         display: block;
+        min-height: 0;
         padding-top: 100px;
         padding-bottom: 100px;
+    }
+
+    .inquiry-modal {
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+
+    .inquiry-panel {
+        min-height: 0;
+        max-height: calc(100dvh - 48px);
+        overflow-y: auto;
     }
 
     footer {
@@ -1049,15 +1077,35 @@ footer {
 
 @media (max-width: 600px) {
     section {
-        padding: 80px 6%;
+        padding: 76px 6%;
     }
 
     .hero h1 {
-        font-size: 52px;
+        font-size: clamp(42px, 13vw, 58px);
     }
 
     .hero-description {
         font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .hero-content {
+        width: 88%;
+        margin-left: 6%;
+        padding-top: 58px;
+    }
+
+    .eyebrow {
+        max-width: 250px;
+        line-height: 1.6;
+        letter-spacing: 3px;
+    }
+
+    .hero-counter {
+        right: 6%;
+        bottom: 28px;
+        font-size: 9px;
+        letter-spacing: 2px;
     }
 
     .services-grid {
@@ -1065,7 +1113,7 @@ footer {
     }
 
     .service-card img {
-        height: 420px;
+        height: min(420px, 112vw);
     }
 
     .gallery-frame {
@@ -1078,15 +1126,25 @@ footer {
     }
 
     .about-image img {
-        height: 380px;
+        height: min(380px, 105vw);
     }
 
     .about-carousel {
         width: 100%;
     }
 
+    .about {
+        padding-bottom: 200px;
+    }
+
     .about-carousel-track {
         height: 190px;
+    }
+
+    .about-slide img {
+        width: min(100%, clamp(160px, 68vw, 300px));
+        height: 190px;
+        padding: 18px 12px 24px;
     }
 
     .feature {
@@ -1108,16 +1166,11 @@ footer {
     }
 
     .inquiry-modal {
-        align-items: flex-start;
         padding: 12px;
-        overflow-y: auto;
     }
 
     .inquiry-panel {
-        width: 100%;
-        min-height: 0;
         max-height: calc(100dvh - 24px);
-        overflow-y: auto;
         padding: 58px 20px 28px;
     }
 
@@ -1152,6 +1205,10 @@ footer {
     .inquiry-copy p {
         font-size: 14px;
         line-height: 1.65;
+    }
+
+    .inquiry-form textarea {
+        min-height: 72px;
     }
 
     .inquiry-contact-list {
