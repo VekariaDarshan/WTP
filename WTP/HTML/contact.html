@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Contact We The Photographers about your wedding, event or photography story.">
+<title>Contact | We The Photographers</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" href="../CSS/UI.css">
+<link rel="stylesheet" href="../CSS/contact.css">
+</head>
+
+<body>
+<header class="navbar" id="navbar">
+    <a href="../Index.html" class="logo-link" aria-label="We The Photographers home">
+        <img src="../IMAGES/Logo White.png" alt="We The Photographers" class="logo">
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <button class="close-menu-btn" id="closeMenuBtn" type="button" aria-label="Close navigation">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <a href="../Index.html#home">Home</a>
+        <a href="../Index.html#about">About</a>
+        <a href="gallery.html">Portfolio</a>
+        <a href="../Index.html#services">Services</a>
+        <a href="contact.html" class="active">Contact</a>
+    </nav>
+
+    <a href="contact.html" class="nav-button">Let's Create</a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
+</header>
+
+<main class="contact-page">
+    <section class="contact-intro">
+        <div class="contact-intro-copy reveal">
+            <div class="section-label">Get in touch</div>
+            <h1>Let's Create<br><em>Something Beautiful.</em></h1>
+            <p>Tell us about your celebration, your people and the feeling you want to remember. We will be in touch within 48 hours.</p>
+        </div>
+        <div class="contact-intro-note reveal">
+            <span class="contact-rule" aria-hidden="true"></span>
+            <p>For accurate estimates, please share as many details as possible about your wedding or event flow, venues and dates.</p>
+        </div>
+    </section>
+
+    <section class="contact-form-section">
+        <div class="contact-grid">
+            <div class="contact-copy reveal">
+                <div class="section-label">Inquiries</div>
+                <h2>Your story<br>starts here.</h2>
+                <p>We photograph honest connection, quiet details and the joyful chaos in between.</p>
+                <div class="contact-details">
+                    <p>we.the.photographerss@gmail.com</p>
+                    <p>Kenya: +254 789 377273</p>
+                </div>
+            </div>
+
+            <form class="contact-form reveal" id="inquiryForm">
+                <div class="contact-field-row">
+                    <label>
+                        <span>Name*</span>
+                        <input type="text" name="name" required>
+                    </label>
+                    <label>
+                        <span>Email*</span>
+                        <input type="email" name="email" required>
+                    </label>
+                </div>
+
+                <label>
+                    <span>Whatsapp No.*</span>
+                    <input type="tel" name="whatsapp" required>
+                </label>
+
+                <label>
+                    <span>Tell us more about your wedding, event flow and venues.*</span>
+                    <textarea name="details" rows="4" required></textarea>
+                </label>
+
+                <div class="contact-field-row">
+                    <label>
+                        <span>Location of the event*</span>
+                        <input type="text" name="location" required>
+                    </label>
+                    <label>
+                        <span>Event date*</span>
+                        <input type="text" name="date" id="date" placeholder="Select event date(s)" required>
+                    </label>
+                </div>
+
+                <label>
+                    <span>No. of days*</span>
+                    <select name="days" required>
+                        <option value="" selected>Select days</option>
+                        <option value="1 Day">1 Day</option>
+                        <option value="2 Days">2 Days</option>
+                        <option value="3 Days">3 Days</option>
+                        <option value="4+ Days">4+ Days</option>
+                    </select>
+                </label>
+
+                <button type="submit" class="submit-inquiry">Submit inquiry</button>
+                <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="socials">
+        <a href="https://www.facebook.com/we.the.photographerss/" target="_blank" rel="noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/we.the.photographerss/" target="_blank" rel="noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.youtube.com/channel/UC5OMrnAW6bkKTpW9esV-5IA" target="_blank" rel="noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+    </div>
+    <div class="footer-logo">
+        <img src="../IMAGES/Logo White.png" alt="We The Photographers" class="logo footer-logo-image">
+        <div class="brand-tag footer-brand-tag">The Photowale: Your image, our focus.</div>
+    </div>
+    <div class="footer-copy">&copy; 2026 We, The Photographers</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="../JS/UI.js"></script>
+<script src="../JS/contact.js"></script>
+</body>
+</html>

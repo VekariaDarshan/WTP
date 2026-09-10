@@ -88,7 +88,7 @@ document.getElementById("storyContent").innerHTML = `
     <section class="image-story reverse reveal"><div class="image-story-text"><p class="section-label">${copy.ceremonyLabel}</p><h2>${copy.ceremonyTitle}</h2><p>${copy.ceremonyText}</p></div><div class="image-story-image"><img src="${sectionImage(sections.ceremony, 5)}" alt="${copy.ceremonyImageAlt}"></div></section>
     <section class="story-gallery reveal" aria-labelledby="galleryTitle"><div class="story-gallery-heading"><div><p class="section-label">The Full Story</p><h2 id="galleryTitle">Moments to<br>remember.</h2></div><p>Fifteen frames from ${story.names}'s celebration.</p></div><div class="story-gallery-grid">${galleryImages.map((galleryImage, index) => `<figure class="story-gallery-image"><img src="${galleryImage.src}" alt="${galleryImage.alt || `${story.names} wedding moment ${index + 1}`}" loading="eager"></figure>`).join("")}</div></section>
     <section class="final-image reveal"><div class="final-caption"><span>${copy.finalLabel}</span><h2>${copy.finalTitle}</h2></div></section>
-    <section class="cta reveal"><p class="section-label">${copy.ctaLabel}</p><h2>${copy.ctaTitle}</h2><p>${copy.ctaText}</p><a class="cta-button" href="../Index.html?openInquiry=1#contact">${copy.ctaButton} &rarr;</a></section>
+    <section class="cta reveal"><p class="section-label">${copy.ctaLabel}</p><h2>${copy.ctaTitle}</h2><p>${copy.ctaText}</p><a class="cta-button" href="contact.html">${copy.ctaButton} &rarr;</a></section>
 `;
 
 document.body.insertAdjacentHTML("beforeend", `

@@ -10,8 +10,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
 <link rel="stylesheet" href="CSS/UI.css">
 
 </head>
@@ -44,7 +42,7 @@
 
     </nav>
 
-    <a href="?openInquiry=1#contact" class="nav-button">
+    <a href="HTML/contact.html" class="nav-button">
         Let's Create
     </a>
 
@@ -89,85 +87,6 @@
     <div class="hero-counter">
         01 / 04 &nbsp;&nbsp; ← &nbsp; →
     </div>
-
-</section>
-
-
-<!-- =====================================================
-     ABOUT
-===================================================== -->
-
-<section class="about" id="about">
-
-    <div class="about-image reveal">
-
-        <img
-            src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=1200&q=85"
-            alt="Photographer"
-        >
-
-    </div>
-
-    <div class="about-content reveal">
-
-        <div class="section-label">
-            About Us
-        </div>
-
-        <h2 class="section-title">
-            More Than Just<br>
-            Photographs
-        </h2>
-
-        <p>
-            At We The Photographers, we don't just take pictures.
-            We tell stories. Every frame we capture is a reflection
-            of emotions, relationships and the little details that
-            make life extraordinary.
-        </p>
-
-        <a href="HTML/about.html" class="text-link">
-            <span></span>
-            Our Story →
-        </a>
-
-        <br><br><br>
-
-        <div class="about-features">
-
-            <div class="feature">
-                <span>01</span>
-                <span>Authentic Storytelling</span>
-            </div>
-
-            <div class="feature">
-                <span>02</span>
-                <span>Cinematic Approach</span>
-            </div>
-
-            <div class="feature">
-                <span>03</span>
-                <span>Personalised Experience</span>
-            </div>
-
-            <div class="feature">
-                <span>04</span>
-                <span>Everlasting Memories</span>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="about-carousel" id="aboutCarousel" aria-label="More of our photography">
-        <div class="about-carousel-track">
-            <figure class="about-slide is-active">
-                <img src="IMAGES/Old Logo White.png" alt="We The Photographers original logo">
-            </figure>
-
-            <figure class="about-slide">
-                <img src="IMAGES/Logo White.png" alt="We The Photographers logo">
-            </figure>
         </div>
     </div>
 
@@ -353,93 +272,13 @@
             Beautiful Together
         </h2>
 
-        <button type="button" class="cta-button" id="openInquiryModal">
+        <a href="HTML/contact.html" class="cta-button">
             Get In Touch →
-        </button>
+        </a>
 
     </div>
 
 </section>
-
-<div class="inquiry-modal" id="inquiryModal" aria-hidden="true">
-    <div class="inquiry-panel">
-        <button class="close-modal" id="closeInquiryModal" type="button" aria-label="Close inquiry form">
-            CLOSE
-        </button>
-
-        <div class="inquiry-brand">
-            <img src="IMAGES/Logo White.png" alt="Photowale logo" class="inquiry-logo">
-        </div>
-
-        <div class="inquiry-grid">
-            <div class="inquiry-copy">
-                <div class="section-label inquiry-label">Get in touch</div>
-                <h2 class="inquiries-title">Inquiries.</h2>
-
-                <p>
-                    Please complete the form below and provide as many details as possible to help us create an accurate estimate. 
-                </p>
-
-                <p>
-                    We aim to respond within 48 hours. If you do not hear from us or if it is an urgent inquiry, please call us at the number below.
-                </p>
-
-                <div class="inquiry-contact-list">
-                    <p>we.the.photographerss@gmail.com</p>
-                    <p>Kenya: +254 789 377273</p>
-                </div>
-            </div>
-
-            <form class="inquiry-form" id="inquiryForm">
-                <div class="field-row">
-                    <label>
-                        <span>Name*</span>
-                        <input type="text" name="name" id="name" required>
-                    </label>
-                    <label>
-                        <span>Email*</span>
-                        <input type="email" name="email" id="email" required>
-                    </label>
-                </div>
-
-                <label>
-                    <span>Whatsapp No.*</span>
-                    <input type="tel" name="whatsapp" id="whatsapp" required>
-                </label>
-
-                <label>
-                    <span>Tell us more about your wedding • event flow • venues.*</span>
-                    <textarea name="details" id="details" rows="3" required></textarea>
-                </label>
-
-                <div class="field-row two-up">
-                    <label>
-                        <span>Location of the event*</span>
-                        <input type="text" name="location" id="location" required>
-                    </label>
-                    <label>
-                        <span>Event date*</span>
-                        <input type="text" name="date" id="date" placeholder="Select event date(s)" required>
-                    </label>
-                </div>
-
-                <label>
-                    <span>No. of days*</span>
-                    <select name="days" id="days" required>
-                        <option value="" selected>Select days</option>
-                        <option value="1 Day">1 Day</option>
-                        <option value="2 Days">2 Days</option>
-                        <option value="3 Days">3 Days</option>
-                        <option value="4+ Days">4+ Days</option>
-                    </select>
-                </label>
-
-                <button type="submit" class="submit-inquiry">Submit inquiry</button>
-            </form>
-        </div>
-    </div>
-</div>
-
 
 <!-- =====================================================
      FOOTER
@@ -471,7 +310,6 @@
 </footer>
 
 
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="JS/UI.js"></script>
 
 </body>

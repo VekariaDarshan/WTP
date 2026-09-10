@@ -1,0 +1,240 @@
+.contact-page {
+    padding-top: 84px;
+}
+
+.contact-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+    align-items: end;
+    gap: 10%;
+    min-height: 520px;
+    padding: 110px 7% 90px;
+    background: radial-gradient(circle at 72% 15%, rgba(199, 167, 106, 0.12), transparent 34%), #0b0c0c;
+}
+
+.contact-intro-copy {
+    max-width: 720px;
+}
+
+.contact-intro h1,
+.contact-copy h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 0.95;
+}
+
+.contact-intro h1 {
+    font-size: clamp(50px, 7vw, 92px);
+}
+
+.contact-intro h1 em {
+    color: var(--gold);
+    font-style: italic;
+}
+
+.contact-intro-copy > p {
+    max-width: 500px;
+    margin-top: 32px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.85;
+}
+
+.contact-intro-note {
+    display: grid;
+    grid-template-columns: 1px 1fr;
+    gap: 24px;
+    max-width: 390px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.contact-rule {
+    display: block;
+    width: 1px;
+    min-height: 100%;
+    background: var(--gold);
+}
+
+.contact-form-section {
+    padding: 125px 7%;
+    background: #101111;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(48px, 10vw, 150px);
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.contact-copy {
+    padding-top: 18px;
+}
+
+.contact-copy h2 {
+    margin-bottom: 28px;
+    font-size: clamp(48px, 5vw, 70px);
+}
+
+.contact-copy > p {
+    max-width: 330px;
+    color: var(--muted);
+    line-height: 1.85;
+}
+
+.contact-details {
+    margin-top: 42px;
+    color: #d0cbc2;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+.contact-field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+}
+
+.contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    color: rgba(244, 240, 232, 0.78);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.42);
+    border-radius: 0;
+    outline: none;
+    padding: 9px 0 11px;
+    background: transparent;
+    color: var(--cream);
+    font: inherit;
+    font-size: 15px;
+    letter-spacing: 0;
+    text-transform: none;
+    appearance: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+    border-bottom-color: var(--gold);
+}
+
+.contact-form textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.contact-form select {
+    background-image: linear-gradient(45deg, transparent 50%, var(--cream) 50%), linear-gradient(135deg, var(--cream) 50%, transparent 50%);
+    background-position: calc(100% - 12px) calc(50% - 2px), calc(100% - 7px) calc(50% - 2px);
+    background-repeat: no-repeat;
+    background-size: 5px 5px, 5px 5px;
+    padding-right: 24px;
+}
+
+.contact-form select option {
+    background: #0d0d0d;
+    color: var(--cream);
+}
+
+.contact-form input::placeholder {
+    color: rgba(244, 240, 232, 0.55);
+}
+
+.contact-form .submit-inquiry {
+    align-self: flex-start;
+    margin-top: 8px;
+}
+
+.form-status {
+    min-height: 20px;
+    color: var(--gold);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+@media (max-width: 800px) {
+    .contact-intro {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        min-height: 0;
+        padding: 100px 6% 80px;
+    }
+
+    .contact-intro-note {
+        max-width: 520px;
+    }
+
+    .contact-form-section {
+        padding: 90px 6%;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 58px;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-page {
+        padding-top: 72px;
+    }
+
+    .contact-intro h1 {
+        font-size: clamp(46px, 14vw, 64px);
+    }
+
+    .contact-intro-copy > p {
+        margin-top: 24px;
+        font-size: 14px;
+    }
+
+    .contact-intro-note {
+        grid-template-columns: 1px 1fr;
+        gap: 16px;
+        font-size: 13px;
+    }
+
+    .contact-field-row {
+        grid-template-columns: 1fr;
+        gap: 26px;
+    }
+
+    .contact-form {
+        gap: 22px;
+    }
+
+    .contact-form label {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+        font-size: 14px;
+    }
+
+    .contact-form .submit-inquiry {
+        width: 100%;
+    }
+}
