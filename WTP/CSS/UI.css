@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    background: #080909;
+    background: #c7a76a;
     color: #f4f0e8;
     font-family: "DM Sans", sans-serif;
     overflow-x: hidden;
@@ -34,7 +34,7 @@ button {
     --black: #080909;
     --black-soft: #101111;
     --cream: #f4f0e8;
-    --muted: #a9a49b;
+    --muted: #d4d4d4;
     --gold: #c7a76a;
     --border: rgba(255,255,255,0.13);
     --serif: "Playfair Display", serif;
@@ -51,10 +51,11 @@ button {
     align-items: center;
     justify-content: space-between;
     transition: 0.4s ease;
+    background-color: #c7a76a;
 }
 
 .navbar.scrolled {
-    background: rgba(8,9,9,0.88);
+    background: rgba(199, 167, 106, 0.1);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid var(--border);
     padding: 17px 5%;
@@ -286,7 +287,7 @@ section {
     grid-template-columns: minmax(220px, 1fr) minmax(300px, 1.3fr) minmax(150px, 0.7fr);
     gap: 8%;
     align-items: center;
-    background: var(--black);
+    background: #c7a76a;
 }
 
 .about-image {
@@ -385,7 +386,7 @@ section {
 }
 
 .services {
-    background: #0d0e0e;
+    background: #c7a76a;
 }
 
 .services-top {
@@ -831,7 +832,7 @@ section {
 }
 
 footer {
-    background: #060707;
+    background: #c7a76a;
     padding: 55px 7%;
     display: flex;
     justify-content: space-between;
