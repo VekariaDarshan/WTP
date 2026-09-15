@@ -138,7 +138,7 @@ button {
     letter-spacing: 2px;
     text-transform: uppercase;
     position: relative;
-    color: var(--dark-text);
+    color: var(--cream);
 }
 
 .nav-links a::after {
@@ -148,7 +148,7 @@ button {
     bottom: -8px;
     width: 0;
     height: 1px;
-    background: var(--gold);
+    background: var(--gold-bg);
     transition: 0.3s;
 }
 
@@ -160,7 +160,7 @@ button {
     border: 1px solid rgba(255,255,255,0.5);
     padding: 13px 23px;
     background: transparent;
-    color: var(--dark-text);
+    color: var(--cream);
     cursor: pointer;
     font-size: 12px;
     line-height: 1.2;
@@ -178,7 +178,7 @@ button {
     display: none;
     background: none;
     border: 0;
-    color: white;
+    color: var(--cream);
     font-size: 25px;
     cursor: pointer;
 }
