@@ -9,8 +9,8 @@ html {
 }
 
 body {
-    background: #1c1c1c;
-    color: #ffffff;
+    background: #1C1C1C;
+    color: #FFFFFF;
     font-family: "DM Sans", sans-serif;
     overflow-x: hidden;
 }
@@ -31,17 +31,17 @@ button {
 }
 
 :root {
-    --dark-bg: #F7C873;
-    --gold-bg: #FAEBCD;
-    --black: #241e16;
-    --black-soft: #3a2d1d;
-    --cream: #F8F8F8;
-    --dark-text: #434343c;
-    --muted-light: rgba(255, 255, 255, 0.78);
+    --dark-bg: #1C1C1C;
+    --gold-bg: #C7A76A;
+    --black: #1C1C1C;
+    --black-soft: #1C1C1C;
+    --cream: #FFFFFF;
+    --dark-text: #1C1C1C;
+    --muted-light: rgba(255,255,255,0.82);
     --muted-dark: rgba(28, 28, 28, 0.72);
-    --muted: var(--muted-light);
-    --gold: #c7a76a;
-    --border: rgba(255, 255, 255, 0.2);
+    --muted: rgba(255,255,255,0.82);
+    --gold: #C7A76A;
+    --border: rgba(255,255,255,0.35);
     --serif: "Playfair Display", serif;
 }
 
@@ -84,7 +84,7 @@ button {
 .brand-tag {
     margin-left: 18px;
     margin-right: auto;
-    color: #c7a76ac7;
+    color: rgba(199,167,106,0.78);
     font-size: 10px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -402,8 +402,8 @@ section {
 }
 
 .services {
-    background: var(--dark-bg);
-    color: #ffffff;
+    background: var(--gold-bg);
+    color: #FFFFFF;
 }
 
 .services-top {
@@ -415,7 +415,7 @@ section {
 
 .services-description {
     max-width: 390px;
-    color: var(--muted-light);
+    color: rgba(255,255,255,0.82);
     line-height: 1.7;
 }
 
