@@ -63,6 +63,7 @@ button {
 .navbar.scrolled {
     background: rgba(28, 28, 28, 0.94);
     backdrop-filter: blur(15px);
+    color: var(--muted-light);
     border-bottom: 1px solid var(--muted-light);
     padding: 17px 5%;
 }
