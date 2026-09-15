@@ -261,8 +261,12 @@ button {
     transition: 0.3s;
 }
 
-.text-link:hover span {
-    width: 65px;
+.hero .text-link span {
+    background: var(--cream);
+}
+
+.hero .text-link:hover span {
+    background: var(--cream);
 }
 
 .hero-counter {
