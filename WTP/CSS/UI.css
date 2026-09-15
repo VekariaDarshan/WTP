@@ -57,13 +57,13 @@ button {
     justify-content: space-between;
     transition: 0.4s ease;
     background-color: var(--gold-bg);
-    color: var(--dark-text);
+    color: var(--cream);
 }
 
 .navbar.scrolled {
     background: rgba(28, 28, 28, 0.94);
     backdrop-filter: blur(15px);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--muted-light);
     padding: 17px 5%;
 }
 
