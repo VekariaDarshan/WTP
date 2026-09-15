@@ -196,11 +196,11 @@ button {
     background:
         linear-gradient(
             90deg,
-            rgba(255, 202, 30, 0.95) 0%,
-            rgba(255, 202, 30, 0.75) 38%,
-            rgba(255, 202, 30, 0.05) 100%
+            rgba(199, 167, 106, 0.95) 0%,
+            rgba(199, 167, 106, 0.75) 38%,
+            rgba(199, 167, 106, 0.05) 100%
         ),
-        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2200&q=90") center/cover;
+        url("IMAGES?") center/cover;
 }
 
 .hero::after {
