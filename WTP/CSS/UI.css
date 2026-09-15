@@ -510,7 +510,7 @@ section {
             rgba(28,28,28,.82) 35%,
             rgba(28,28,28,.35) 100%
         ),
-        url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2200&q=90") center/cover;
+        url("../IMAGES/DSC01600.avif") center/cover;
     opacity: .75;
     z-index: 0;
 }
