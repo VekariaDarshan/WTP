@@ -221,7 +221,7 @@ button {
 }
 
 .eyebrow {
-    color: var(--gold);
+    color: var(--white-soft);
     font-size: 10px;
     letter-spacing: 5px;
     text-transform: uppercase;
