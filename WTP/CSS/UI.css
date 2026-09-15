@@ -221,7 +221,7 @@ button {
 }
 
 .eyebrow {
-    color: var(-cream);
+    color: var(--cream);
     font-size: 10px;
     letter-spacing: 5px;
     text-transform: uppercase;
@@ -244,8 +244,7 @@ button {
     margin-bottom: 35px;
 }
 
-.text-link,
-.text-link2 {
+.text-link {
     display: inline-flex;
     align-items: center;
     gap: 18px;
@@ -254,20 +253,12 @@ button {
     text-transform: uppercase;
 }
 
-.text-link span,
-.text-link2 span {
+.text-link span {
     display: inline-block;
     width: 40px;
     height: 1px;
-    transition: 0.3s;
-}
-
-.text-link span {
     background: var(--gold);
-}
-
-.text-link2 span {
-    background: var(--cream);
+    transition: 0.3s;
 }
 
 .text-link:hover span {
@@ -341,7 +332,7 @@ section {
 }
 
 .about-content p {
-    color: var(-cream);
+    color: var(---cream);
     line-height: 1.9;
     max-width: 550px;
     margin-bottom: 35px;
@@ -414,6 +405,18 @@ section {
 .services {
     background: var(--gold-bg);
     color: #FFFFFF;
+}
+
+.services .text-link {
+    color: var(--cream);
+}
+
+.services .text-link span {
+    background: var(--cream);
+}
+
+.services .text-link:hover span {
+    background: var(--cream);
 }
 
 .services .section-label {
@@ -515,7 +518,7 @@ section {
 }
 
 .featured-content p {
-    color: var(-cream);
+    color: var(---cream);
     line-height: 1.8;
     margin: 25px 0 30px;
 }
