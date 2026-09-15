@@ -31,12 +31,12 @@ button {
 }
 
 :root {
-    --dark-bg: #1c1c1c;
-    --gold-bg: #c7a76a;
+    --dark-bg: #F7C873;
+    --gold-bg: #FAEBCD;
     --black: #241e16;
     --black-soft: #3a2d1d;
-    --cream: #ffffff;
-    --dark-text: #1c1c1c;
+    --cream: #F8F8F8;
+    --dark-text: #434343c;
     --muted-light: rgba(255, 255, 255, 0.78);
     --muted-dark: rgba(28, 28, 28, 0.72);
     --muted: var(--muted-light);
@@ -196,9 +196,10 @@ button {
     background:
         linear-gradient(
             90deg,
-            rgba(199, 167, 106, 0.95) 0%,
-            rgba(199, 167, 106, 0.75) 38%,
-            rgba(199, 167, 106, 0.05) 100%
+            rgba(199,167,106,0.48) 0%,
+            rgba(199,167,106,0.27) 38%,
+            rgba(199,167,106,0.08) 70%,
+            rgba(199,167,106,0.04) 100%
         ),
         url("../IMAGES/DSC01600.avif") center/cover;
 }
