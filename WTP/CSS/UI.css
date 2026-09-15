@@ -31,17 +31,21 @@ button {
 }
 
 :root {
+    /* Shared We The Photographers palette */
     --dark-bg: #1C1C1C;
     --gold-bg: #C7A76A;
     --black: #1C1C1C;
     --black-soft: #1C1C1C;
     --cream: #FFFFFF;
+    --white: #FFFFFF;
+    --white-soft: rgba(255,255,255,0.82);
     --dark-text: #1C1C1C;
     --muted-light: rgba(255,255,255,0.82);
     --muted-dark: rgba(28, 28, 28, 0.72);
     --muted: rgba(255,255,255,0.82);
     --gold: #C7A76A;
     --border: rgba(255,255,255,0.35);
+    --border-dark: rgba(255,255,255,0.35);
     --serif: "Playfair Display", serif;
 }
 
@@ -187,6 +191,7 @@ button {
     display: none;
 }
 
+/* Homepage: photographic opening */
 .hero {
     min-height: 100vh;
     position: relative;
@@ -289,6 +294,7 @@ section {
     line-height: 1.05;
 }
 
+/* Homepage: dark story section */
 .about {
     display: grid;
     grid-template-columns: minmax(220px, 1fr) minmax(300px, 1.3fr) minmax(150px, 0.7fr);
@@ -328,7 +334,7 @@ section {
 }
 
 .about-content p {
-    color: var(---cream);
+    color: var(--cream);
     line-height: 1.9;
     max-width: 550px;
     margin-bottom: 35px;
@@ -398,6 +404,7 @@ section {
     text-transform: uppercase;
 }
 
+/* Homepage: gold services section */
 .services {
     background: var(--gold-bg);
     color: #FFFFFF;
@@ -482,6 +489,7 @@ section {
     font-size: 20px;
 }
 
+/* Homepage: dark featured gallery section */
 .featured {
     position: relative;
     background: var(--dark-bg);
@@ -514,7 +522,7 @@ section {
 }
 
 .featured-content p {
-    color: var(---cream);
+    color: var(--cream);
     line-height: 1.8;
     margin: 25px 0 30px;
 }
@@ -544,6 +552,7 @@ section {
     letter-spacing: 3px;
 }
 
+/* Homepage: gold call-to-action section */
 .cta {
     text-align: center;
     padding: 110px 20px;

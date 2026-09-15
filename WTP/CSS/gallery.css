@@ -5,24 +5,23 @@
 }
 
 :root {
-    --black: #080a09;
-    --cream: #f3eee5;
-    --muted: #a9a59d;
-    --gold: #c8a878;
-    --line: rgba(244, 240, 232, 0.28);
+    /* Gallery page tokens match the homepage palette. */
+    --black: #1C1C1C;
+    --cream: #FFFFFF;
+    --muted: rgba(255, 255, 255, 0.82);
+    --gold: #C7A76A;
+    --line: rgba(255, 255, 255, 0.35);
     --serif: "Playfair Display", Georgia, serif;
+    --sans: "DM Sans", sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
+html { scroll-behavior: smooth; }
 body {
     min-width: 320px;
     overflow-x: hidden;
     background: var(--black);
     color: var(--cream);
-    font-family: "DM Sans", sans-serif;
+    font-family: var(--sans);
     font-weight: 300;
 }
 

@@ -1,7 +1,8 @@
 :root {
-    --about-black-soft: #3a2d1d;
-    --about-gold-light: #6d4f22;
-    --about-line: rgba(36, 30, 22, 0.24);
+    /* About page uses the shared dark, gold and cream palette. */
+    --about-black-soft: #1C1C1C;
+    --about-gold-light: #C7A76A;
+    --about-line: rgba(255, 255, 255, 0.35);
 }
 
 .about-hero {
@@ -11,8 +12,8 @@
     gap: 8%;
     min-height: 720px;
     padding: 150px 7% 100px;
-    background: radial-gradient(circle at 18% 35%, rgba(199, 167, 106, 0.22), transparent 31%), #c7a76a;
-    color: #241e16;
+    background: #C7A76A;
+    color: #1C1C1C;
 }
 
 .about-hero-copy {
@@ -64,20 +65,20 @@
 .about-hero h1 {
     font-size: clamp(54px, 6vw, 90px);
     margin-bottom: 30px;
-    color: #1c1c1c;
+    color: #1C1C1C;
 }
 
 .about-hero h1 em,
 .philosophy-grid h2 em,
 .image-break-content h2 em,
 .about-cta h2 em {
-    color: #1c1c1c;
+    color: #1C1C1C;
     font-style: italic;
 }
 
 .about-lead {
     max-width: 390px;
-    color: var(--muted);
+    color: #1C1C1C;
     font-size: 15px;
     line-height: 1.8;
 }
@@ -88,10 +89,10 @@
     gap: 12%;
     padding-top: 155px;
     padding-bottom: 155px;
-    background: radial-gradient(circle at 78% 38%, rgba(199, 167, 106, 0.18), transparent 34%), #efe3cf;
+    background: #1C1C1C;
+    color: #FFFFFF;
     border-bottom: 1px solid var(--border);
 }
-
 .story-heading h2,
 .philosophy-grid h2,
 .team-heading h2,
@@ -104,9 +105,8 @@
 .story-section .section-label,
 .values-section h2,
 .values-section .section-label {
-    color: #1c1c1c;
+    color: #FFFFFF;
 }
-
 .story-copy {
     max-width: 510px;
     padding-top: 30px;
@@ -296,7 +296,7 @@
 
 .value p {
     max-width: 200px;
-    color: #898b87;
+    color: rgba(255, 255, 255, 0.82);
     font-size: 10px;
     line-height: 1.8;
 }
@@ -370,7 +370,7 @@
 
 .about-cta {
     padding: 120px 6.8%;
-    background: #241e16;
+    background: #C7A76A;
     text-align: center;
 }
 

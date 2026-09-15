@@ -10,7 +10,7 @@
     min-height: 520px;
     padding: 110px 7% 90px;
     background: radial-gradient(circle at 72% 15%, rgba(199, 167, 106, 0.22), transparent 34%), #c7a76a;
-    color: #241e16;
+    color: #1C1C1C;
 }
 
 .contact-intro-copy {
@@ -29,14 +29,13 @@
 }
 
 .contact-intro h1 em {
-    color: var(--gold);
+    color: #1C1C1C;
     font-style: italic;
 }
 
 .contact-intro-copy > p {
     max-width: 500px;
-    margin-top: 32px;
-    color: var(--muted);
+    color: rgba(28, 28, 28, 0.78);
     font-size: 15px;
     line-height: 1.85;
 }
@@ -60,8 +59,8 @@
 
 .contact-form-section {
     padding: 125px 7%;
-    background: #efe3cf;
-    color: #241e16;
+    background: #1C1C1C;
+    color: #FFFFFF;
 }
 
 .embedded-contact {

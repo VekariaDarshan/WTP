@@ -17,6 +17,7 @@
 }
 
 .portfolio-hero h1,
+/* Portfolio page: dark hero, gold work gallery, dark CTA */
 .portfolio-intro h2,
 .portfolio-cta h2 {
     font-family: var(--serif);
@@ -28,7 +29,7 @@
     font-size: clamp(58px, 8vw, 110px);
 }
 
-.portfolio-hero h1 em,
+    background: #C7A76A;
 .portfolio-cta h2 em {
     color: var(--gold);
     font-style: italic;
@@ -37,7 +38,7 @@
 .portfolio-hero p {
     max-width: 470px;
     margin-top: 30px;
-    color: rgba(255, 255, 255, .76);
+    background: #C7A76A;
     font-size: 15px;
     line-height: 1.85;
 }
