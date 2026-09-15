@@ -266,6 +266,10 @@ button {
     transition: 0.3s;
 }
 
+.text-link:hover span {
+    width: 65px;
+}
+
 .hero-counter {
     position: absolute;
     bottom: 45px;
