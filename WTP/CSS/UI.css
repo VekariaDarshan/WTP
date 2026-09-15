@@ -200,7 +200,7 @@ button {
             rgba(199, 167, 106, 0.75) 38%,
             rgba(199, 167, 106, 0.05) 100%
         ),
-        url("IMAGES?") center/cover;
+        url("../IMAGES/DSC01600.avif") center/cover;
 }
 
 .hero::after {
