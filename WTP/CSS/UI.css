@@ -257,16 +257,8 @@ button {
     display: inline-block;
     width: 40px;
     height: 1px;
-    background: var(--gold);
+    background: var(--cream);
     transition: 0.3s;
-}
-
-.hero .text-link span {
-    background: var(--cream);
-}
-
-.hero .text-link:hover span {
-    background: var(--cream);
 }
 
 .hero-counter {
