@@ -298,7 +298,7 @@ section {
     line-height: 1.05;
 }
 
-/* Homepage: dark story section */
+/* About Section */
 .about {
     display: grid;
     grid-template-columns: minmax(220px, 1fr) minmax(300px, 1.3fr) minmax(150px, 0.7fr);
@@ -408,7 +408,7 @@ section {
     text-transform: uppercase;
 }
 
-/* Homepage: gold services section */
+/* Services Section */
 .services {
     background: var(--gold-bg);
     color: #FFFFFF;
@@ -493,7 +493,7 @@ section {
     font-size: 20px;
 }
 
-/* Homepage: dark featured gallery section */
+/* Featured Gallery Section */
 .featured {
     position: relative;
     background: var(--dark-bg);
@@ -556,7 +556,7 @@ section {
     letter-spacing: 3px;
 }
 
-/* Homepage: gold call-to-action section */
+/* Contact Section */
 .cta {
     text-align: center;
     padding: 110px 20px;
@@ -594,315 +594,48 @@ section {
     color: #111;
 }
 
-.inquiry-modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(17, 16, 15, 0.42);
-    backdrop-filter: blur(3px);
+.cta .featured {
+    position: relative;
+    background: var(--dark-bg);
+    min-height: 650px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.35s ease, visibility 0.35s ease;
-    z-index: 2000;
-    padding: 24px;
+    color: var(--white);
 }
 
-.inquiry-modal.open {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-.inquiry-panel {
-    width: min(1180px, 100%);
-    min-height: 720px;
-    background: rgba(10, 9, 8, 0.226);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    color: #f5f1ea;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    position: relative;
-    padding: 50px 60px 40px;
-    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.18);
-    transform: translateY(34px) scale(0.98);
-    opacity: 0;
-    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s ease;
-}
-
-.inquiry-modal.open .inquiry-panel {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-}
-
-.close-modal {
+.cta .featured::before {
+    content: "";
     position: absolute;
-    top: 18px;
-    right: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    background: transparent;
-    color: #f5f1ea;
-    padding: 10px 18px;
-    letter-spacing: 2px;
-    font-size: 10px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: 0.3s;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(28,28,28,.98) 0%,
+            rgba(28,28,28,.82) 35%,
+            rgba(28,28,28,.35) 100%
+        ),
+        url("../IMAGES/DSC02084.avif") center/cover;
+    opacity: .75;
+    z-index: 0;
 }
 
-.close-modal:hover {
-    background: var(--cream);
-    color: #111;
+.cta .featured-content {
+    position: relative;
+    z-index: 1;
+    max-width: 500px;
 }
 
-.inquiry-brand {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
+.cta .featured-content p {
+    color: var(--cream);
+    line-height: 1.8;
+    margin: 25px 0 30px;
 }
 
-.inquiry-logo {
-    width: 120px;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    filter: brightness(0.95);
+.cta .featured .section-label {
+    color: var(--gold);
 }
 
-.inquiry-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.25fr;
-    gap: 48px;
-    align-items: start;
-    width: 100%;
-    padding-top: 42px;
-}
-
-.inquiry-copy {
-    padding-top: 20px;
-}
-
-.inquiry-label {
-    color: rgba(245, 241, 234, 0.75);
-    margin-bottom: 18px;
-}
-
-.inquiries-title {
-    margin: 0 0 24px;
-    font-family: "Georgia", "Times New Roman", serif;
-    font-size: clamp(3rem, 5vw, 5.2rem);
-    font-weight: 400;
-    line-height: .9;
-    letter-spacing: -.04em;
-    font-style: italic;
-}
-
-.inquiry-copy p {
-    color: rgba(245, 241, 234, 0.8);
-    font-size: 16px;
-    line-height: 1.75;
-    margin-bottom: 18px;
-    max-width: 440px;
-}
-
-.inquiry-contact-list {
-    margin-top: 34px;
-}
-
-.inquiry-contact-list p {
-    margin: 0 0 8px;
-    font-size: 15px;
-}
-
-.inquiry-form {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding-top: 58px;
-}
-
-.field-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 26px;
-}
-
-.field-row.two-up {
-    grid-template-columns: 1fr 1fr;
-}
-
-.inquiry-form label {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(245, 241, 234, 0.78);
-}
-
-.inquiry-form input,
-.inquiry-form textarea,
-.inquiry-form select {
-    width: 100%;
-    border: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.45);
-    background: transparent;
-    color: #f5f1ea;
-    font-size: 15px;
-    padding: 8px 0 10px;
-    outline: none;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    border-radius: 0;
-}
-
-.inquiry-form select {
-    background-image: linear-gradient(45deg, transparent 50%, #f5f1ea 50%), linear-gradient(135deg, #f5f1ea 50%, transparent 50%);
-    background-position: calc(100% - 12px) calc(50% - 2px), calc(100% - 7px) calc(50% - 2px);
-    background-size: 5px 5px, 5px 5px;
-    background-repeat: no-repeat;
-    padding-right: 24px;
-    color: #f5f1ea;
-}
-
-.inquiry-form select option {
-    background: #0d0d0d;
-    color: #f5f1ea;
-}
-
-.inquiry-form select option:first-child {
-    color: rgba(245, 241, 234, 0.65);
-}
-
-.inquiry-form select:focus {
-    border-bottom-color: rgba(255, 255, 255, 0.9);
-}
-
-.inquiry-form textarea {
-    min-height: 46px;
-    resize: vertical;
-}
-
-.inquiry-form input::placeholder,
-.inquiry-form select {
-    color: rgba(245, 241, 234, 0.9);
-}
-
-.flatpickr-calendar {
-    background: rgba(13, 13, 13, 0.72) !important;
-    backdrop-filter: blur(18px) !important;
-    -webkit-backdrop-filter: blur(18px);
-    border: 1px solid rgba(255, 255, 255, 0.45) !important;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45) !important;
-    color: #fff !important;
-}
-
-.flatpickr-months,
-.flatpickr-month,
-.flatpickr-innerContainer,
-.flatpickr-rContainer,
-.flatpickr-weekdays,
-.flatpickr-week,
-.flatpickr-weekday,
-.flatpickr-current-month {
-    background: transparent !important;
-    color: #fff !important;
-}
-
-.flatpickr-days,
-.dayContainer {
-    background: transparent !important;
-}
-
-.flatpickr-current-month .flatpickr-monthDropdown-months,
-.flatpickr-current-month .flatpickr-monthDropdown-months option,
-.flatpickr-current-month input.cur-year {
-    background: #0d0d0d !important;
-    color: #fff !important;
-}
-
-.flatpickr-current-month input.cur-year {
-    border: 0 !important;
-    color-scheme: dark;
-}
-
-.flatpickr-current-month .numInputWrapper span.arrowUp,
-.flatpickr-current-month .numInputWrapper span.arrowDown {
-    opacity: 1 !important;
-}
-
-.flatpickr-current-month .numInputWrapper span.arrowUp:after {
-    border-bottom-color: #fff !important;
-}
-
-.flatpickr-current-month .numInputWrapper span.arrowDown:after {
-    border-top-color: #fff !important;
-}
-
-.flatpickr-current-month input.cur-year::-webkit-inner-spin-button {
-    opacity: 1;
-    filter: invert(1);
-}
-
-.flatpickr-prev-month,
-.flatpickr-next-month {
-    color: #fff !important;
-    opacity: 1 !important;
-}
-
-.flatpickr-prev-month svg,
-.flatpickr-next-month svg {
-    fill: #fff !important;
-    stroke: #fff !important;
-    stroke-width: 1.5 !important;
-    filter: none !important;
-}
-
-.flatpickr-day {
-    color: #fff;
-}
-
-.flatpickr-day:hover,
-.flatpickr-day:focus {
-    background: #222;
-    border-color: #fff;
-}
-
-.flatpickr-day.selected,
-.flatpickr-day.selected:hover {
-    background: #fff;
-    border-color: #fff;
-    color: #000;
-}
-
-.flatpickr-day.prevMonthDay,
-.flatpickr-day.nextMonthDay {
-    color: rgba(255, 255, 255, 0.35);
-}
-
-.submit-inquiry {
-    align-self: flex-start;
-    margin-top: 8px;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    color: #f5f1ea;
-    padding: 16px 32px;
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.submit-inquiry:hover {
-    background: #f5f1ea;
-    color: #0d0908;
-}
-
+ /* Footer */
 footer {
     background: #1c1c1c;
     color: var(--cream);
@@ -1139,17 +872,6 @@ footer {
         padding-bottom: 100px;
     }
 
-    .inquiry-modal {
-        align-items: flex-start;
-        overflow-y: auto;
-    }
-
-    .inquiry-panel {
-        min-height: 0;
-        max-height: calc(100dvh - 48px);
-        overflow-y: auto;
-    }
-
     footer {
         flex-direction: column;
         gap: 35px;
@@ -1240,86 +962,5 @@ footer {
 
     .menu-btn {
         font-size: 23px;
-    }
-
-    .inquiry-modal {
-        padding: 12px;
-    }
-
-    .inquiry-panel {
-        max-height: calc(100dvh - 24px);
-        padding: 58px 20px 28px;
-    }
-
-    .close-modal {
-        top: 14px;
-        right: 14px;
-        padding: 9px 12px;
-        font-size: 9px;
-    }
-
-    .inquiry-logo {
-        width: 92px;
-    }
-
-    .inquiry-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 28px;
-        padding-top: 28px;
-    }
-
-    .inquiry-copy,
-    .inquiry-form {
-        padding-top: 0;
-    }
-
-    .inquiries-title {
-        font-size: clamp(2.8rem, 15vw, 4.4rem);
-        margin-bottom: 18px;
-    }
-
-    .inquiry-copy p {
-        font-size: 14px;
-        line-height: 1.65;
-    }
-
-    .inquiry-form textarea {
-        min-height: 72px;
-    }
-
-    .inquiry-contact-list {
-        margin-top: 24px;
-    }
-
-    .inquiry-contact-list p {
-        overflow-wrap: anywhere;
-        font-size: 13px;
-    }
-
-    .inquiry-form {
-        gap: 20px;
-    }
-
-    .field-row,
-    .field-row.two-up {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .inquiry-form label {
-        font-size: 9px;
-        letter-spacing: 1.5px;
-    }
-
-    .inquiry-form input,
-    .inquiry-form textarea,
-    .inquiry-form select {
-        font-size: 14px;
-    }
-
-    .submit-inquiry {
-        width: 100%;
-        margin-top: 2px;
     }
 }
