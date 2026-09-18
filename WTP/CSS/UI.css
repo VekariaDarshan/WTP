@@ -561,9 +561,7 @@ section {
     text-align: center;
     padding: 110px 20px;
     color: var(--white);
-
-        content: "";
-    position: absolute;
+    content: "";
     inset: 0;
     background:
         linear-gradient(
