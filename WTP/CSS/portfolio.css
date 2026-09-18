@@ -29,7 +29,6 @@
     font-size: clamp(58px, 8vw, 110px);
 }
 
-    background: #C7A76A;
 .portfolio-cta h2 em {
     color: var(--gold);
     font-style: italic;

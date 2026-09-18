@@ -1,3 +1,32 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Couple stories share the homepage dark, gold and cream system. */
+    --black: #1C1C1C;
+    --cream: #FFFFFF;
+    --muted: rgba(255, 255, 255, 0.82);
+    --gold: #C7A76A;
+    --line: rgba(255, 255, 255, .35);
+    --serif: "Playfair Display", Georgia, serif;
+    --sans: "DM Sans", sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--cream); font-family: var(--sans); font-weight: 300; overflow-x: hidden; }
+body.lightbox-open { overflow: hidden; }
+a { color: inherit; text-decoration: none; }
+img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.story-nav {
+    justify-content: space-between;
+    height: 84px;
+    padding: 0 6%;
+}
+.story-nav.scrolled { height: 68px; background: rgba(28, 28, 28, .94); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
 /* Couple story: dark narrative bands */
 .story-intro, .image-story { display: grid; grid-template-columns: 1fr 1fr; gap: 10%; align-items: center; padding: 145px 7%; background: var(--black); }
 .story-logo { display: block; width: clamp(108px, 24vw, 142px); }
@@ -87,6 +116,8 @@
 .cta p { max-width: 450px; margin: 28px auto; }
 .cta-button { display: inline-block; border: 1px solid rgba(255,255,255,.5); padding: 16px 28px; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; transition: .3s ease; }
 .cta-button:hover { background: var(--cream); color: #111; }
+.story-footer { display: flex; justify-content: space-between; gap: 20px; padding: 34px 7%; border-top: 1px solid var(--line); color: #666; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; }
+
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
 .reveal.is-visible { opacity: 1; transform: none; }
 
@@ -153,4 +184,3 @@
 .cta {
     color: #ffffff;
 }
-
