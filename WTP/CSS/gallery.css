@@ -40,37 +40,6 @@ button {
     cursor: pointer;
 }
 
-.site-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    padding: 19px 6.5%;
-    transition: background 0.3s ease, padding 0.3s ease;
-}
-
-.site-header.scrolled {
-    padding-block: 13px;
-    background: rgba(8, 10, 9, 0.88);
-    backdrop-filter: blur(14px);
-}
-
-.brand img {
-    width: 142px;
-}
-
-.site-nav {
-    display: flex;
-    align-items: center;
-    gap: clamp(22px, 3.3vw, 48px);
-}
-
-.site-nav a,
-.header-cta,
 .gallery-controls,
 .eyebrow {
     font-size: 9px;
@@ -78,55 +47,19 @@ button {
     text-transform: uppercase;
 }
 
-.site-nav a {
-    position: relative;
-    color: rgba(243, 238, 229, 0.8);
-}
-
-.site-nav a::after {
-    position: absolute;
-    right: 0;
-    bottom: -9px;
-    left: 0;
-    height: 1px;
-    background: var(--gold);
-    content: "";
-    transform: scaleX(0);
-    transition: transform 0.25s ease;
-}
-
-.site-nav a:hover::after,
-.site-nav a.active::after {
-    transform: scaleX(1);
-}
-
-.header-cta,
 .gallery-cta a {
     border: 1px solid rgba(243, 238, 229, 0.45);
     transition: background 0.25s ease, color 0.25s ease;
 }
 
-.header-cta {
-    padding: 10px 15px;
-}
-
-.header-cta span,
 .gallery-cta a span {
     color: var(--gold);
     padding-left: 11px;
 }
 
-.header-cta:hover,
 .gallery-cta a:hover {
     background: var(--cream);
     color: #111;
-}
-
-.nav-toggle,
-.nav-close {
-    display: none;
-    background: transparent;
-    color: var(--cream);
 }
 
 .gallery-intro {
@@ -144,37 +77,6 @@ button {
     margin-bottom: 14px;
     color: #ffffff;
 }
-
-.gallery-intro h1,
-.gallery-cta h2 {
-    font-family: var(--serif);
-    font-size: clamp(52px, 6vw, 82px);
-    font-weight: 400;
-    line-height: 0.98;
-}
-
-.intro-side {
-    position: relative;
-    max-width: 470px;
-    border-left: 1px solid var(--gold);
-    padding-left: 40px;
-}
-
-.intro-rule,
-.cta-rule {
-    display: block;
-    width: 1px;
-    height: 56px;
-    background: var(--gold);
-}
-
-.intro-side p,
-.cta-copy p {
-    color: #ffffff;
-    font-size: 14px;
-    line-height: 1.8;
-}
-
 .gallery-controls {
     display: flex;
     align-items: center;
@@ -455,61 +357,6 @@ button {
 }
 
 @media (max-width: 620px) {
-    .site-header {
-        gap: 16px;
-        padding: 16px 6%;
-    }
-
-    .brand img {
-        width: min(126px, 42vw);
-    }
-
-    .header-cta {
-        display: none;
-    }
-
-    .nav-toggle {
-        display: block;
-        flex: 0 0 44px;
-        width: 44px;
-        height: 44px;
-        font-size: 24px;
-        line-height: 1;
-    }
-
-    .site-nav {
-        position: fixed;
-        inset: 0 0 0 clamp(18px, 15vw, 25%);
-        z-index: 11;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        gap: 28px;
-        padding: 76px 26px 30px;
-        background: #101311;
-        box-shadow: -16px 0 50px rgba(0, 0, 0, 0.35);
-        transform: translateX(100%);
-        transition: transform 0.35s ease;
-    }
-
-    .site-nav.open {
-        transform: translateX(0);
-    }
-
-    .site-nav a {
-        font-size: 11px;
-    }
-
-    .nav-close {
-        position: absolute;
-        top: 18px;
-        right: 24px;
-        display: block;
-        font-size: 28px;
-        font-weight: 200;
-    }
-
     .gallery-intro {
         display: block;
         min-height: auto;

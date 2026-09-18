@@ -1,7 +1,3 @@
-const siteHeader = document.getElementById("siteHeader");
-const siteNav = document.getElementById("siteNav");
-const navToggle = document.getElementById("navToggle");
-const navClose = document.getElementById("navClose");
 const carouselImages = [...document.querySelectorAll(".carousel-track img")];
 const fallbackImage = "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=88";
 
@@ -12,26 +8,6 @@ carouselImages.forEach(image => {
             image.src = fallbackImage;
         }
     }, { once: true });
-});
-
-window.addEventListener("scroll", () => {
-    siteHeader.classList.toggle("scrolled", window.scrollY > 30);
-}, { passive: true });
-
-function closeNavigation() {
-    siteNav.classList.remove("open");
-    navToggle.setAttribute("aria-expanded", "false");
-}
-
-navToggle.addEventListener("click", () => {
-    const isOpen = siteNav.classList.toggle("open");
-    navToggle.setAttribute("aria-expanded", String(isOpen));
-});
-
-navClose.addEventListener("click", closeNavigation);
-
-document.querySelectorAll(".site-nav a").forEach(link => {
-    link.addEventListener("click", closeNavigation);
 });
 
 const storyPages = [
@@ -49,6 +25,12 @@ document.querySelectorAll(".carousel-track").forEach((track, trackIndex) => {
 
 document.addEventListener("keydown", event => {
     if (event.key === "Escape") {
-        closeNavigation();
+        const navLinks = document.getElementById("navLinks");
+        const navbar = document.getElementById("navbar");
+        const menuBtn = document.getElementById("menuBtn");
+
+        navLinks?.classList.remove("mobile-active");
+        navbar?.classList.remove("menu-open");
+        menuBtn?.setAttribute("aria-expanded", "false");
     }
 });
