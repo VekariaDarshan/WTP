@@ -563,7 +563,6 @@ section {
     color: var(--white);
 
         content: "";
-    position: absolute;
     inset: 0;
     background:
         linear-gradient(
