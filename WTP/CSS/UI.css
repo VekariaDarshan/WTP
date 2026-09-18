@@ -561,7 +561,20 @@ section {
     text-align: center;
     padding: 110px 20px;
     color: var(--white);
-    background: var(--gold-bg);
+
+        content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(28,28,28,.98) 0%,
+            rgba(28,28,28,.82) 35%,
+            rgba(28,28,28,.35) 100%
+        ),
+        url("../IMAGES/DSC02084.avif") center/cover;
+    opacity: .75;
+    z-index: 0;
 }
 
 .cta .section-label,
@@ -592,47 +605,6 @@ section {
 .cta-button:hover {
     background: var(--cream);
     color: #111;
-}
-
-.cta .featured {
-    position: relative;
-    background: var(--dark-bg);
-    min-height: 650px;
-    display: flex;
-    align-items: center;
-    color: var(--white);
-}
-
-.cta .featured::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-        linear-gradient(
-            90deg,
-            rgba(28,28,28,.98) 0%,
-            rgba(28,28,28,.82) 35%,
-            rgba(28,28,28,.35) 100%
-        ),
-        url("../IMAGES/DSC02084.avif") center/cover;
-    opacity: .75;
-    z-index: 0;
-}
-
-.cta .featured-content {
-    position: relative;
-    z-index: 1;
-    max-width: 500px;
-}
-
-.cta .featured-content p {
-    color: var(--cream);
-    line-height: 1.8;
-    margin: 25px 0 30px;
-}
-
-.cta .featured .section-label {
-    color: var(--gold);
 }
 
  /* Footer */
