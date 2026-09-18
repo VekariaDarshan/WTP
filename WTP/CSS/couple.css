@@ -184,3 +184,79 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .cta {
     color: #ffffff;
 }
+
+/* Match the mobile navigation dock used by the main site pages. */
+@media (max-width: 800px) {
+    .story-nav {
+        position: fixed;
+        top: auto;
+        right: 10px;
+        bottom: max(10px, env(safe-area-inset-bottom));
+        left: 10px;
+        z-index: 1100;
+        display: grid;
+        width: auto;
+        height: 68px;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0;
+        padding: 5px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 18px;
+        background: rgba(28, 28, 28, 0.9);
+        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(18px);
+    }
+
+    .story-nav.scrolled {
+        height: 68px;
+        background: rgba(28, 28, 28, 0.9);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .story-logo {
+        display: none;
+    }
+
+    .story-links {
+        display: contents;
+    }
+
+    .story-links a,
+    .story-back {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 0;
+        min-height: 56px;
+        border: 0;
+        color: rgba(255, 255, 255, 0.68);
+        font-size: 7px;
+        letter-spacing: 1px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .story-links a::before,
+    .story-back::before {
+        margin-right: 5px;
+        color: var(--gold);
+        font-size: 15px;
+        line-height: 1;
+    }
+
+    .story-links a:nth-of-type(1)::before { content: "⌂"; }
+    .story-links a:nth-of-type(2)::before { content: "▦"; }
+    .story-links a:nth-of-type(3)::before { content: "◈"; }
+    .story-links a:nth-of-type(4)::before { content: "✉"; }
+    .story-back::before { content: "‹"; }
+
+    .story-links a:hover,
+    .story-links a:focus-visible,
+    .story-back:hover,
+    .story-back:focus-visible {
+        border-radius: 12px;
+        background: rgba(199, 167, 106, 0.14);
+        color: var(--cream);
+    }
+}
