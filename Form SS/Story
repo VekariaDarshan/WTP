@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sandeep & Shrutika — We The Photographers</title>
+
+    <meta
+        name="description"
+        content="Sandeep & Shrutika — a visual wedding story by We The Photographers."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+<style>
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f4f2ee;
+    color: #171717;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 90px;
+
+    padding: 0 5vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 1000;
+
+    mix-blend-mode: difference;
+
+    color: white;
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+
+    line-height: 0.9;
+
+    font-size: 10px;
+    letter-spacing: 0.16em;
+}
+
+.brand strong {
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+
+.menu-button {
+    width: 45px;
+    height: 45px;
+
+    border: 0;
+    background: transparent;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 7px;
+}
+
+.menu-button span {
+    width: 25px;
+    height: 1px;
+
+    background: white;
+
+    transition: transform .4s ease;
+}
+
+.menu-button.active span:first-child {
+    transform: translateY(4px) rotate(45deg);
+}
+
+.menu-button.active span:last-child {
+    transform: translateY(-4px) rotate(-45deg);
+}
+
+
+/* =========================================
+   SIDE MENU
+========================================= */
+
+.side-menu {
+    position: fixed;
+
+    inset: 0;
+
+    background: #111;
+
+    color: #fff;
+
+    z-index: 900;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .5s ease,
+        visibility .5s ease;
+}
+
+.side-menu.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-inner {
+    min-height: 100vh;
+
+    padding: 140px 8vw;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-label {
+    font-size: 10px;
+    letter-spacing: .18em;
+
+    margin-bottom: 45px;
+
+    opacity: .45;
+}
+
+.menu-inner > a {
+    width: fit-content;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(30px, 5vw, 70px);
+
+    line-height: 1.15;
+
+    margin-bottom: 12px;
+
+    transition: opacity .3s ease;
+}
+
+.menu-inner > a:hover {
+    opacity: .45;
+}
+
+.menu-bottom {
+    margin-top: auto;
+
+    display: flex;
+    gap: 35px;
+
+    font-size: 11px;
+    letter-spacing: .12em;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    min-height: 100vh;
+
+    padding: 140px 5vw 60px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-top {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 9px;
+    letter-spacing: .18em;
+
+    margin-bottom: 16vh;
+}
+
+.hero-title {
+    max-width: 900px;
+
+    margin-bottom: 12vh;
+}
+
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: .18em;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+
+    font-weight: 400;
+
+    font-size: clamp(65px, 11vw, 180px);
+
+    line-height: .78;
+
+    letter-spacing: -.055em;
+}
+
+.hero h1 em {
+    font-weight: 400;
+    font-size: .55em;
+}
+
+.hero-description {
+    max-width: 340px;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    margin-top: 50px;
+
+    margin-left: 25%;
+}
+
+.hero-image {
+    width: 100%;
+    height: 78vh;
+
+    overflow: hidden;
+}
+
+.hero-image img {
+    transition: transform 1.5s cubic-bezier(.2,.7,.2,1);
+}
+
+.hero-image:hover img {
+    transform: scale(1.025);
+}
+
+.scroll-indicator {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-top: 35px;
+
+    font-size: 9px;
+    letter-spacing: .16em;
+}
+
+.scroll-indicator i {
+    display: block;
+
+    width: 60px;
+    height: 1px;
+
+    background: #171717;
+}
+
+
+/* =========================================
+   CHAPTER
+========================================= */
+
+.chapter {
+    padding: 20vh 5vw;
+}
+
+.chapter-heading {
+    max-width: 650px;
+
+    margin-bottom: 12vh;
+}
+
+.chapter-number {
+    display: block;
+
+    font-size: 9px;
+    letter-spacing: .18em;
+
+    margin-bottom: 25px;
+
+    opacity: .5;
+}
+
+.chapter h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(55px, 8vw, 125px);
+
+    font-weight: 400;
+
+    line-height: .9;
+
+    letter-spacing: -.05em;
+
+    margin-bottom: 35px;
+}
+
+.chapter-heading p {
+    max-width: 480px;
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   IMAGES
+========================================= */
+
+figure {
+    overflow: hidden;
+    cursor: zoom-in;
+}
+
+figure img {
+    transition:
+        transform 1.2s cubic-bezier(.2,.7,.2,1),
+        filter .8s ease;
+}
+
+figure:hover img {
+    transform: scale(1.025);
+}
+
+
+/* =========================================
+   OPENING GALLERY
+========================================= */
+
+.gallery-opening {
+    position: relative;
+
+    min-height: 1000px;
+
+    margin-bottom: 15vh;
+}
+
+.gallery-opening .image-large {
+    width: 65%;
+    height: 800px;
+}
+
+.gallery-opening .image-small {
+    position: absolute;
+
+    width: 34%;
+    height: 480px;
+
+    right: 0;
+    bottom: 0;
+}
+
+
+.gallery-pair {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+}
+
+.gallery-pair figure {
+    height: 70vh;
+}
+
+
+/* =========================================
+   FULL IMAGE
+========================================= */
+
+.full-image {
+    width: 100%;
+    height: 85vh;
+
+    margin: 10vh 0;
+}
+
+.full-image.cinematic {
+    height: 100vh;
+}
+
+
+/* =========================================
+   SPLIT STORY
+========================================= */
+
+.split-story {
+    display: grid;
+
+    grid-template-columns: 50% 35%;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin: 15vh 0;
+}
+
+.portrait {
+    height: 75vh;
+}
+
+.story-copy {
+    padding: 10%;
+}
+
+.story-copy span,
+.caption span {
+    font-size: 9px;
+    letter-spacing: .18em;
+}
+
+.story-copy p {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(30px, 4vw, 60px);
+
+    line-height: 1.05;
+
+    margin-top: 25px;
+}
+
+
+/* =========================================
+   WIDE IMAGE
+========================================= */
+
+.wide-image {
+    width: 75%;
+
+    height: 65vh;
+
+    margin-left: auto;
+}
+
+
+/* =========================================
+   EDITORIAL GRID
+========================================= */
+
+.editorial-grid {
+    display: grid;
+
+    grid-template-columns: 43% 43%;
+
+    justify-content: space-between;
+
+    align-items: start;
+
+    margin-bottom: 15vh;
+}
+
+.vertical {
+    height: 85vh;
+}
+
+.vertical.offset {
+    margin-top: 20vh;
+}
+
+
+/* =========================================
+   CAPTION
+========================================= */
+
+.caption {
+    margin: -5vh 0 10vh;
+
+    padding-left: 50%;
+
+    font-size: 10px;
+}
+
+
+/* =========================================
+   MASONRY
+========================================= */
+
+.masonry {
+    display: grid;
+
+    grid-template-columns:
+        repeat(12, 1fr);
+
+    gap: 20px;
+
+    align-items: start;
+}
+
+.masonry figure {
+    height: 500px;
+}
+
+.masonry-large {
+    grid-column: 1 / 8;
+    height: 750px !important;
+}
+
+.masonry-small:nth-child(2) {
+    grid-column: 9 / 13;
+
+    margin-top: 120px;
+}
+
+.masonry-small:nth-child(3) {
+    grid-column: 8 / 12;
+
+    margin-top: 80px;
+}
+
+.masonry-wide {
+    grid-column: 3 / 11;
+
+    height: 600px !important;
+
+    margin-top: 80px;
+}
+
+
+/* =========================================
+   DARK SECTION
+========================================= */
+
+.dark-section {
+    background: #111;
+
+    color: #f4f2ee;
+}
+
+.detail-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr 1fr;
+
+    gap: 20px;
+}
+
+.detail-grid figure {
+    height: 70vh;
+}
+
+.detail-grid figure:nth-child(2) {
+    margin-top: 15vh;
+}
+
+.detail-grid figure:nth-child(3) {
+    margin-top: 5vh;
+}
+
+
+/* =========================================
+   NIGHT
+========================================= */
+
+.night-grid {
+    display: grid;
+
+    grid-template-columns: 60% 32%;
+
+    justify-content: space-between;
+
+    align-items: start;
+
+    margin: 15vh 0;
+}
+
+.night-grid figure:first-child {
+    height: 75vh;
+}
+
+.night-grid figure:last-child {
+    height: 55vh;
+
+    margin-top: 25vh;
+}
+
+
+/* =========================================
+   ENDING
+========================================= */
+
+.ending {
+    min-height: 100vh;
+
+    background: #111;
+
+    color: #f4f2ee;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 5vw;
+}
+
+.ending-inner {
+    max-width: 900px;
+}
+
+.ending h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(60px, 10vw, 150px);
+
+    line-height: .85;
+
+    font-weight: 400;
+
+    letter-spacing: -.055em;
+}
+
+.ending h2 em {
+    display: block;
+}
+
+.ending p:not(.eyebrow) {
+    max-width: 400px;
+
+    margin: 50px auto;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+.button {
+    display: inline-flex;
+
+    border: 1px solid rgba(255,255,255,.4);
+
+    padding: 18px 30px;
+
+    font-size: 10px;
+
+    letter-spacing: .15em;
+
+    transition:
+        background .3s ease,
+        color .3s ease;
+}
+
+.button:hover {
+    background: #f4f2ee;
+    color: #111;
+}
+
+
+/* =========================================
+   NEXT WEDDING
+========================================= */
+
+.other-weddings {
+    padding: 12vh 5vw;
+}
+
+.other-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 9px;
+
+    letter-spacing: .15em;
+
+    margin-bottom: 50px;
+}
+
+.next-wedding {
+    display: block;
+}
+
+.next-image {
+    height: 80vh;
+
+    overflow: hidden;
+}
+
+.next-image img {
+    transition: transform 1.2s ease;
+}
+
+.next-wedding:hover .next-image img {
+    transform: scale(1.025);
+}
+
+.next-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: baseline;
+
+    padding: 25px 0;
+}
+
+.next-info span,
+.next-info p {
+    font-size: 9px;
+
+    letter-spacing: .15em;
+}
+
+.next-info h3 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(35px, 5vw, 70px);
+
+    font-weight: 400;
+}
+
+
+/* =========================================
+   LIGHTBOX
+========================================= */
+
+.lightbox {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(10,10,10,.97);
+
+    z-index: 2000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: opacity .4s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox img {
+    max-width: 95vw;
+    max-height: 90vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+
+    top: 25px;
+    right: 30px;
+
+    background: none;
+    border: 0;
+
+    color: white;
+
+    font-size: 40px;
+
+    cursor: pointer;
+
+    font-weight: 200;
+}
+
+
+/* =========================================
+   REVEAL ANIMATION
+========================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(50px);
+
+    transition:
+        opacity 1s cubic-bezier(.2,.7,.2,1),
+        transform 1s cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .site-header {
+        height: 70px;
+        padding: 0 6vw;
+    }
+
+    .hero {
+        padding: 110px 6vw 50px;
+    }
+
+    .hero-top {
+        margin-bottom: 13vh;
+    }
+
+    .hero h1 {
+        font-size: 18vw;
+    }
+
+    .hero-description {
+        margin-left: 0;
+        margin-top: 35px;
+    }
+
+    .hero-image {
+        height: 65vh;
+    }
+
+    .chapter {
+        padding: 15vh 6vw;
+    }
+
+    .chapter-heading {
+        margin-bottom: 8vh;
+    }
+
+    .chapter h2 {
+        font-size: 17vw;
+    }
+
+    .gallery-opening {
+        min-height: auto;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    .gallery-opening .image-large {
+        width: 100%;
+        height: 65vh;
+    }
+
+    .gallery-opening .image-small {
+        position: static;
+
+        width: 75%;
+        height: 45vh;
+
+        margin-left: auto;
+    }
+
+    .gallery-pair {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .gallery-pair figure {
+        height: 60vh;
+    }
+
+    .full-image,
+    .full-image.cinematic {
+        height: 65vh;
+    }
+
+    .split-story {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .portrait {
+        height: 70vh;
+    }
+
+    .story-copy {
+        padding: 5% 0;
+    }
+
+    .wide-image {
+        width: 100%;
+        height: 60vh;
+    }
+
+    .editorial-grid {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .vertical {
+        height: 65vh;
+    }
+
+    .vertical.offset {
+        margin-top: 0;
+    }
+
+    .caption {
+        padding-left: 0;
+        margin-top: -4vh;
+    }
+
+    .masonry {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .masonry figure,
+    .masonry-large,
+    .masonry-wide {
+        width: 100%;
+
+        height: 60vh !important;
+
+        margin: 0 !important;
+    }
+
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-grid figure,
+    .detail-grid figure:nth-child(2),
+    .detail-grid figure:nth-child(3) {
+        height: 65vh;
+
+        margin: 0;
+    }
+
+    .night-grid {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .night-grid figure:first-child,
+    .night-grid figure:last-child {
+        height: 60vh;
+
+        margin: 0;
+    }
+
+    .ending {
+        min-height: 80vh;
+    }
+
+    .ending h2 {
+        font-size: 18vw;
+    }
+
+    .next-image {
+        height: 60vh;
+    }
+
+    .next-info {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .menu-inner {
+        padding: 110px 7vw;
+    }
+
+    .menu-inner > a {
+        font-size: 10vw;
+    }
+
+}
+</style>
+<body>
+
+<!-- =========================================
+     NAVIGATION
+========================================= -->
+
+<header class="site-header">
+
+    <a href="index.html" class="brand">
+        <span>WE THE</span>
+        <strong>PHOTOGRAPHERS</strong>
+    </a>
+
+    <button class="menu-button" id="menuButton">
+        <span></span>
+        <span></span>
+    </button>
+
+</header>
+
+
+<!-- =========================================
+     SIDE MENU
+========================================= -->
+
+<nav class="side-menu" id="sideMenu">
+
+    <div class="menu-inner">
+
+        <p class="menu-label">THE STORY</p>
+
+        <a href="#beginning">01 — The Beginning</a>
+        <a href="#people">02 — The Two of Them</a>
+        <a href="#ceremony">03 — The Ceremony</a>
+        <a href="#celebration">04 — The Celebration</a>
+        <a href="#details">05 — The Details</a>
+        <a href="#night">06 — After Dark</a>
+
+        <div class="menu-bottom">
+            <a href="index.html">All Weddings</a>
+            <a href="contact.html">Inquire</a>
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<main>
+
+<section class="hero">
+
+    <div class="hero-top">
+
+        <span>A VISUAL WEDDING STORY</span>
+
+        <span>01 / 01</span>
+
+    </div>
+
+    <div class="hero-title">
+
+        <p class="eyebrow">
+            NAIROBI · KENYA · 2026
+        </p>
+
+        <h1>
+            Sandeep
+            <em>&</em>
+            Shrutika
+        </h1>
+
+        <p class="hero-description">
+            A celebration of two people,
+            two families and everything
+            that happened in between.
+        </p>
+
+    </div>
+
+    <div class="hero-image reveal">
+
+        <img
+            src="images/sandeep-01.jpg"
+            alt="Sandeep and Shrutika wedding"
+        >
+
+    </div>
+
+    <div class="scroll-indicator">
+        <span>SCROLL TO EXPLORE</span>
+        <i></i>
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CHAPTER 01
+========================================= -->
+
+<section class="chapter" id="beginning">
+
+    <div class="chapter-heading">
+
+        <span class="chapter-number">CHAPTER I</span>
+
+        <h2>The Beginning</h2>
+
+        <p>
+            Before the music.
+            Before the crowd.
+            Before the celebration began.
+            There was simply the two of them.
+        </p>
+
+    </div>
+
+
+    <div class="gallery gallery-opening">
+
+        <figure class="image-large reveal">
+            <img
+                src="images/sandeep-02.jpg"
+                alt="Wedding preparation"
+                loading="lazy"
+            >
+        </figure>
+
+        <figure class="image-small reveal">
+            <img
+                src="images/sandeep-03.jpg"
+                alt="Wedding details"
+                loading="lazy"
+            >
+        </figure>
+
+    </div>
+
+
+    <div class="gallery gallery-pair">
+
+        <figure class="reveal">
+            <img
+                src="images/sandeep-04.jpg"
+                alt="Bride preparation"
+                loading="lazy"
+            >
+        </figure>
+
+        <figure class="reveal">
+            <img
+                src="images/sandeep-05.jpg"
+                alt="Groom preparation"
+                loading="lazy"
+            >
+        </figure>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CHAPTER 02
+========================================= -->
+
+<section class="chapter" id="people">
+
+    <div class="chapter-heading">
+
+        <span class="chapter-number">CHAPTER II</span>
+
+        <h2>The Two of Them</h2>
+
+        <p>
+            Somewhere between the photographs,
+            the laughter and the noise,
+            there were moments that belonged
+            only to them.
+        </p>
+
+    </div>
+
+
+    <figure class="full-image reveal">
+        <img
+            src="images/sandeep-06.jpg"
+            alt="Sandeep and Shrutika together"
+            loading="lazy"
+        >
+    </figure>
+
+
+    <div class="split-story">
+
+        <figure class="portrait reveal">
+            <img
+                src="images/sandeep-07.jpg"
+                alt="Bride portrait"
+                loading="lazy"
+            >
+        </figure>
+
+        <div class="story-copy">
+
+            <span>JUST THE TWO OF THEM</span>
+
+            <p>
+                The moments between the moments
+                are often the ones worth remembering.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <figure class="wide-image reveal">
+        <img
+            src="images/sandeep-08.jpg"
+            alt="Couple portrait"
+            loading="lazy"
+        >
+    </figure>
+
+</section>
+
+
+<!-- =========================================
+     CHAPTER 03
+========================================= -->
+
+<section class="chapter" id="ceremony">
+
+    <div class="chapter-heading">
+
+        <span class="chapter-number">CHAPTER III</span>
+
+        <h2>The Ceremony</h2>
+
+        <p>
+            Family gathered.
+            Traditions came alive.
+            And two people stood together
+            ready for everything ahead.
+        </p>
+
+    </div>
+
+
+    <div class="editorial-grid">
+
+        <figure class="vertical reveal">
+            <img
+                src="images/sandeep-09.jpg"
+                alt="Wedding ceremony"
+                loading="lazy"
+            >
+        </figure>
+
+        <figure class="vertical offset reveal">
+            <img
+                src="images/sandeep-10.jpg"
+                alt="Wedding ceremony moment"
+                loading="lazy"
+            >
+        </figure>
+
+    </div>
+
+
+    <figure class="full-image reveal">
+        <img
+            src="images/sandeep-11.jpg"
+            alt="Wedding ceremony"
+            loading="lazy"
+        >
+    </figure>
+
+
+    <div class="caption">
+        <span>A MOMENT TO REMEMBER</span>
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CHAPTER 04
+========================================= -->
+
+<section class="chapter" id="celebration">
+
+    <div class="chapter-heading">
+
+        <span class="chapter-number">CHAPTER IV</span>
+
+        <h2>The Celebration</h2>
+
+        <p>
+            Music.
+            Colour.
+            Family.
+            Friends.
+            And a room that never seemed
+            to stop moving.
+        </p>
+
+    </div>
+
+
+    <div class="masonry">
+
+        <figure class="masonry-large reveal">
+            <img
+                src="images/sandeep-12.jpg"
+                alt="Wedding celebration"
+                loading="lazy"
+            >
+        </figure>
+
+        <figure class="masonry-small reveal">
+            <img
+                src="images/sandeep-13.jpg"
+                alt="Wedding guests"
+                loading="lazy"
+            >
+        </figure>
+
+        <figure class="masonry-small reveal">
+            <img
+                src="images/sandeep-14.jpg"
+                alt="Wedding celebration"
+                loading="lazy"
+            >
+        </figure>
+
+        <figure class="masonry-wide reveal">
+            <img
+                src="images/sandeep-15.jpg"
+                alt="Wedding dance"
+                loading="lazy"
+            >
+        </figure>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CHAPTER 05
+========================================= -->
+
+<section class="chapter dark-section" id="details">
+
+    <div class="chapter-heading">
+
+        <span class="chapter-number">CHAPTER V</span>
+
+        <h2>The Details</h2>
+
+        <p>
+            The flowers.
+            The hands.
+            The clothes.
+            The little things that disappear
+            first when the night is over.
+        </p>
+
+    </div>
+
+
+    <div class="detail-grid">
+
+        <figure class="reveal">
+            <img
+                src="images/sandeep-16.jpg"
+                alt="Wedding detail"
+                loading="lazy"
+            >
+        </figure>
+
+        <figure class="reveal">
+            <img
+                src="images/sandeep-17.jpg"
+                alt="Wedding detail"
+                loading="lazy"
+            >
+        </figure>
+
+        <figure class="reveal">
+            <img
+                src="images/sandeep-18.jpg"
+                alt="Wedding detail"
+                loading="lazy"
+            >
+        </figure>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CHAPTER 06
+========================================= -->
+
+<section class="chapter" id="night">
+
+    <div class="chapter-heading">
+
+        <span class="chapter-number">CHAPTER VI</span>
+
+        <h2>After Dark</h2>
+
+        <p>
+            The lights came down.
+            The music got louder.
+            Nobody wanted the night to end.
+        </p>
+
+    </div>
+
+
+    <figure class="full-image cinematic reveal">
+
+        <img
+            src="images/sandeep-19.jpg"
+            alt="Wedding reception at night"
+            loading="lazy"
+        >
+
+    </figure>
+
+
+    <div class="night-grid">
+
+        <figure class="reveal">
+            <img
+                src="images/sandeep-20.jpg"
+                alt="Wedding reception"
+                loading="lazy"
+            >
+        </figure>
+
+        <figure class="reveal">
+            <img
+                src="images/sandeep-21.jpg"
+                alt="Wedding guests"
+                loading="lazy"
+            >
+        </figure>
+
+    </div>
+
+
+    <figure class="full-image reveal">
+
+        <img
+            src="images/sandeep-22.jpg"
+            alt="Final wedding moment"
+            loading="lazy"
+        >
+
+    </figure>
+
+</section>
+
+
+<!-- =========================================
+     ENDING
+========================================= -->
+
+<section class="ending">
+
+    <div class="ending-inner">
+
+        <p class="eyebrow">
+            WE THE PHOTOGRAPHERS
+        </p>
+
+        <h2>
+            Stories worth
+            <em>remembering.</em>
+        </h2>
+
+        <p>
+            Your wedding deserves more than
+            a collection of photographs.
+            It deserves a story.
+        </p>
+
+        <a href="contact.html" class="button">
+            TELL US YOUR STORY
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     OTHER WEDDINGS
+========================================= -->
+
+<section class="other-weddings">
+
+    <div class="other-header">
+
+        <span>NEXT STORY</span>
+
+        <a href="weddings.html">
+            VIEW ALL WEDDINGS →
+        </a>
+
+    </div>
+
+
+    <a href="wedding-dimple-jaydev.html" class="next-wedding">
+
+        <div class="next-image">
+
+            <img
+                src="images/dimple-jaydev.jpg"
+                alt="Dimple and Jaydev"
+                loading="lazy"
+            >
+
+        </div>
+
+        <div class="next-info">
+
+            <span>WEDDING 02</span>
+
+            <h3>Dimple & Jaydev</h3>
+
+            <p>
+                View the story →
+            </p>
+
+        </div>
+
+    </a>
+
+</section>
+
+</main>
+
+
+<!-- =========================================
+     LIGHTBOX
+========================================= -->
+
+<div class="lightbox" id="lightbox">
+
+    <button class="lightbox-close" id="lightboxClose">
+        ×
+    </button>
+
+    <img id="lightboxImage" src="" alt="">
+
+</div>
+
+
+<script>
+/* =========================================
+   MENU
+========================================= */
+
+const menuButton = document.getElementById("menuButton");
+const sideMenu = document.getElementById("sideMenu");
+
+menuButton.addEventListener("click", () => {
+
+    menuButton.classList.toggle("active");
+
+    sideMenu.classList.toggle("active");
+
+    document.body.classList.toggle("menu-open");
+
+});
+
+
+/* Close menu when clicking a link */
+
+document.querySelectorAll(".side-menu a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        menuButton.classList.remove("active");
+
+        sideMenu.classList.remove("active");
+
+        document.body.classList.remove("menu-open");
+
+    });
+
+});
+
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+const revealObserver =
+    new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                    revealObserver.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+revealElements.forEach(element => {
+
+    revealObserver.observe(element);
+
+});
+
+
+/* =========================================
+   LIGHTBOX
+========================================= */
+
+const lightbox =
+    document.getElementById("lightbox");
+
+const lightboxImage =
+    document.getElementById("lightboxImage");
+
+const lightboxClose =
+    document.getElementById("lightboxClose");
+
+
+document.querySelectorAll("figure img").forEach(image => {
+
+    image.addEventListener("click", () => {
+
+        lightboxImage.src = image.src;
+
+        lightboxImage.alt = image.alt;
+
+        lightbox.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+});
+
+
+function closeLightbox() {
+
+    lightbox.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+}
+
+
+lightboxClose.addEventListener(
+    "click",
+    closeLightbox
+);
+
+
+lightbox.addEventListener("click", event => {
+
+    if (event.target === lightbox) {
+
+        closeLightbox();
+
+    }
+
+});
+
+
+document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+
+        closeLightbox();
+
+    }
+
+});
+
+
+/* =========================================
+   IMAGE PARALLAX
+========================================= */
+
+window.addEventListener("scroll", () => {
+
+    const images =
+        document.querySelectorAll(".hero-image img");
+
+    images.forEach(image => {
+
+        const rect =
+            image.parentElement.getBoundingClientRect();
+
+        const center =
+            window.innerHeight / 2;
+
+        const distance =
+            rect.top - center;
+
+        const movement =
+            distance * -0.025;
+
+        image.style.transform =
+            `translateY(${movement}px) scale(1.02)`;
+
+    });
+
+});
+</script>
+
+</body>
+</html>
