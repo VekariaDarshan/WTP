@@ -13,21 +13,26 @@ const stories = {
 
 const imageSets = [
     "DSC06483.jpg",
-    "photo-1522673607200-164d1b6ce486",
-    "photo-1511285560929-80b456fea0bc",
-    "photo-1519225421980-715cb0215aed",
-    "photo-1464366400600-7168b8af9bc3",
-    "photo-1507504031003-b417219a0fde",
-    "photo-1520854221256-17451cc331bf",
-    "photo-1516589178581-6cd7833ae3b2",
-    "photo-1529634597503-139d3726fed5",
-    "photo-1544078751-58fee2d8a03b"
+    "K&M01.avif",
+    "Z&S01.avif",
+    "Manish & Chetna 01.jpg.avif",
+    "DSC01600.avif",
+    "DSC01713.avif",
+    "DSC02079.avif",
+    "DSC02084.avif",
+    "DSC09154.avif"
 ];
 
-const imageUrl = (id, width = 2200) => `../IMAGES/${id}?w=${width}&q=80&fm=webp`;
-const browserImageUrl = source => {
-    if (typeof source !== "string" || !source.includes("1drv.ms")) return source;
-    return `${source}${source.includes("?") ? "&" : "?"}download=1`;
+const imageUrl = id => {
+    if (typeof id !== "string") return "";
+    if (imageSets.includes(id)) return `../IMAGES/${id}`;
+
+    let hash = 0;
+    for (let index = 0; index < id.length; index += 1) {
+        hash = (hash * 31 + id.charCodeAt(index)) >>> 0;
+    }
+
+    return `../IMAGES/${imageSets[hash % imageSets.length]}`;
 };
 const storyKey = document.body.dataset.couple;
 const story = stories[storyKey];
@@ -63,12 +68,12 @@ const fallbackImages = imageSets.slice(storyIndex).concat(imageSets.slice(0, sto
 const configuredImages = sections.gallery && sections.gallery.images && sections.gallery.images.length ? sections.gallery.images : (imageData.images && imageData.images.length ? imageData.images : (copy.images && copy.images.length ? copy.images : fallbackImages));
 const pageImages = configuredImages.map(source => {
     const entry = typeof source === "string" ? { id: source } : source;
-    return { ...entry, src: entry.src || (entry.id.startsWith("http") ? entry.id : imageUrl(entry.id)) };
+    return { ...entry, src: imageUrl(entry.src || entry.id) };
 });
 const image = offset => pageImages[offset % pageImages.length].src;
 const resolveImageSource = source => {
     if (typeof source === "object") return source.src || resolveImageSource(source.id);
-    return source.startsWith("http") ? browserImageUrl(source) : imageUrl(source);
+    return imageUrl(source);
 };
 const sectionImage = (section, fallbackOffset) => section && section.image !== undefined ? (typeof section.image === "number" ? image(section.image) : resolveImageSource(section.image)) : image(fallbackOffset);
 const galleryImages = pageImages.slice(0, 15);
