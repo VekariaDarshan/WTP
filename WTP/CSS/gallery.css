@@ -151,6 +151,7 @@ button {
     border: 1px solid rgba(255, 255, 255, 0.08);
     background: #171717;
     transition: transform 0.35s ease, opacity 0.35s ease, filter 0.35s ease;
+    cursor: pointer;
 }
 
 .gallery-item.hidden {
@@ -261,6 +262,95 @@ button {
     width: 150px;
 }
 
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(8, 9, 9, 0.96);
+    padding: 30px;
+}
+
+.lightbox.is-open {
+    display: flex;
+}
+
+.lightbox-stage {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(92vw, 1200px);
+    height: min(86vh, 820px);
+    background: rgba(17, 17, 17, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 25px 90px rgba(0, 0, 0, 0.45);
+}
+
+.lightbox-stage img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    background: #111;
+}
+
+#lightboxCaption {
+    position: absolute;
+    left: 24px;
+    bottom: 18px;
+    color: #ffffff;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.lightbox-close,
+.lightbox-nav {
+    position: absolute;
+    z-index: 2100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(17, 17, 17, 0.7);
+    color: #ffffff;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.lightbox-close {
+    top: 24px;
+    right: 24px;
+    width: 52px;
+    height: 52px;
+    font-size: 34px;
+}
+
+.lightbox-nav {
+    top: 50%;
+    width: 52px;
+    height: 52px;
+    transform: translateY(-50%);
+    font-size: 24px;
+}
+
+.lightbox-prev {
+    left: 24px;
+}
+
+.lightbox-next {
+    right: 24px;
+}
+
+.lightbox-close:hover,
+.lightbox-nav:hover {
+    background: rgba(199, 167, 106, 0.18);
+    color: var(--gold);
+}
+
 @media (max-width: 960px) {
     .gallery-grid {
         grid-template-columns: repeat(2, minmax(220px, 1fr));
@@ -310,6 +400,22 @@ button {
     .cta-logo {
         justify-self: center;
         width: 120px;
+    }
+
+    .lightbox {
+        padding: 16px;
+    }
+
+    .lightbox-nav {
+        width: 40px;
+        height: 40px;
+    }
+
+    .lightbox-close {
+        width: 42px;
+        height: 42px;
+        top: 16px;
+        right: 16px;
     }
 }
 
