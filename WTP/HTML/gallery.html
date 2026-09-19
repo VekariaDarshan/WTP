@@ -145,9 +145,15 @@
     <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image viewer">
         <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image viewer">&times;</button>
         <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous image">&#10094;</button>
-        <div class="lightbox-stage">
-            <img id="lightboxImage" src="" alt="">
-            <p id="lightboxCaption"></p>
+        <div class="lightbox-stage-wrapper">
+            <div class="lightbox-stage">
+                <img id="lightboxImage" src="" alt="">
+            </div>
+            <div class="lightbox-meta">
+                <p class="lightbox-category" id="lightboxCategory"></p>
+                <p class="lightbox-title" id="lightboxCaption"></p>
+            </div>
+            <button class="lightbox-fullscreen" id="lightboxFullscreen" type="button" aria-label="Toggle full screen">Full Screen</button>
         </div>
         <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Next image">&#10095;</button>
     </div>

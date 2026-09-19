@@ -3,9 +3,11 @@ const galleryItems = [...document.querySelectorAll(".gallery-item")];
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightboxImage");
 const lightboxCaption = document.getElementById("lightboxCaption");
+const lightboxCategory = document.getElementById("lightboxCategory");
 const lightboxClose = document.getElementById("lightboxClose");
 const lightboxPrev = document.getElementById("lightboxPrev");
 const lightboxNext = document.getElementById("lightboxNext");
+const lightboxFullscreen = document.getElementById("lightboxFullscreen");
 
 let activeFilter = "all";
 let filteredGallery = [...galleryItems];
@@ -43,10 +45,12 @@ function updateLightboxImage(index) {
     const currentItem = filteredGallery[safeIndex];
     const src = currentItem.dataset.src || currentItem.querySelector("img")?.src;
     const title = currentItem.dataset.title || "Gallery image";
+    const category = currentItem.dataset.category || "Gallery";
 
     lightboxImage.src = src;
     lightboxImage.alt = title;
     lightboxCaption.textContent = title;
+    lightboxCategory.textContent = category;
 }
 
 function openLightbox(index) {
@@ -55,10 +59,6 @@ function openLightbox(index) {
     updateLightboxImage(index);
     lightbox.classList.add("is-open");
     lightbox.setAttribute("aria-hidden", "false");
-
-    if (document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen().catch(() => {});
-    }
 }
 
 function closeLightbox() {
@@ -66,6 +66,16 @@ function closeLightbox() {
     lightbox.setAttribute("aria-hidden", "true");
 
     if (document.fullscreenElement && document.exitFullscreen) {
+        document.exitFullscreen().catch(() => {});
+    }
+}
+
+function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+        if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen().catch(() => {});
+        }
+    } else if (document.exitFullscreen) {
         document.exitFullscreen().catch(() => {});
     }
 }
@@ -92,6 +102,7 @@ galleryItems.forEach(item => {
 lightboxClose.addEventListener("click", closeLightbox);
 lightboxPrev.addEventListener("click", () => moveLightbox(-1));
 lightboxNext.addEventListener("click", () => moveLightbox(1));
+lightboxFullscreen.addEventListener("click", toggleFullscreen);
 
 lightbox.addEventListener("click", event => {
     if (event.target === lightbox) {
