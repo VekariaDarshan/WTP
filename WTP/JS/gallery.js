@@ -1,24 +1,19 @@
-const carouselImages = [...document.querySelectorAll(".carousel-track img")];
-const fallbackImage = "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=88";
+const filterButtons = document.querySelectorAll(".filter-btn");
+const galleryItems = document.querySelectorAll(".gallery-item");
 
-carouselImages.forEach(image => {
-    image.loading = "eager";
-    image.addEventListener("error", () => {
-        if (image.src !== fallbackImage) {
-            image.src = fallbackImage;
-        }
-    }, { once: true });
-});
+filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const selectedFilter = button.dataset.filter;
 
-const storyPages = [
-    ["shrutika-sandeep.html", "darshni-diven.html", "priya-rohan.html", "ananya-karan.html", "meera-aditya.html"],
-    ["shreya-varun.html", "aisha-daniel.html", "riya-kabir.html", "divya-sameer.html", "simran-yash.html"]
-];
+        filterButtons.forEach(btn => {
+            const isActive = btn === button;
+            btn.classList.toggle("active", isActive);
+            btn.setAttribute("aria-pressed", String(isActive));
+        });
 
-document.querySelectorAll(".carousel-track").forEach((track, trackIndex) => {
-    track.querySelectorAll(".gallery-card").forEach((card, cardIndex) => {
-        card.addEventListener("click", () => {
-            window.location.href = storyPages[trackIndex][cardIndex % 5];
+        galleryItems.forEach(item => {
+            const matches = selectedFilter === "all" || item.dataset.category === selectedFilter;
+            item.classList.toggle("hidden", !matches);
         });
     });
 });

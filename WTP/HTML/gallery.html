@@ -38,7 +38,7 @@
         <button class="menu-btn" id="menuBtn" type="button" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
     </header>
 
-    <main>
+    <main class="gallery-page">
         <section class="gallery-intro" aria-labelledby="galleryTitle">
             <div>
                 <p class="eyebrow">Our Gallery</p>
@@ -50,51 +50,81 @@
             </div>
         </section>
 
-        <section class="carousel-section" aria-labelledby="weddingsTitle">
-            <div class="carousel-heading">
-                <div>
-                    <p class="eyebrow">01 / Celebrations</p>
-                    <h2 id="weddingsTitle">Weddings</h2>
-                </div>
-                <p>Real emotions. Timeless celebrations.</p>
-            </div>
-            <div class="carousel-window">
-                <div class="carousel-track">
-                    <article class="gallery-card"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=88" alt="Bride and groom during a wedding ceremony" loading="eager"><div class="card-overlay"><h3>Shrutika &amp; Sandeep</h3></div></article>
-                    <article class="gallery-card"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=88" alt="Newlywed couple embracing at their wedding" loading="lazy"><div class="card-overlay"><h3>Darshni &amp; Diven</h3></div></article>
-                    <article class="gallery-card"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=88" alt="Wedding couple walking outdoors" loading="lazy"><div class="card-overlay"><h3>Priya &amp; Rohan</h3></div></article>
-                    <article class="gallery-card"><img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=900&q=88" alt="Bride and groom celebrating with friends" loading="lazy"><div class="card-overlay"><h3>Ananya &amp; Karan</h3></div></article>
-                    <article class="gallery-card"><img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=900&q=88" alt="Couple sharing a quiet wedding moment" loading="lazy"><div class="card-overlay"><h3>Meera &amp; Aditya</h3></div></article>
-                    <article class="gallery-card" aria-hidden="true"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=88" alt="" loading="lazy"><div class="card-overlay"><h3>Shrutika &amp; Sandeep</h3></div></article>
-                    <article class="gallery-card" aria-hidden="true"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=88" alt="" loading="lazy"><div class="card-overlay"><h3>Darshni &amp; Diven</h3></div></article>
-                    <article class="gallery-card" aria-hidden="true"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=88" alt="" loading="lazy"><div class="card-overlay"><h3>Priya &amp; Rohan</h3></div></article>
-                    <article class="gallery-card" aria-hidden="true"><img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=900&q=88" alt="" loading="lazy"><div class="card-overlay"><h3>Ananya &amp; Karan</h3></div></article>
-                    <article class="gallery-card" aria-hidden="true"><img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=900&q=88" alt="" loading="lazy"><div class="card-overlay"><h3>Meera &amp; Aditya</h3></div></article>
+        <section class="gallery-filter-section" aria-labelledby="galleryFilterLabel">
+            <div class="gallery-toolbar">
+                <p id="galleryFilterLabel" class="filter-label">Filter by</p>
+                <div class="filter-buttons" role="tablist" aria-label="Gallery categories">
+                    <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">All</button>
+                    <button class="filter-btn" type="button" data-filter="wedding" aria-pressed="false">Wedding</button>
+                    <button class="filter-btn" type="button" data-filter="pre-wedding" aria-pressed="false">Pre-Wedding</button>
+                    <button class="filter-btn" type="button" data-filter="events" aria-pressed="false">Events</button>
                 </div>
             </div>
-        </section>
 
-        <section class="carousel-section" id="pre-weddings" aria-labelledby="preWeddingsTitle">
-            <div class="carousel-heading">
-                <div>
-                    <p class="eyebrow">02 / Beginnings</p>
-                    <h2 id="preWeddingsTitle">Pre Weddings</h2>
-                </div>
-                <p>Love. Laughter. A beautiful beginning.</p>
-            </div>
-            <div class="carousel-window">
-                <div class="carousel-track carousel-track--reverse">
-                    <article class="gallery-card"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=88" alt="Couple watching the sunset before their wedding" loading="lazy"><div class="card-overlay"><h3>Shreya &amp; Varun</h3></div></article>
-                    <article class="gallery-card"><img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=900&q=88" alt="Couple walking together outdoors" loading="lazy"><div class="card-overlay"><h3>Aisha &amp; Daniel</h3></div></article>
-                    <article class="gallery-card"><img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=88" alt="Couple sharing a romantic moment" loading="lazy"><div class="card-overlay"><h3>Riya &amp; Kabir</h3></div></article>
-                    <article class="gallery-card"><img src="https://images.unsplash.com/photo-1529634597503-139d3726fed5?auto=format&fit=crop&w=900&q=88" alt="Couple embracing in warm evening light" loading="lazy"><div class="card-overlay"><h3>Divya &amp; Sameer</h3></div></article>
-                    <article class="gallery-card"><img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=900&q=88" alt="Couple on a relaxed outdoor date" loading="lazy"><div class="card-overlay"><h3>Simran &amp; Yash</h3></div></article>
-                    <article class="gallery-card" aria-hidden="true"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=88" alt="" loading="lazy"><div class="card-overlay"><h3>Shreya &amp; Varun</h3></div></article>
-                    <article class="gallery-card" aria-hidden="true"><img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=900&q=88" alt="" loading="lazy"><div class="card-overlay"><h3>Aisha &amp; Daniel</h3></div></article>
-                    <article class="gallery-card" aria-hidden="true"><img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=88" alt="" loading="lazy"><div class="card-overlay"><h3>Riya &amp; Kabir</h3></div></article>
-                    <article class="gallery-card" aria-hidden="true"><img src="https://images.unsplash.com/photo-1529634597503-139d3726fed5?auto=format&fit=crop&w=900&q=88" alt="" loading="lazy"><div class="card-overlay"><h3>Divya &amp; Sameer</h3></div></article>
-                    <article class="gallery-card" aria-hidden="true"><img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=900&q=88" alt="" loading="lazy"><div class="card-overlay"><h3>Simran &amp; Yash</h3></div></article>
-                </div>
+            <div class="gallery-grid" aria-live="polite">
+                <article class="gallery-item wedding" data-category="wedding">
+                    <img src="../IMAGES/K&M01.avif" alt="Wedding portrait" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Wedding</span>
+                        <h3>Kavya &amp; Mehul</h3>
+                    </div>
+                </article>
+
+                <article class="gallery-item events" data-category="events">
+                    <img src="../IMAGES/DSC02079.avif" alt="Event photography" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Events</span>
+                        <h3>Celebration Story</h3>
+                    </div>
+                </article>
+
+                <article class="gallery-item pre-wedding" data-category="pre-wedding">
+                    <img src="../IMAGES/DSC02084.avif" alt="Pre-wedding couple moments" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Pre-Wedding</span>
+                        <h3>Golden Hour</h3>
+                    </div>
+                </article>
+
+                <article class="gallery-item wedding" data-category="wedding">
+                    <img src="../IMAGES/Z&S01.avif" alt="Bride and groom portrait" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Wedding</span>
+                        <h3>Zara &amp; Shiv</h3>
+                    </div>
+                </article>
+
+                <article class="gallery-item events" data-category="events">
+                    <img src="../IMAGES/DSC09154.avif" alt="Party and event photography" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Events</span>
+                        <h3>Private Gathering</h3>
+                    </div>
+                </article>
+
+                <article class="gallery-item pre-wedding" data-category="pre-wedding">
+                    <img src="../IMAGES/DSC01713.avif" alt="Couple outdoors at sunset" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Pre-Wedding</span>
+                        <h3>Sunset Walk</h3>
+                    </div>
+                </article>
+
+                <article class="gallery-item wedding" data-category="wedding">
+                    <img src="../IMAGES/Manish & Chetna 01.jpg.avif" alt="Wedding couple smiling" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Wedding</span>
+                        <h3>Manish &amp; Chetna</h3>
+                    </div>
+                </article>
+
+                <article class="gallery-item events" data-category="events">
+                    <img src="../IMAGES/DSC01600.avif" alt="Event scene" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Events</span>
+                        <h3>Moments in Motion</h3>
+                    </div>
+                </article>
             </div>
         </section>
 
