@@ -28,6 +28,8 @@ function applyFilter(selectedFilter) {
         return selectedFilter === "all" || item.dataset.category === selectedFilter;
     });
 
+    document.querySelector(".gallery-grid")?.classList.toggle("is-filtered", selectedFilter !== "all");
+
     galleryItems.forEach(item => {
         const matches = selectedFilter === "all" || item.dataset.category === selectedFilter;
         item.classList.toggle("hidden", !matches);
