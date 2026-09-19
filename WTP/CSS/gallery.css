@@ -389,9 +389,11 @@ button {
 .lightbox-close {
     top: 24px;
     right: 24px;
-    width: 52px;
-    height: 52px;
-    font-size: 34px;
+    width: 44px;
+    height: 44px;
+    padding: 10px 12px;
+    font-size: 24px;
+    line-height: 1;
 }
 
 .lightbox-nav {
