@@ -313,6 +313,29 @@ button {
     padding: 0 4px;
 }
 
+.lightbox:fullscreen {
+    padding: 0;
+    background: rgba(5, 5, 5, 1);
+}
+
+.lightbox:fullscreen .lightbox-stage-wrapper {
+    width: 100vw;
+    max-width: none;
+    height: 100vh;
+    gap: 12px;
+    padding: 68px 24px 24px;
+    box-sizing: border-box;
+}
+
+.lightbox:fullscreen .lightbox-stage {
+    height: calc(100vh - 120px);
+    width: 100%;
+}
+
+.lightbox:fullscreen .lightbox-meta {
+    padding: 0 12px;
+}
+
 .lightbox-category {
     color: var(--gold);
     font-size: 12px;
@@ -327,11 +350,13 @@ button {
 }
 
 .lightbox-fullscreen {
-    align-self: flex-end;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 2100;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-top: 4px;
     padding: 10px 14px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     background: rgba(17, 17, 17, 0.7);
@@ -450,6 +475,12 @@ button {
     .lightbox-nav {
         width: 40px;
         height: 40px;
+    }
+
+    .lightbox-fullscreen {
+        top: 16px;
+        left: 16px;
+        padding: 9px 12px;
     }
 
     .lightbox-close {

@@ -74,12 +74,24 @@ function closeLightbox() {
 
 function toggleFullscreen() {
     if (!document.fullscreenElement) {
-        if (document.documentElement.requestFullscreen) {
-            document.documentElement.requestFullscreen().catch(() => {});
+        if (lightbox.requestFullscreen) {
+            lightbox.requestFullscreen().catch(() => {});
         }
     } else if (document.exitFullscreen) {
         document.exitFullscreen().catch(() => {});
     }
+}
+
+function syncFullscreenButton() {
+    const isFullscreen = document.fullscreenElement === lightbox;
+    lightboxFullscreen.setAttribute("aria-pressed", String(isFullscreen));
+    const label = lightboxFullscreen.querySelector(".fullscreen-label");
+
+    if (label) {
+        label.textContent = isFullscreen ? "Exit Full Screen" : "Full Screen";
+    }
+
+    lightboxFullscreen.setAttribute("aria-label", isFullscreen ? "Exit full screen" : "Toggle full screen");
 }
 
 function moveLightbox(direction) {
@@ -105,6 +117,9 @@ lightboxClose.addEventListener("click", closeLightbox);
 lightboxPrev.addEventListener("click", () => moveLightbox(-1));
 lightboxNext.addEventListener("click", () => moveLightbox(1));
 lightboxFullscreen.addEventListener("click", toggleFullscreen);
+document.addEventListener("fullscreenchange", syncFullscreenButton);
+
+syncFullscreenButton();
 
 lightbox.addEventListener("click", event => {
     if (event.target === lightbox) {
