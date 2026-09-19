@@ -98,6 +98,7 @@ document.getElementById("storyContent").innerHTML = `
         ${videoId ? `<iframe class="story-hero-video" src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1&mute=1&controls=0&loop=1&playlist=${encodeURIComponent(videoId)}&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&fs=0&cc_load_policy=0&playsinline=1&autohide=1" title="${copy.heroLabel}" allow="autoplay; encrypted-media" tabindex="-1" aria-hidden="true"></iframe>` : ""}
         <div class="story-hero-content reveal"><div><p class="eyebrow">${copy.heroLabel || "Wedding Story"}</p><h1>${copy.heroTitle || story.names.replace(" & ", "<br>&amp; ")}</h1></div><div class="hero-details">${place}<br>${date}<br>${tone}</div></div>
     </section>
+    <div class="story-progress" aria-hidden="true"><span></span></div>
     <nav class="story-chapter-nav" aria-label="Story chapters"><span class="story-chapter-nav-label">The story</span><a href="#chapter-intro"><b>01</b>${copy.introLabel || "The beginning"}</a><a href="#chapter-before"><b>02</b>${copy.beforeLabel || "Before the vows"}</a><a href="#chapter-ceremony"><b>03</b>${copy.ceremonyLabel || "The ceremony"}</a><a href="#chapter-gallery"><b>04</b>The full story</a></nav>
     <section class="story-intro reveal" id="chapter-intro"><div><p class="story-number">${copy.introLabel}</p><h2>${copy.introTitle}</h2></div><div class="story-text"><p>${copy.introText}</p><div class="story-meta"><div class="meta"><span>${copy.metaCoupleLabel}</span><span>${story.names}</span></div><div class="meta"><span>${copy.metaLocationLabel}</span><span>${place}</span></div><div class="meta"><span>${copy.metaPhotoLabel}</span><span>We The Photographers</span></div></div></div></section>
     <section class="full-image reveal"><img src="${sectionImage(sections.intro, 1)}" alt="${story.names} wedding story"></section>
@@ -230,9 +231,33 @@ layoutJustifiedGallery();
 window.addEventListener("resize", scheduleGalleryLayout, { passive: true });
 
 const storyNav = document.querySelector(".story-nav");
-const revealElements = document.querySelectorAll(".reveal");
+const revealElements = document.querySelectorAll(".reveal, .story-gallery-image");
 const videoFrames = document.querySelectorAll(".video-frame[data-video-id]");
 const heroVideo = document.querySelector(".story-hero-video");
+const progressBar = document.querySelector(".story-progress span");
+const chapterLinks = [...document.querySelectorAll(".story-chapter-nav a")];
+const chapterSections = chapterLinks.map(link => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+
+function updateStoryScrollState() {
+    const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+
+    if (progressBar) {
+        progressBar.style.transform = `scaleX(${Math.min(1, Math.max(0, progress))})`;
+    }
+
+    let currentChapterIndex = 0;
+
+    chapterSections.forEach((section, index) => {
+        if (section.getBoundingClientRect().top <= window.innerHeight * 0.42) {
+            currentChapterIndex = index;
+        }
+    });
+
+    chapterLinks.forEach((link, index) => {
+        link.classList.toggle("is-current", index === currentChapterIndex);
+    });
+}
 
 if (heroVideo) {
     heroVideo.addEventListener("load", () => {
@@ -269,7 +294,10 @@ if (videoFrames.length && "IntersectionObserver" in window) {
 
 window.addEventListener("scroll", () => {
     storyNav.classList.toggle("scrolled", window.scrollY > 45);
+    updateStoryScrollState();
 }, { passive: true });
+
+updateStoryScrollState();
 
 if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver(entries => {
