@@ -12,6 +12,8 @@ const lightboxFullscreen = document.getElementById("lightboxFullscreen");
 let activeFilter = "all";
 let filteredGallery = [...galleryItems];
 let currentImageIndex = 0;
+let touchStartX = 0;
+let touchStartY = 0;
 
 function applyFilter(selectedFilter) {
     activeFilter = selectedFilter;
@@ -109,6 +111,26 @@ lightbox.addEventListener("click", event => {
         closeLightbox();
     }
 });
+
+lightbox.addEventListener("touchstart", event => {
+    const touch = event.changedTouches[0];
+    touchStartX = touch.screenX;
+    touchStartY = touch.screenY;
+}, { passive: true });
+
+lightbox.addEventListener("touchend", event => {
+    const touch = event.changedTouches[0];
+    const deltaX = touch.screenX - touchStartX;
+    const deltaY = touch.screenY - touchStartY;
+
+    if (Math.abs(deltaX) > 60 && Math.abs(deltaX) > Math.abs(deltaY)) {
+        if (deltaX < 0) {
+            moveLightbox(1);
+        } else {
+            moveLightbox(-1);
+        }
+    }
+}, { passive: true });
 
 document.addEventListener("keydown", event => {
     if (event.key === "Escape") {

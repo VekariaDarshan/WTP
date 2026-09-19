@@ -328,6 +328,9 @@ button {
 
 .lightbox-fullscreen {
     align-self: flex-end;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     margin-top: 4px;
     padding: 10px 14px;
     border: 1px solid rgba(255, 255, 255, 0.18);
@@ -337,6 +340,11 @@ button {
     letter-spacing: 2px;
     text-transform: uppercase;
     cursor: pointer;
+}
+
+.lightbox-fullscreen span:first-child {
+    font-size: 18px;
+    line-height: 1;
 }
 
 .lightbox-close,
