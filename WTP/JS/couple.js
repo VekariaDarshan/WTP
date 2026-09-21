@@ -104,7 +104,7 @@ document.getElementById("storyContent").innerHTML = `
         <span></span>
     </button>
     <button class="chapter-toggle" id="chapterToggle" type="button" aria-controls="sideMenu" aria-expanded="false">
-        <span class="chapter-toggle-label">${copy.introLabel || "The Beginning"}</span><span class="chapter-toggle-icon">&#8963;</span>
+        <span class="chapter-toggle-label">${copy.introLabel || "The Beginning"}</span><span class="chapter-toggle-icon"><i class="fa-solid fa-angle-up" aria-hidden="true"></i></span>
     </button>
     <button class="chapter-backdrop" id="chapterBackdrop" type="button" aria-label="Close chapter navigation"></button>
     <nav class="side-menu" id="sideMenu" aria-label="Story navigation" aria-hidden="true">
