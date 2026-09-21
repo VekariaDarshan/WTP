@@ -1031,6 +1031,10 @@ body.sidebar-open .story-sidebar-backdrop {
     display: none;
 }
 
+.chapter-backdrop {
+    display: none;
+}
+
 .side-menu {
     position: fixed;
     inset: 0;
@@ -1244,16 +1248,32 @@ body:not(.chapter-nav-ready) .chapter-toggle {
 
 @media (max-width: 800px) {
     body.sidebar-open::after {
+        display: none;
+    }
+
+    .chapter-backdrop {
         position: fixed;
         inset: 0;
-        z-index: 999;
-        content: "";
-        background: rgba(20,20,20,0.76);
+        z-index: 1000;
+        display: block;
+        border: 0;
+        background: rgba(17,17,17,0.76);
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
         pointer-events: none;
+        transition: opacity .35s ease, visibility .35s ease;
+    }
+
+    body.sidebar-open .chapter-backdrop {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
     }
 
     .side-menu {
         inset: auto 15px 0;
+        z-index: 1001;
         width: auto;
         max-height: min(88vh, 560px);
         overflow: auto;
@@ -1334,15 +1354,24 @@ body:not(.chapter-nav-ready) .chapter-toggle {
     }
 
     .menu-inner::before {
-        position: absolute;
-        top: 14px;
-        left: 50%;
-        width: 40px;
-        height: 4px;
-        border-radius: 4px;
-        content: "";
-        background: rgba(244,239,231,0.28);
-        transform: translateX(-50%);
+        display: none;
+    }
+
+    .menu-handle {
+        display: block;
+        width: 42px;
+        height: 5px;
+        margin: -24px auto 25px;
+        padding: 0;
+        border: 0;
+        border-radius: 5px;
+        background: rgba(244,239,231,0.32);
+        cursor: grab;
+        touch-action: none;
+    }
+
+    .menu-handle:active {
+        cursor: grabbing;
     }
 
     .menu-heading {
@@ -1409,5 +1438,15 @@ body:not(.chapter-nav-ready) .chapter-toggle {
 
     .menu-bottom {
         display: none;
+    }
+}
+
+.menu-handle {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .menu-handle {
+        display: block;
     }
 }

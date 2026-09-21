@@ -106,8 +106,10 @@ document.getElementById("storyContent").innerHTML = `
     <button class="chapter-toggle" id="chapterToggle" type="button" aria-controls="sideMenu" aria-expanded="false">
         <span class="chapter-toggle-label">${copy.introLabel || "The Beginning"}</span><span class="chapter-toggle-icon">&#8963;</span>
     </button>
+    <button class="chapter-backdrop" id="chapterBackdrop" type="button" aria-label="Close chapter navigation"></button>
     <nav class="side-menu" id="sideMenu" aria-label="Story navigation" aria-hidden="true">
         <div class="menu-inner">
+            <button class="menu-handle" type="button" aria-label="Close chapter navigation"></button>
             <div class="menu-heading"><p class="menu-label">Chapters</p><button class="menu-close" type="button" aria-label="Close story navigation">Close</button></div>
             <a href="#chapter-intro">01 — ${copy.introLabel || "The Beginning"}</a>
             <a href="#chapter-before">02 — ${copy.beforeLabel || "Before the Vows"}</a>
@@ -141,6 +143,7 @@ document.getElementById("storyContent").innerHTML = `
 const storyMenuToggle = document.getElementById("menuButton");
 const chapterToggle = document.getElementById("chapterToggle");
 const chapterToggleLabel = chapterToggle.querySelector(".chapter-toggle-label");
+const chapterBackdrop = document.getElementById("chapterBackdrop");
 const storySidebar = document.getElementById("sideMenu");
 const storySidebarLinks = document.querySelectorAll(".side-menu a");
 const storyChapterLinks = document.querySelectorAll(".menu-inner > a");
@@ -186,6 +189,7 @@ function updateChapterNavigationVisibility() {
 
 storyMenuToggle.addEventListener("click", () => setStorySidebar(!storySidebar.classList.contains("active")));
 chapterToggle.addEventListener("click", () => setStorySidebar(!storySidebar.classList.contains("active")));
+chapterBackdrop.addEventListener("click", () => setStorySidebar(false));
 storySidebarLinks.forEach(link => link.addEventListener("click", () => {
     if (link.matches(".menu-inner > a")) {
         storyChapterLinks.forEach(chapterLink => chapterLink.classList.remove("is-current"));
@@ -195,6 +199,19 @@ storySidebarLinks.forEach(link => link.addEventListener("click", () => {
     if (isSmallScreen.matches) setStorySidebar(false);
 }));
 document.querySelector(".menu-close").addEventListener("click", () => setStorySidebar(false));
+const menuHandle = document.querySelector(".menu-handle");
+let handleStartY = 0;
+
+menuHandle.addEventListener("pointerdown", event => {
+    handleStartY = event.clientY;
+    menuHandle.setPointerCapture(event.pointerId);
+});
+
+menuHandle.addEventListener("pointerup", event => {
+    if (event.clientY - handleStartY > 48) setStorySidebar(false);
+});
+
+menuHandle.addEventListener("click", () => setStorySidebar(false));
 document.addEventListener("keydown", event => {
     if (event.key === "Escape" && storySidebar.classList.contains("active")) setStorySidebar(false);
 });
