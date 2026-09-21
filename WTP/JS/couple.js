@@ -1,4 +1,4 @@
-const stories = {
+﻿const stories = {
     "shrutika-sandeep": { names: "Shrutika & Sandeep" },
     "darshni-diven": { names: "Darshni & Diven" },
     "priya-rohan": { names: "Priya & Rohan" },
@@ -11,7 +11,7 @@ const stories = {
     "simran-yash": { names: "Simran & Yash" }
 };
 
-const imageSets = [
+const fallbackImageSet = [
     "DSC06483.jpg",
     "K&M01.avif",
     "Z&S01.avif",
@@ -25,14 +25,18 @@ const imageSets = [
 
 const imageUrl = id => {
     if (typeof id !== "string") return "";
-    if (imageSets.includes(id)) return `../IMAGES/${id}`;
+    if (/^(https?:)?\/\//.test(id) || id.startsWith("data:") || id.startsWith("blob:")) return id;
+    if (id.startsWith("../") || id.startsWith("./") || id.startsWith("/") || id.startsWith("images/")) return id;
+    if (fallbackImageSet.includes(id)) return `../IMAGES/${id}`;
+    if (id.startsWith("photo-")) return `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1800&q=85`;
+    if (/\.(avif|gif|jpe?g|png|webp)$/i.test(id)) return `../IMAGES/${id}`;
 
     let hash = 0;
     for (let index = 0; index < id.length; index += 1) {
         hash = (hash * 31 + id.charCodeAt(index)) >>> 0;
     }
 
-    return `../IMAGES/${imageSets[hash % imageSets.length]}`;
+    return `../IMAGES/${fallbackImageSet[hash % fallbackImageSet.length]}`;
 };
 const storyKey = document.body.dataset.couple;
 const story = stories[storyKey];
@@ -42,8 +46,8 @@ const imageElement = document.getElementById("storyImages");
 const copy = copyElement ? JSON.parse(copyElement.textContent) : {};
 const imageData = imageElement ? JSON.parse(imageElement.textContent) : {};
 const legacyImages = copy.images || [];
-const legacyImage = index => legacyImages[index] || imageSets[index];
-const legacyGalleryImages = Array.from({ length: 15 }, (_, index) => legacyImages[index] || imageSets[index % imageSets.length]).map((source, index) => {
+const legacyImage = index => legacyImages[index] || fallbackImageSet[index];
+const legacyGalleryImages = Array.from({ length: 15 }, (_, index) => legacyImages[index] || fallbackImageSet[index % fallbackImageSet.length]).map((source, index) => {
     const entry = typeof source === "string" ? { id: source } : source;
     return { ...entry, alt: entry.alt || `${story.names} wedding moment ${index + 1}` };
 });
@@ -64,7 +68,7 @@ const place = copy.place || document.body.dataset.place;
 const date = copy.date || document.body.dataset.date;
 const tone = copy.tone || document.body.dataset.tone;
 const quote = copy.quote || document.body.dataset.quote;
-const fallbackImages = imageSets.slice(storyIndex).concat(imageSets.slice(0, storyIndex)).map(id => ({ id }));
+const fallbackImages = fallbackImageSet.slice(storyIndex).concat(fallbackImageSet.slice(0, storyIndex)).map(id => ({ id }));
 const configuredImages = sections.gallery && sections.gallery.images && sections.gallery.images.length ? sections.gallery.images : (imageData.images && imageData.images.length ? imageData.images : (copy.images && copy.images.length ? copy.images : fallbackImages));
 const pageImages = configuredImages.map(source => {
     const entry = typeof source === "string" ? { id: source } : source;
@@ -72,13 +76,14 @@ const pageImages = configuredImages.map(source => {
 });
 const image = offset => pageImages[offset % pageImages.length].src;
 const resolveImageSource = source => {
-    if (typeof source === "object") return source.src || resolveImageSource(source.id);
+    if (typeof source === "object") return imageUrl(source.src || source.id);
     return imageUrl(source);
 };
 const sectionImage = (section, fallbackOffset) => section && section.image !== undefined ? (typeof section.image === "number" ? image(section.image) : resolveImageSource(section.image)) : image(fallbackOffset);
 const galleryImages = pageImages.slice(0, 15);
 
 const heroImage = sectionImage(sections.hero, 0);
+const heroVideoId = sections.hero && sections.hero.heroVideo === true ? videoId : "";
 
 document.title = `${story.names} - Wedding Story`;
 document.body.style.setProperty("--hero-image", `url("${heroImage}")`);
@@ -94,12 +99,33 @@ if (heroImage.includes("1drv.ms")) {
 }
 
 document.getElementById("storyContent").innerHTML = `
-    <section class="story-hero${videoId ? " story-hero--video" : ""}">
-        ${videoId ? `<iframe class="story-hero-video" src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1&mute=1&controls=0&loop=1&playlist=${encodeURIComponent(videoId)}&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&fs=0&cc_load_policy=0&playsinline=1&autohide=1" title="${copy.heroLabel}" allow="autoplay; encrypted-media" tabindex="-1" aria-hidden="true"></iframe>` : ""}
-        <div class="story-hero-content reveal"><div><p class="eyebrow">${copy.heroLabel || "Wedding Story"}</p><h1>${copy.heroTitle || story.names.replace(" & ", "<br>&amp; ")}</h1></div><div class="hero-details">${place}<br>${date}<br>${tone}</div></div>
-    </section>
+    <button class="menu-button" id="menuButton" type="button" aria-controls="sideMenu" aria-expanded="false" aria-label="Open story navigation">
+        <span></span>
+        <span></span>
+    </button>
+    <button class="chapter-toggle" id="chapterToggle" type="button" aria-controls="sideMenu" aria-expanded="false">
+        <span class="chapter-toggle-label">${copy.introLabel || "The Beginning"}</span><span class="chapter-toggle-icon">&#8963;</span>
+    </button>
+    <nav class="side-menu" id="sideMenu" aria-label="Story navigation" aria-hidden="true">
+        <div class="menu-inner">
+            <div class="menu-heading"><p class="menu-label">Chapters</p><button class="menu-close" type="button" aria-label="Close story navigation">Close</button></div>
+            <a href="#chapter-intro">01 — ${copy.introLabel || "The Beginning"}</a>
+            <a href="#chapter-before">02 — ${copy.beforeLabel || "Before the Vows"}</a>
+            <a href="#chapter-ceremony">03 — ${copy.ceremonyLabel || "The Ceremony"}</a>
+            <a href="#chapter-gallery">04 — The Full Story</a>
+            <a href="#storyCta">05 — ${copy.finalLabel || "A New Chapter"}</a>
+            <div class="menu-bottom">
+                <a href="portfolio.html#portfolioStories">More Stories</a>
+                <a href="contact.html">Inquire</a>
+            </div>
+        </div>
+    </nav>
     <div class="story-progress" aria-hidden="true"><span></span></div>
-    <nav class="story-chapter-nav" aria-label="Story chapters"><span class="story-chapter-nav-label">The story</span><a href="#chapter-intro"><b>01</b>${copy.introLabel || "The beginning"}</a><a href="#chapter-before"><b>02</b>${copy.beforeLabel || "Before the vows"}</a><a href="#chapter-ceremony"><b>03</b>${copy.ceremonyLabel || "The ceremony"}</a><a href="#chapter-gallery"><b>04</b>The full story</a></nav>
+    <section class="story-hero${heroVideoId ? " story-hero--video" : ""}">
+        ${heroVideoId ? `<iframe class="story-hero-video" src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(heroVideoId)}?autoplay=1&mute=1&controls=0&loop=1&playlist=${encodeURIComponent(heroVideoId)}&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&fs=0&cc_load_policy=0&playsinline=1&autohide=1" title="${copy.heroLabel}" allow="autoplay; encrypted-media" tabindex="-1" aria-hidden="true"></iframe>` : ""}
+        <div class="story-hero-content reveal"><div><p class="eyebrow">${copy.heroLabel || "Wedding Story"}</p><h1>${copy.heroTitle || story.names.replace(" & ", "<br>&amp; ")}</h1></div><div class="hero-details">${place}<br>${date}<br>${tone}</div></div>
+        <a class="hero-scroll-cue" href="#chapter-intro" aria-label="Scroll to begin the story"><span>Scroll</span><i aria-hidden="true">&darr;</i></a>
+    </section>
     <section class="story-intro reveal" id="chapter-intro"><div><p class="story-number">${copy.introLabel}</p><h2>${copy.introTitle}</h2></div><div class="story-text"><p>${copy.introText}</p><div class="story-meta"><div class="meta"><span>${copy.metaCoupleLabel}</span><span>${story.names}</span></div><div class="meta"><span>${copy.metaLocationLabel}</span><span>${place}</span></div><div class="meta"><span>${copy.metaPhotoLabel}</span><span>We The Photographers</span></div></div></div></section>
     <section class="full-image reveal"><img src="${sectionImage(sections.intro, 1)}" alt="${story.names} wedding story"></section>
     <section class="image-story reveal" id="chapter-before"><div class="image-story-image"><img src="${sectionImage(sections.before, 2)}" alt="${copy.beforeImageAlt}"></div><div class="image-story-text"><p class="section-label">${copy.beforeLabel}</p><h2>${copy.beforeTitle}</h2><p>${copy.beforeText}</p></div></section>
@@ -109,8 +135,69 @@ document.getElementById("storyContent").innerHTML = `
     <section class="image-story reverse reveal" id="chapter-ceremony"><div class="image-story-text"><p class="section-label">${copy.ceremonyLabel}</p><h2>${copy.ceremonyTitle}</h2><p>${copy.ceremonyText}</p></div><div class="image-story-image"><img src="${sectionImage(sections.ceremony, 5)}" alt="${copy.ceremonyImageAlt}"></div></section>
     <section class="story-gallery reveal" id="chapter-gallery" aria-labelledby="galleryTitle"><div class="story-gallery-heading"><div><p class="section-label">The Full Story</p><h2 id="galleryTitle">Moments to<br>remember.</h2></div><p>Fifteen frames from ${story.names}'s celebration.</p></div><div class="story-gallery-grid">${galleryImages.map((galleryImage, index) => `<figure class="story-gallery-image"><img src="${galleryImage.src}" alt="${galleryImage.alt || `${story.names} wedding moment ${index + 1}`}" loading="eager"></figure>`).join("")}</div></section>
     <section class="final-image reveal"><div class="final-caption"><span>${copy.finalLabel}</span><h2>${copy.finalTitle}</h2></div></section>
-    <section class="cta reveal"><p class="section-label">${copy.ctaLabel}</p><h2>${copy.ctaTitle}</h2><p>${copy.ctaText}</p><a class="cta-button" href="contact.html">${copy.ctaButton} &rarr;</a></section>
+    <section class="cta reveal" id="storyCta"><p class="section-label">${copy.ctaLabel}</p><h2>${copy.ctaTitle}</h2><p>${copy.ctaText}</p><a class="cta-button" href="contact.html">${copy.ctaButton} &rarr;</a></section>
 `;
+
+const storyMenuToggle = document.getElementById("menuButton");
+const chapterToggle = document.getElementById("chapterToggle");
+const chapterToggleLabel = chapterToggle.querySelector(".chapter-toggle-label");
+const storySidebar = document.getElementById("sideMenu");
+const storySidebarLinks = document.querySelectorAll(".side-menu a");
+const storyChapterLinks = document.querySelectorAll(".menu-inner > a");
+const storyNav = document.querySelector(".story-nav");
+const storyProgress = document.querySelector(".story-progress");
+const storyBack = document.querySelector(".story-back");
+const heroSection = document.querySelector(".story-hero");
+const heroScrollCue = document.querySelector(".hero-scroll-cue");
+
+if (storyNav && storyProgress) storyNav.appendChild(storyProgress);
+if (storyBack) storyBack.textContent = "Stories";
+const isSmallScreen = window.matchMedia("(max-width: 800px)");
+
+if (!isSmallScreen.matches) {
+    storySidebar.classList.add("active");
+    storySidebar.setAttribute("aria-hidden", "false");
+}
+
+const chapterTargets = [...storyChapterLinks].map(link => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+const setCurrentChapter = index => {
+    const chapterLink = storyChapterLinks[index];
+    if (!chapterLink) return;
+    storyChapterLinks.forEach(link => link.classList.remove("is-current"));
+    chapterLink.classList.add("is-current");
+    chapterToggleLabel.textContent = chapterLink.textContent.replace(/^\d+\s+—\s+/, "");
+};
+
+setCurrentChapter(0);
+
+function setStorySidebar(open) {
+    storyMenuToggle.classList.toggle("active", open);
+    storySidebar.classList.toggle("active", open);
+    document.body.classList.toggle("sidebar-open", open);
+    storySidebar.setAttribute("aria-hidden", String(!open));
+    storyMenuToggle.setAttribute("aria-expanded", String(open));
+    chapterToggle.setAttribute("aria-expanded", String(open));
+}
+
+function updateChapterNavigationVisibility() {
+    const heroPassed = heroSection && heroSection.getBoundingClientRect().bottom <= 0;
+    document.body.classList.toggle("chapter-nav-ready", heroPassed);
+}
+
+storyMenuToggle.addEventListener("click", () => setStorySidebar(!storySidebar.classList.contains("active")));
+chapterToggle.addEventListener("click", () => setStorySidebar(!storySidebar.classList.contains("active")));
+storySidebarLinks.forEach(link => link.addEventListener("click", () => {
+    if (link.matches(".menu-inner > a")) {
+        storyChapterLinks.forEach(chapterLink => chapterLink.classList.remove("is-current"));
+        link.classList.add("is-current");
+        chapterToggleLabel.textContent = link.textContent.replace(/^\d+\s+—\s+/, "");
+    }
+    if (isSmallScreen.matches) setStorySidebar(false);
+}));
+document.querySelector(".menu-close").addEventListener("click", () => setStorySidebar(false));
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && storySidebar.classList.contains("active")) setStorySidebar(false);
+});
 
 document.body.insertAdjacentHTML("beforeend", `
     <div class="image-lightbox" id="imageLightbox" aria-hidden="true">
@@ -230,13 +317,10 @@ document.querySelectorAll(".story-gallery-image img").forEach(image => {
 layoutJustifiedGallery();
 window.addEventListener("resize", scheduleGalleryLayout, { passive: true });
 
-const storyNav = document.querySelector(".story-nav");
 const revealElements = document.querySelectorAll(".reveal, .story-gallery-image");
 const videoFrames = document.querySelectorAll(".video-frame[data-video-id]");
 const heroVideo = document.querySelector(".story-hero-video");
 const progressBar = document.querySelector(".story-progress span");
-const chapterLinks = [...document.querySelectorAll(".story-chapter-nav a")];
-const chapterSections = chapterLinks.map(link => document.querySelector(link.getAttribute("href"))).filter(Boolean);
 
 function updateStoryScrollState() {
     const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -248,15 +332,13 @@ function updateStoryScrollState() {
 
     let currentChapterIndex = 0;
 
-    chapterSections.forEach((section, index) => {
+    chapterTargets.forEach((section, index) => {
         if (section.getBoundingClientRect().top <= window.innerHeight * 0.42) {
             currentChapterIndex = index;
         }
     });
 
-    chapterLinks.forEach((link, index) => {
-        link.classList.toggle("is-current", index === currentChapterIndex);
-    });
+    setCurrentChapter(currentChapterIndex);
 }
 
 if (heroVideo) {
@@ -294,9 +376,12 @@ if (videoFrames.length && "IntersectionObserver" in window) {
 
 window.addEventListener("scroll", () => {
     storyNav.classList.toggle("scrolled", window.scrollY > 45);
+    heroScrollCue.classList.toggle("is-hidden", window.scrollY > 24);
+    updateChapterNavigationVisibility();
     updateStoryScrollState();
 }, { passive: true });
 
+updateChapterNavigationVisibility();
 updateStoryScrollState();
 
 if ("IntersectionObserver" in window) {
